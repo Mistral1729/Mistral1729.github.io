@@ -1,1 +1,6 @@
-ignoramus_ignorabimus/
+ignoramus-ignorabimus/
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
