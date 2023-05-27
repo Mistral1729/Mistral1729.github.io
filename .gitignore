@@ -1,5 +1,7 @@
 ignoramus/
 _site
+*.gem
+.bundle
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
