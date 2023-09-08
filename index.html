@@ -1,219 +1,1342 @@
-<!DOCTYPE HTML>
-<!--
-	Hyperspace by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.1 Transitional//EN">
 <html>
-	<head>
-		<title>Carl Maria Mikage's personal page</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
 
-		<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<nav>
-						<ul>
-							<li><a href="#intro">Welcome</a></li>
-							<li><a href="#one">About me</a></li>
-							<li><a href="#two">My work</a></li>
-							<li><a href="#three">Contact me</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Mistral</title>
+    <meta name="description" content="Homepage of Mistral">
+    <meta name="author" content="Mistral">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" type="image/png" href="pictures/mpg.png">
+      <link rel="stylesheet" href="style.css">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    <script type="text/javascript" async src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
 
-				<!-- Intro -->
-					<section id="intro" class="wrapper style1 fullscreen fade-up">
-						<div class="inner">
-							<h1>Carl Maria Mikage (御影)</h1>
-							<p>Welcome to my personal page. This nice design is thanks to <a href="https://html5up.net/hyperspace"> HTML5 UP's Hyperspace template</a>.</p>
-							<ul class="actions">
-								<li><a href="#one" class="button scrolly">More about me</a></li>
-							</ul>
-						</div>
-					</section>
+    <script type="text/javascript">
+      var subtabs = document.getElementsByClassName("details");
+      function toggleDisplay(details) {
+        for (itD = 0; itD < subtabs.length; itD++) {
+          subtabs[itD].style.display="none";
+            document.getElementById("en-header"+subtabs[itD].id).style.textDecoration = "none";
+            document.getElementById("de-header"+subtabs[itD].id).style.textDecoration = "none";
+        }
+        document.getElementById(details).style.display = "";
+        document.getElementById("en-header"+details).style.textDecoration = "underline";
+        document.getElementById("de-header"+details).style.textDecoration = "underline";
+        window.location.hash = details.substr(1);
+      }
+    </script>
 
-				<!-- One -->
-					<section id="one" class="wrapper style2 spotlights">
-						<section>
-							<a href="#" class="image"><img src="images/shell.jpg" alt="" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>About me</h2>
-									<p>
-										Self-adjusting search tree searching for 58 74 68 6D 6E.
-									</p>
-									<ul class="actions">
-										<li><a href="generic.html" class="button">Yet more about me</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-				<!-- No need for this rn
-						<section>
-							<a href="#" class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Feugiat consequat</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									<ul class="actions">
-										<li><a href="generic.html" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image"><img src="images/pic03.jpg" alt="" data-position="25% 25%" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Ultricies aliquam</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									<ul class="actions">
-										<li><a href="generic.html" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-					</section>
-				-->
+    <script type="text/javascript">
+      var currentlanguage="en";
+      var i = 1;
+      var timer;
+      var path = new Array();
+      var pathtitle = new Array();
+      var pathtitleen = new Array();
+      var pathtitlefr = new Array();
+      var pathtitlede = new Array();
+      var click = 0;
+      var noim = 0;
 
-				<!-- Two -->
-					<section id="two" class="wrapper style3 fade-up">
-						<div class="inner">
-							<h2>My work</h2>
-							<p>Some of the projects I've worked on. </p>
-							<div class="features">
-								<iframe frameborder="0" src="https://itch.io/embed/2154313?linkback=true&amp;bg_color=000000&amp;fg_color=f58aff&amp;link_color=16398b&amp;border_color=a03cd9" width="552" height="167">
-									<a href="https://carlmariamikage.itch.io/gestalt">Gestalt by CarlMariaMikage, kumroDev</a>
-								</iframe>
-								<div class="github-card" data-github="CarlMariaMikage/TigerEngine" data-width="552" data-height="167" data-theme="default"></div>
-								<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-								<div class="github-card" data-github="CarlMariaMikage/Nerv" data-width="552" data-height="167" data-theme="default"></div>
-								<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-								<!-- <section>
-									<span class="icon solid major fa-code"></span>
-									<h3>Lorem ipsum amet</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-lock"></span>
-									<h3>Aliquam sed nullam</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-cog"></span>
-									<h3>Sed erat ullam corper</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-desktop"></span>
-									<h3>Veroeros quis lorem</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-link"></span>
-									<h3>Urna quis bibendum</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon major fa-gem"></span>
-									<h3>Aliquam urna dapibus</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>-->
-							</div>
-							<ul class="actions">
-								<li><a href="generic.html" class="button">Learn more</a></li>
-							</ul>
-						</div>
-					</section>
+      /* LIST OF SLIDES */
+      path[0] = "pictures/cherry.jpeg";
+      pathtitleen[0] = "Japanese cherry blossom";
+      pathtitlefr[0] = "Fleur de cerisier japonais";
+      pathtitlede[0] = "Japanische Kirschblüte";
+      path[1] = "pictures/ipmu-sakura13.jpg";
+      pathtitleen[1] = "Kavli Institute for the Physics and Mathematics of the Universe, The University of Tokyo";
+      pathtitlefr[1] = "Institut Kavli pour la physique et les mathématiques de l'univers, Université de Tokyo";
+      pathtitlede[1] = "Kavli-Institut für Physik und Mathematik des Universums, Universität Tokio";
+      path[2] = "pictures/komaba.jpg";
+      pathtitleen[2] = "Building 1 of Komaba Campus, University of Tokyo";
+      pathtitlefr[2] = "Bâtiment 1 du campus de Komaba, Université de Tokyo";
+      pathtitlede[2] = "Gebäude 1 des Komaba Campus, Universität Tokio";
 
-				<!-- Three -->
-					<section id="three" class="wrapper style1 fade-up">
-						<div class="inner">
-							<h2>Contact me</h2>
-							<p>Still work in progress. For now, enjoy the Latin placeholder text. :p</p>
-							<div class="split style1">
-								<section>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="name">Name</label>
-												<input type="text" name="name" id="name" />
-											</div>
-											<div class="field half">
-												<label for="email">Email</label>
-												<input type="text" name="email" id="email" />
-											</div>
-											<div class="field">
-												<label for="message">Message</label>
-												<textarea name="message" id="message" rows="5"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><a href="" class="button submit">Send Message</a></li>
-										</ul>
-									</form>
-								</section>
-								<section>
-									<ul class="contact">
-										<li>
-											<h3>Address</h3>
-											<span>12345 Somewhere Road #654<br />
-											Nashville, TN 00000-0000<br />
-											USA</span>
-										</li>
-										<li>
-											<h3>Email</h3>
-											<a href="#">user@untitled.tld</a>
-										</li>
-										<li>
-											<h3>Phone</h3>
-											<span>(000) 000-0000</span>
-										</li>
-										<li>
-											<h3>Social</h3>
-											<ul class="icons">
-												<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-												<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-												<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-												<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-												<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-											</ul>
-										</li>
-									</ul>
-								</section>
-							</div>
-						</div>
-					</section>
+      /*Language switch*/
+      var text = document.getElementsByClassName("text");
+      function toggleLang(lang){
+        currentlanguage=lang;
+        if(0<i) i--; else i = path.length-1;
+        swapImage();
+        for (itD = 0; itD < text.length; itD++) {
+          text[itD].style.display="none";
+        }
+        var currtext = document.getElementsByName(lang);
+        for (itD = 0; itD < currtext.length; itD++) {
+          currtext[itD].style.display="";
+        }
+      }
 
-			</div>
+      /* slideshow */
+      function swapImage()
+      {
+        clearTimeout(timer);
+        pathtitle=eval("pathtitle"+currentlanguage);
+        document.getElementById("slide").src=path[i];
+        document.getElementById("slide").title=pathtitle[i];
+        document.getElementById("slide").alt=pathtitle[i];
+        document.getElementById("slide").background=pathtitle[1];
+        document.getElementById("slide").opacity=0.5;
+        for (cou = 0; cou<path.length;cou++){
+          document.getElementById(String("button"+cou)).src="pictures/framework/bulletoff.png";
+        }
+        document.getElementById(String("button"+i)).src="pictures/framework/bulleton.png";
+        if(i < path.length - 1) i++; else i = 0;
+        timer = setTimeout("swapImage()",12000);
+      }
 
-		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer>
+      function bset(noim)
+      {
+        clearTimeout(timer);
+        pathtitle=eval("pathtitle"+currentlanguage);
+        for (cou = 0; cou<path.length;cou++){
+          document.getElementById(String("button"+cou)).src="pictures/framework/bulletoff.png";
+        }
+        document.getElementById(String("button"+noim)).src="pictures/framework/bulleton.png";
+        document.getElementById("slide").src=path[noim];
+        document.getElementById("slide").title=pathtitle[noim];
+        document.getElementById("slide").alt=pathtitle[noim];
+        i = noim;
+        if(i < path.length - 1) i++; else i = 0;
+      }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+      function swap(){
+        clearTimeout(timer);
+        pathtitle=eval("pathtitle"+currentlanguage);
+        document.getElementById("slide").src=path[i];
+        document.getElementById("slide").title=pathtitle[i];
+        document.getElementById("slide").alt=pathtitle[i];
+        for (cou = 0; cou<path.length;cou++){
+          document.getElementById(String("button"+cou)).src="pictures/framework/bulletoff.png";
+        }
+        document.getElementById(String("button"+i)).src="pictures/framework/bulleton.png";
+        if(i < path.length - 1) i++; else i = 0;
+      }
 
-	</body>
+      function stopShow(){
+        clearTimeout(timer);
+      }
+
+      function runShow(){
+        clearTimeout(timer);
+        timer = setTimeout("swapImage()",12000);
+      }
+    </script>
+
+    <script type="text/javascript">
+      function init(){
+        var details = window.location.hash;
+            var subtabs = document.getElementsByClassName("details");
+        var contains = false;
+        for (itD = 0; itD < subtabs.length; itD++) {
+                if (subtabs[itD].id==details){
+            contains = true;
+          };
+        };
+        if (contains ){
+          toggleDisplay(details);
+        } else {
+          toggleDisplay("#home");
+        };	
+      }
+    </script>
+    
+    <script type="text/javascript">
+      function beflexible(){
+        if (window.innerWidth<900){
+          document.getElementById('firstcol').style.display="none";
+          document.getElementById('firstcolumn').style.display="none";
+          document.getElementById('secondcol').width="100%";
+          document.getElementById('slide').style.display="none"
+        }
+        else{
+          document.getElementById('firstcol').style.display="";
+          document.getElementById('firstcolumn').style.display="";
+          document.getElementById('secondcol').width="70%";
+          document.getElementById('slide').style.display=""
+        }
+      }
+      setInterval("beflexible()",100)
+    </script>
+    
+  </head>
+
+  <body onLoad="runShow();init();">
+    <table id="maintable">
+      <col id="firstcol" width="30%"/><col id="secondcol" width="70%"/>
+        <tbody>
+          <tr>
+
+            <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+            <!--  	   	  slideshow          -->
+            <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+            <td id="firstcolumn">
+
+              <img
+              class="slideshow"
+              id="slide"
+              onclick="swap()"
+              onMouseover="stopShow()"
+              onMouseout="runShow()"
+              src="pictures/cherry.jpeg"
+              title="Japanese cherry blossom"
+              border="0"
+              width="100%"
+              />
+
+              <div align="center" class="buttons">
+                <img
+                id="button0"
+                onMouseover="stopShow()"
+                onMouseout="runShow()"
+                onclick="bset(0)"
+                src="pictures/framework/bulleton.png"
+                border="0"
+                />
+
+                <img
+                id="button1"
+                onMouseover="stopShow()"
+                onMouseout="runShow()"
+                onclick="bset(1)"
+                src="pictures/framework/bulletoff.png"
+                border="0"
+                />
+
+                <img
+                id="button2"
+                onMouseover="stopShow()"
+                onMouseout="runShow()"
+                onclick="bset(2)"
+                src="pictures/framework/bulletoff.png"
+                border="0"
+                />
+              </div>
+            </td>
+
+            <td id="secondcolumn" >
+
+              <h3 id="LanguageToggle" style="margin-top:5pt">
+                <div class="text" name="en" >
+                  <a style="color:brown" onclick="toggleLang('en');">⟩EN </a>
+                  <a style="color:palevioletred" onclick="toggleLang('de');">⟩DE </a>
+                  <a style="color:palevioletred" onclick="toggleLang('fr');">⟩FR </a>
+                </div>
+                <div class="text" name="de" style="display:none">
+                  <a style="color:palevioletred" onclick="toggleLang('en');">⟩EN </a>
+                  <a style="color:brown" onclick="toggleLang('de');">⟩DE </a>
+                  <a style="color:palevioletred" onclick="toggleLang('fr');">⟩FR </a>
+                </div>
+                <div class="text" name="fr" style="display:none">
+                  <a style="color:palevioletred" onclick="toggleLang('en');">⟩EN </a>
+                  <a style="color:palevioletred" onclick="toggleLang('de');">⟩DE </a>
+                  <a style="color:brown" onclick="toggleLang('fr');">⟩FR </a>
+                </div>
+              </h3>
+
+              <h2>Mistral</h2>
+              <h5><i>Self-adjusting search tree searching for 58 74 68 6D 6E</i></h5>
+
+              <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+              <!--      	 header	 	    -->
+              <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+              <h3 class="text" name="en">
+                <a id="en-header#home" onclick="toggleDisplay('#home');">Home</a> |
+                <a id="en-header#publications" onclick="toggleDisplay('#publications');">Publications</a> |
+                <a id="en-header#books" onclick="toggleDisplay('#books');">Books I Like</a> |
+                <a id="en-header#code" onclick="toggleDisplay('#code');">Code</a> |
+                <a id="en-header#wiki" onclick="toggleDisplay('#wiki');">Notes</a>
+              </h3>
+
+              <h3 class="text" name="de" style="display:none">
+                <a id="de-header#home" onclick="toggleDisplay('#home');">Willkommen</a> |
+                <a id="de-header#publications" onclick="toggleDisplay('#publications');">Veröffentlichungen</a> |
+                <a id="de-header#books" onclick="toggleDisplay('#books');">Bücher, die ich mag</a> |
+                <a id="de-header#code" onclick="toggleDisplay('#code');">Code</a> |
+                <a id="de-header#wiki" onclick="toggleDisplay('#wiki');">Notizen</a>
+              </h3>
+
+              <h3 class="text" name="fr" style="display:none">
+                <a id="de-header#home" onclick="toggleDisplay('#home');">Accueil</a> |
+                <a id="de-header#publications" onclick="toggleDisplay('#publications');">Publications</a> |
+                <a id="de-header#books" onclick="toggleDisplay('#books');">Livres que j'aime</a> |
+                <a id="de-header#code" onclick="toggleDisplay('#code');">Code</a> |
+                <a id="de-header#wiki" onclick="toggleDisplay('#wiki');">Notes</a>
+              </h3>
+
+              <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+              <!--     	  sections	    -->
+              <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+              <div class="details" id="#home">
+                
+                <a class="text" href="https://commons.wikimedia.org/wiki/File:Percolation.gif" target="_blank" name="en">
+                  <img
+                    class="rightimage"
+                    src="pictures/E8Petrie.png"
+                    width="30%"
+                    title="Visual representation of the E8 group. Credits: Jgmoxness, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons." />
+                </a>
+                <a class="text" href="https://commons.wikimedia.org/wiki/File:Percolation.gif" target="_blank" name="de" style="display:none" >
+                  <img
+                    class="rightimage"
+                    src="pictures/E8Petrie.png"
+                    width="30%"
+                    title="Visuelle Darstellung der E8-Gruppe. Credits: Jgmoxness, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, über Wikimedia Commons." />
+                </a>
+                <a class="text" href="https://commons.wikimedia.org/wiki/File:Percolation.gif" target="_blank" name="fr" style="display:none" >
+                  <img
+                    class="rightimage"
+                    src="pictures/E8Petrie.png"
+                    width="30%"
+                    title="Représentation visuelle du groupe E8. Crédits : Jgmoxness, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons." />
+                </a>
+
+                <p class="text" name="en">
+                  I am currently an undergraduate student of mathematics. Aiming to pursue graduate studies at either the Research Institute for Mathematical Sciences
+                  at the University of Kyoto or the Graduate School of Mathematical Sciences at the University of Tokyo. 
+                </p>
+
+                <p class="text" name="de" style="display:none">
+                  Ich studiere derzeit Mathematik im Bachelor-Studiengang. Angestrebt werden Graduiertenstudien am Forschungsinstitut für mathematische Wissenschaften 
+                  der Universität Kyoto oder an der Graduiertenschule für mathematische Wissenschaften der Universität Tokio.
+                </p>
+
+                <p class="text" name="fr" style="display:none">
+                  Je suis actuellement étudiant en mathématiques. Vise à poursuivre des études supérieures à l'Institut de recherche en sciences mathématiques de 
+                  l'université de Kyoto ou à l'École supérieure de sciences mathématiques de l'université de Tokyo.
+                </p>
+
+
+                <p class="text" name="en">
+                  Broadly interested in the fields of combinatorics, representation theory, complex geometry and mathematical physics.
+                </p>
+                <p class="text" name="de" style="display:none">
+                  Allgemeines interesse an den Bereichen Kombinatorik, Darstellungstheorie, Komplexe Geometrie und Mathematische Physik.
+                </p>
+                <p class="text" name="fr" style="display:none">
+                  Largement intéressé par les domaines de la combinatoire, la théorie des représentations, de la géométrie complexe et de la physique mathématique.
+                </p>
+
+                <table>
+                  <tr>
+                    <td>
+                      <img src="svgs/graduate-hat.svg" width="20" style="user-select:none;vertical-align:middle;"/>
+                    </td>
+                    <td>
+                      <a href="documents/CVpublic.pdf" target="_blank">Curriculum Vit&aelig;</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="svgs/inbox.svg" width="20" style="user-select:none;vertical-align:middle;"/>
+                    </td>
+                    <td>
+                      dassayan0013<a style="opacity:0;letter-spacing:-9.9px;">@DELETEME</a>@gmail.com
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="svgs/telephone.svg" width="20" style="user-select:none;vertical-align:middle;"/>
+                    </td>
+                    <td>
+                      +91 XXXXX XXXXX
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="svgs/home.svg" width="20" style="user-select:none;vertical-align:middle;"/>
+                    </td>
+                    <td>
+                      Γαία <br>
+                      Ηλιακό σύστημα <br>
+                      Γαλακτική Οδός
+                    </td>
+                  </tr>
+                </table> 
+                
+                <a class="text" href="https://blogs.ams.org/visualinsight/2016/05/01/involutes-of-a-cubical-parabola/" target="_blank" name="en">
+                  <img
+                    class="rightimageX"
+                    src="pictures/tractrix_as_involute_of_catenary.gif"
+                    width="30%"
+                    title="Tractrix as an Involute of the Catenary – Sam Derbyshire" />
+                </a>
+                <a class="text" href="https://blogs.ams.org/visualinsight/2016/05/01/involutes-of-a-cubical-parabola/" target="_blank" name="de" style="display:none" >
+                  <img
+                    class="rightimageX"
+                    src="pictures/tractrix_as_involute_of_catenary.gif"
+                    width="30%"
+                    title="Tractrix als Involut der Oberleitung - Sam Derbyshire" />
+                </a>
+                <a class="text" href="https://blogs.ams.org/visualinsight/2016/05/01/involutes-of-a-cubical-parabola/" target="_blank" name="fr" style="display:none" >
+                  <img
+                    class="rightimageX"
+                    src="pictures/tractrix_as_involute_of_catenary.gif"
+                    width="30%"
+                    title="Tractrix comme involution de la caténaire - Sam Derbyshire" />
+                </a>
+
+              </div>
+
+              <div class="details" id="#publications" style="display: none">
+
+                <p class="text" name="en" style="text-align:center;padding-top:20pt;padding-bottom:10pt">
+                  <i>&laquo; Ever tried. Ever failed. No matter. Try again. Fail again. Fail better. &raquo;</i>
+                  <br>
+                  <span style="font-size:small">
+                    Samuel Barclay Beckett, <i>&laquo; Worstward Ho &raquo;</i>
+                  </span>
+                </p>
+                <p class="text" name="de" style="display:none;text-align:center;padding-top:20pt;padding-bottom:10pt">
+                  <i>&laquo; Immer versucht. Immer gescheitert. Egal. Wieder versuchen. Wieder scheitern. Besser scheitern. &raquo;</i>
+                  <br>
+                  <span style="font-size:small">
+                    Samuel Barclay Beckett (&Uuml;bersetzung von Erika Tophoven), <i>&laquo; Aufs Schlimmste zu &raquo;</i>
+                  </span>
+                </p>
+                <p class="text" name="fr" style="display:none;text-align:center;padding-top:20pt;padding-bottom:10pt">
+                  <i>&laquo; D'essayé. De raté. N'importe. Essayer encore. Rater encore. Rater mieux. &raquo;</i>
+                  <br>
+                  <span style="font-size:small">
+                    Samuel Barclay Beckett (traduit par Edith Fournier pour les Editions de Minuit), <i>&laquo; Cap au pire &raquo;</i>
+                  </span>
+                </p>
+
+                <a class="text" name="en" href="https://johncarlosbaez.wordpress.com/2017/12/07/wigner-crystals/">
+                  <img
+                    class="rightimage"
+                    src="pictures/wigner_-cluster.png"
+                    title="Wigner crystal"
+                    />
+                </a>
+                <a class="text" name="de" style="display:none" href="https://johncarlosbaez.wordpress.com/2017/12/07/wigner-crystals/">
+                  <img
+                    class="rightimage"
+                    src="pictures/wigner_-cluster.png"
+                    title="Wignerkristall"
+                    />
+                </a>
+                <a class="text" name="fr" style="display:none" href="https://johncarlosbaez.wordpress.com/2017/12/07/wigner-crystals/">
+                  <img
+                    class="rightimage"
+                    src="pictures/wigner_-cluster.png"
+                    title="Cristal de Wigner"
+                    />
+                </a>
+
+                <a class="text" name="en" href="https://blogs.ams.org/visualinsight/2016/11/01/escudero-nonic/">
+                  <img
+                    class="rightimage"
+                    src="pictures/escudero_nonic_Q9.jpg"
+                    title="Escudero Nonic Q_9 – Juan García Escudero"
+                    />
+                </a>
+                <a class="text" name="de" style="display:none" href="https://blogs.ams.org/visualinsight/2016/11/01/escudero-nonic/">
+                  <img
+                    class="rightimage"
+                    src="pictures/escudero_nonic_Q9.jpg"
+                    title="Escudero Nonic Q_9 – Juan García Escudero"
+                    />
+                </a>
+                <a class="text" name="fr" style="display:none" href="https://blogs.ams.org/visualinsight/2016/11/01/escudero-nonic/">
+                  <img
+                    class="rightimage"
+                    src="pictures/escudero_nonic_Q9.jpg"
+                    title="Escudero Nonic Q_9 – Juan García Escudero"
+                    />
+                </a>
+
+                <h4 class="text" name="en">Creative Writing</h4>
+                <h4 class="text" name="de" style="display:none">Kreatives Schreiben</h4>
+                <h4 class="text" name="fr" style="display:none">Écriture créative</h4>
+
+                <ul>
+                  <li>
+                    <a href="https://www.fanfiction.net/s/13800260/0"
+                      target="_blank">
+                      <u><i>Bona Fide</i></u>
+                    </a>
+                    <br>
+                    <p class="text" name="en" style="font-size:small">
+                      Oregairu fanfic that I'm working on.
+                    </p>  
+                    <p class="text" name="de" style="display: none;font-size:small">
+                      Oregairu fanfic, an der ich arbeite.
+                    </p>
+                    <p class="text" name="fr" style="display: none;font-size:small">
+                      Oregairu fanfic sur lequel je travaille.
+                    </p>
+                  </li>
+                </ul>
+                
+                <!--
+                <h4 class="text" name="en">Preprints</h4>
+                <h4 class="text" name="de" style="display:none">Preprints</h4>
+                
+                <ul>
+                  <li>
+                    <i>
+                  Rasmussen invariants of Whitehead doubles and other satellites
+                    </i>
+                    <br>
+                    <p style="font-size:small">
+                      <a href="https://arxiv.org/abs/2208.13612"
+                      target="_blank">arXiv:2208.13612</a>, 48 pages, joint with
+                      <a href="http://www.lewark.de/lukas/" target="_blank">Lukas Lewark</a>
+                    <br>
+                    A supplementary table of invariants can be found
+                      <a href="https://llewark.github.io/theta/"
+                        target="_blank">here</a>.
+                    </p>
+                  </li>
+                  <li>
+                    <i>
+                      Khovanov multicurves are linear
+                    </i>
+                    <br>
+                    <p style="font-size:small">
+                      <a href="https://arxiv.org/abs/2202.01460"
+                      target="_blank">arXiv:2202.01460</a>, 41 pages, joint with
+                      <a href="https://artofkot.github.io/" target="_blank">Artem
+                      Kotelskiy</a> and
+                      <a href="https://www.math.ubc.ca/~liam/" target="_blank">Liam
+                      Watson</a>
+                    </p>
+                  </li>
+                  <li>
+                    <i>
+                      Thin links and Conway spheres
+                    </i>
+                    <br>
+                    <p style="font-size:small">
+                      <a href="https://arxiv.org/abs/2105.06308"
+                      target="_blank">arXiv:2105.06308</a>, 50 pages, joint with
+                      <a href="https://artofkot.github.io/" target="_blank">Artem
+                      Kotelskiy</a> and
+                      <a href="https://www.math.ubc.ca/~liam/" target="_blank">Liam
+                      Watson</a>, submitted 
+                    </p>
+                  </li>
+                  <li>
+                    <i>
+                      Khovanov invariants via Fukaya categories: the tangle
+                      invariants agree
+                    </i>
+                    <br>
+                    <p style="font-size:small">
+                      <a href="https://arxiv.org/abs/2004.01619"
+                      target="_blank">arXiv:2004.01619</a>, 14 pages, joint with
+                      <a href="https://artofkot.github.io/" target="_blank">Artem
+                      Kotelskiy</a> and
+                      <a href="https://www.math.ubc.ca/~liam/" target="_blank">Liam
+                      Watson</a>, submitted 
+                    </p>
+                  </li>
+                  <li>
+                    <i>
+                      Immersed curves in Khovanov homology
+                    </i>
+                    <br>
+                    <p style="font-size:small">
+                      <a href="https://arxiv.org/abs/1910.14584"
+                      target="_blank">arXiv:1910.14584</a>, 95 pages, joint with
+                      <a href="https://artofkot.github.io/" target="_blank">Artem
+                      Kotelskiy</a> and
+                      <a href="https://www.math.ubc.ca/~liam/" target="_blank">Liam
+                  Watson</a>, submitted 
+                    <br>
+                      I gave a mini-course on selected material from this paper at
+                      the 2019 ISM discovery school
+                      <a href="http://ism.uqam.ca/Low-dimensions/en/index.html"
+                        target="_blank">Current Progress in Low Dimensions</a> in
+                      Montréal. My lecture notes are available
+                      <a href="teaching/2019-ISM/Lectures.pdf"
+                        target="_blank">here</a> along with
+                      <a href="teaching/2019-ISM/Handouts.pdf"
+                        target="_blank">exercises</a>.
+                    </p>
+                  </li>
+                </ul>
+
+                <h4 class="text" name="en">Publications in major scientific journals</h4>
+                <h4 class="text" name="de" style="display:none">Veröffentlichungen in bedeutenden wissenschaftlichen Journalen</h4> 
+
+                <ul>
+                  <li>
+                    <i>
+                      Cosmetic operations and Khovanov multicurves
+                    </i>
+                    <br>
+                    <p style="font-size:small">
+                      joint with
+                      <a href="https://artofkot.github.io/" target="_blank">Artem
+                      Kotelskiy</a>, 
+                    <a href="https://tlidman.math.ncsu.edu/" target="_blank">Tye
+                      Lidman</a>,
+                      <a href="https://people.vcu.edu/~moorea14/"
+                      target="_blank">Allison Moore</a>,
+                    and
+                      <a href="https://www.math.ubc.ca/~liam/" target="_blank">Liam
+                      Watson</a><br>
+                      accepted at <a href="https://www.springer.com/journal/208/" target="_blank">Mathematische Annalen</a>, 20 pages, <a href="https://arxiv.org/abs/2109.14049"
+                      target="_blank">arXiv:2109.14049</a>
+                    </p>
+                  </li>
+                  <li>
+                    <i>
+                      A mnemonic for the Lipshitz-Ozsváth-Thurston correspondence
+                    </i>
+                    <br>
+                    <p style="font-size:small">
+                      joint with
+                      <a href="https://artofkot.github.io/" target="_blank">Artem
+                      Kotelskiy</a> and
+                      <a href="https://www.math.ubc.ca/~liam/" target="_blank">Liam
+                      Watson</a><br>
+                    accepted at <a href="https://msp.org/soon/coming.php?jpath=agt" target="_blank">Algebraic & Geometric Topology</a>, 23 pages, <a href="https://arxiv.org/abs/2005.02792"
+                      target="_blank">arXiv:2005.02792</a>
+                    </p>
+                  </li>
+
+                <a class="text" name="en">
+                  <img
+                    class="rightimage"
+                    src="pictures/dotgraphs.png"
+                    width="30%"
+                      title="Output of the Mathematica package PQM.m:
+                a graphical interpretation of a peculiar module" />
+                </a>
+                <a class="text" name="de" style="display:none" >
+                  <img
+                    class="rightimage"
+                    src="pictures/dotgraphs.png"
+                    width="30%"
+                    title="Output des Mathematica Pakets PQM.m:
+                eine graphische Interpretation eines peculiar modules" />
+                </a>
+
+
+                  <li>
+                    <i>
+                      L-space knots have no essential Conway spheres
+                    </i>
+                    <br>
+                    <p style="font-size:small">
+                  joint with
+                      <a href="https://tlidman.math.ncsu.edu/" target="_blank">Tye
+                      Lidman</a> and
+                      <a href="https://people.vcu.edu/~moorea14/"
+                      target="_blank">Allison Moore</a><br>
+                      Geometry & Topology 26.5 (2022), 2065–2102
+                      (<a href="https://arxiv.org/abs/2006.03521"
+                      target="_blank">arXiv:2006.03521</a> |
+                      <a href="https://www.doi.org/10.2140/gt.2022.26.2065"
+                      target="_blank">doi:10.2140/gt.2022.26.2065</a>)
+                    </p>
+                  </li>
+                  <li>
+                    <i>
+                      On symmetries of peculiar modules; or, \(\delta\)-graded link
+                      Floer homology is mutation invariant
+                    </i>
+                    <br>
+                    <p style="font-size:small">
+                      <a href="https://www.ems-ph.org/journals/forthcoming.php?jrn=JEMS" target="_blank">accepted</a> at the Journal of the EMS, 47 pages, <a href="https://arxiv.org/abs/1909.04267" target="_blank">arXiv:1909.04267</a> 
+                    </p>
+                </li>
+                <li>
+                    <i>
+                      Peculiar modules for 4-ended tangles
+                    </i>
+                    <br>
+                    <p style="font-size:small">
+                      Journal of Topology 13.1 (2020), 77–158
+                      (<a href="https://arxiv.org/abs/1712.05050"
+                      target="_blank">arXiv:1712.05050</a> |
+                      <a href="https://www.doi.org/10.1112/topo.12120"
+                      target="_blank">doi:10.1112/topo.12120</a>)
+                    </p>
+                  </li>
+                  <li>
+                    <i>
+                      Kauffman states and Heegaard diagrams for tangles
+                    </i>
+                    <br>
+                    <p style="font-size:small">
+                      Algebraic & Geometric Topology 19.5 (2019), 2233–2282
+                      (<a href="https://arxiv.org/abs/1601.04915"
+                      target="_blank">arXiv:1601.04915</a> |
+                      <a href="https://www.doi.org/10.2140/agt.2019.19.2233"
+                      target="_blank">doi:10.2140/agt.2019.19.2233</a>)
+                    </p>
+                  </li>
+                </ul>
+
+                <h4 class="text" name="en">Publications in conference proceedings and in other peer-reviewed scientific journals</h4>
+                <h4 class="text" name="de" style="display:none">Veröffentlichungen in Konferenzbänden oder in anderen peer-reviewten Journalen</h4>
+
+                <ul>
+                  <li>
+                    <i>
+                  Heegaard Floer multicurves of double tangles
+                    </i>
+                    <br>
+                    <p style="font-size:small">
+                      <a href="https://arxiv.org/abs/2212.08501"
+                      target="_blank">arXiv:2212.08501</a>, 31 pages, to appear in the proceedings of <a href="http://indico.ictp.it/event/9706/" target="_blank">Frontiers in Geometry and Topology</a>, a conference in honour of Tom Mrowka's 60th birthday.
+                    </p>
+                  </li>
+                  <li>
+                    <i>
+                      Khovanov homology and strong inversions
+                    </i>
+                    <br>
+                    <p style="font-size:small">
+                      joint with
+                      <a href="https://artofkot.github.io/" target="_blank">Artem
+                      Kotelskiy</a> and
+                      <a href="https://www.math.ubc.ca/~liam/" target="_blank">Liam
+                      Watson</a><br>
+                      in <i>Gauge theory and low-dimensional topology: progress and interaction</i>,<br> 
+                      Open Book Series 5.1 (2022), 223–244
+                    (<a href="https://arxiv.org/abs/2104.13592" 
+                    target="_blank">arXiv:2104.13592</a> |
+                    <a href="https://www.doi.org/10.2140/obs.2022.5.223"
+                    target="_blank">doi:10.2140/obs.2022.5.223</a>)
+                    </p>
+                  </li>
+
+                  <li>
+                    <i>
+                      Rasmussen invariants
+                    </i>
+                    <br>
+                    <p style="font-size:small">
+                  joint with
+                      <a href="http://www.lewark.de/lukas/" target="_blank">Lukas Lewark</a><br>
+                      <a href="https://secure.math.ubc.ca/Links/mrp/" target="_blank">Mathematical Research Postcards 1.2 (2021)</a>
+                      (<a href="documents/RasmussenInvariants.pdf" target="_blank">pdf</a>)
+                    </p>
+                  </li>
+                </ul>
+
+
+                <h4 class="text" name="en">Theses</h4>
+                <h4 class="text" name="de" style="display:none">Doktor- und
+                Masterarbeit</h4>
+                <ul>
+                  <li class="text" name="en">
+                    <i>
+                      On a Heegaard Floer theory for tangles
+                    </i> (PhD thesis)
+                    <br>
+                    <p style="font-size:small">
+                      <a href="https://arxiv.org/abs/1610.07494"
+                      target="_blank">arXiv:1610.07494</a>, also available
+                      from <a href="https://doi.org/10.17863/CAM.8706"
+                      target="_blank">Cambridge Apollo</a>
+                    </p>
+                  </li>
+                  <li class="text" name="de" style="display:none">
+                    <i>
+                      On a Heegaard Floer theory for tangles
+                    </i> (Doktorarbeit)
+                    <br>
+                    <p style="font-size:small">
+                      <a href="https://arxiv.org/abs/1610.07494"
+                      target="_blank">arXiv:1610.07494</a>, auch
+                      bei <a href="https://doi.org/10.17863/CAM.8706"
+                      target="_blank">Cambridge Apollo</a> verfügbar
+                    </p>
+                  </li>
+                  <li class="text" name="en">
+                    <i>
+                      <a href="documents/KhovanovStableHomotopy.pdf"
+                      target="_blank">Khovanov Stable Homotopy</a>
+                    </i> (Part III essay)
+                    <br>
+                    <p style="font-size:small">
+                      This is essentially a summary of Lipshitz and Sarkar's
+                      <a href="http://www.arXiv.org/abs/1112.3932"
+                      target="_blank">construction</a> of a Khovanov homotopy type.
+                    </p>
+                  </li>
+                  <li class="text" name="de" style="display:none">
+                    <i>
+                      <a href="documents/KhovanovStableHomotopy.pdf"
+                      target="_blank">Khovanov Stable Homotopy</a>
+                    </i> (Part III essay)
+                    <br>
+                    <p style="font-size:small">
+                      Dies ist hauptsächlich eine Zusammenfassung von Lipshitz and
+                      Sarkars
+                      <a href="http://www.arXiv.org/abs/1112.3932" target="_blank">
+                        Konstruktion</a> eines Khovanov-Homotopie-Typs.
+                    </p>
+                  </li>
+                </ul>
+                -->
+              </div>
+
+              <div class="details" id="#books" style="display: none">
+                <a class="text" name="en" href="https://blogs.ams.org/visualinsight/2016/09/15/togliatti-quintic-surface/">
+                  <img class="rightimage" src="pictures/togliatti_quintic.jpg"
+                      title="Togliatti Quintic - Abdelaziz Nait Merzouk" />
+                </a>
+                <a class="text" name="de" style="display:none" href="https://blogs.ams.org/visualinsight/2016/09/15/togliatti-quintic-surface/">
+                  <img class="rightimage" src="pictures/togliatti_quintic.jpg"
+                      title="Togliatti Quintic - Abdelaziz Nait Merzouk" />
+                </a>
+                <a class="text" name="fr" style="display:none" href="https://blogs.ams.org/visualinsight/2016/09/15/togliatti-quintic-surface/">
+                  <img class="rightimage" src="pictures/togliatti_quintic.jpg"
+                      title="Togliatti Quintic - Abdelaziz Nait Merzouk" />
+                </a>
+
+                <a class="text" name="en"><h4>Analysis</h4></a>
+                <a class="text" name="de" style="display:none"><h4>Analysis und Wahrscheinlichkeitstheorie</h4></a>
+                <a class="text" name="fr" style="display:none"><h4>Analyse et théorie des probabilités</h4></a>
+                  <ul>
+                    <li>Walter Rudin - <i>Principles of Mathematical Analysis</i></li>
+                    <li>Manfred Leopold Einsiedler, Thomas Ward - <i>Functional Analysis, Spectral Theory, and Applications</i></li>
+                    <li>Raghavan Narasimhan - <i>Complex Analysis</i></li>
+                    <li>Manfred Leopold Einsiedler, Thomas Ward - <i>Ergodic Theory: with a view towards Number Theory</i></li>
+                    <li>Anton Deitmar, Siegfried Echterhoff - <i>Principles of Harmonic Analysis</i></li>
+                  </ul>
+                <a class="text" name="en"><h4>Algebra</h4></a>
+                <a class="text" name="de" style="display:none"><h4>Algebra</h4></a>
+                <a class="text" name="fr" style="display:none"><h4>Algèbre</h4></a>
+                  <ul>
+                    <li>Paul Richard Halmos - <i>Finite Dimensional Vector Spaces</i></li>
+                    <li>Ernest Borissowitsch Winberg - <i>A Course in Algebra</i></li>
+                    <li>Anthony William Knapp - <i>Basic Algebra</i></li>
+                    <li>Anthony William Knapp - <i>Advanced Algebra</i></li>
+                    <li>Nathan Jacobson - <i>Basic Algebra I, II</i></li>
+                    <li>Michael Francis Atiyah, Ian Grant Macdonald - <i>Commutative Algebra</i></li>
+                    <li>Joseph Daniel Harris, William Edgar Fulton - <i>Representation theory: A first course</i></li>
+                  </ul>
+                <a class="text" name="en"><h4>Geometry, Topology and Number Theory</h4></a>
+                <a class="text" name="de" style="display:none"><h4>Geometrie, Topologie und Zahlentheorie</h4></a>
+                <a class="text" name="fr" style="display:none"><h4>Géométrie, topologie et théorie des nombres</h4></a>
+                  <ul>
+                    <li>Klaus Jänich - <i>Topologie</i></li>
+                    <li>John Willard Milnor - <i>Topology from the Differentiable Viewpoint</i></li>
+                    <li>Loring Tu - <i>An Introduction to Manifolds</i></li>
+                    <li>Loring Tu - <i>Differential Geometry: Connections, Curvature, and Characteristic Classes</i></li>
+                    <li>Shoshichi Kobayashi, Katsumi Nomizu - <i>Foundations of Differential Geometry I, II</i></li>
+                    <li>Igor Rostislawowitsch Schafarewitsch - <i>Basic Algebraic Geometry 1, 2</i></li>
+                    <li>Daniel Huybrechts - <i>Complex Geometry: An Introduction</i></li>
+                    <li>Qing Liu - <i>Algebraic Geometry and Arithmetic Curves</i></li>
+                    <li>Gary Cornell, Joseph Hillel Silverman - <i>Arithmetic Geometry</i></li>
+                    <li>Senon Iwanowitsch Borewitsch, Igor Rostislawowitsch Schafarewitsch - <i>Number Theory</i></li>
+                    <li>Maruti Ram Pedaprolu Murty, Jody Esmonde - <i>Problems in Algebraic Number Theory</i></li>
+                  </ul>
+                <a class="text" name="en"><h4>Mathematical Physics</h4></a>
+                <a class="text" name="de" style="display:none"><h4>Mathematische Physik</h4></a>
+                <a class="text" name="fr" style="display:none"><h4>Physique mathématique</h4></a>
+                  <ul>
+                    <li>Peter Szekeres - <i>A Course in Modern Mathematical Physics: Groups, Hilbert Space and Differential Geometry</i></li>
+                    <li>Wladimir Igorewitsch Arnol'd - <i>Mathematical Methods of Classical Mechanics</i></li>
+                    <li>Stephen Hawking, George Francis Rayner Ellis - <i>The Large Scale Structure of Space-time</i></li>
+                    <li>Robert M. Wald - <i>General Relativity</i></li>
+                    <li>Brian C. Hall - <i>Quantum Theory for Mathematicians</i></li>
+                  </ul>
+
+                  <a class="text" name="en">
+                    <img class="rightimage" src="pictures/Togliatti_surface.png"
+                      title="Togliatti Surface with w=1, bounded by a sphere with radius=6. Credits: Claudio Rocchini, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons" />
+                  </a>
+                  <a class="text" name="de" style="display:none">
+                    <img class="rightimage" src="pictures/Togliatti_surface.png"
+                      title="Togliatti-Fläche mit w=1, begrenzt durch eine Kugel mit Radius=6. Credits: Claudio Rocchini, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, über Wikimedia Commons" />
+                  </a>
+                  <a class="text" name="fr" style="display:none">
+                    <img class="rightimage" src="pictures/Togliatti_surface.png"
+                      title="Togliatti Surface avec w=1, délimitée par une sphère de rayon=6. Crédits : Claudio Rocchini, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons" />
+                  </a>
+
+              </div>
+
+              <div class="details" id="#code" style="display: none">
+                
+                <h4 class="text" name="en">Computer programs</h4>
+                <h4 class="text" name="de" style="display:none">Computerprogramme</h4>
+                <h4 class="text" name="fr" style="display:none">Programmes informatiques</h4>
+
+                <iframe 
+                  frameborder="0" 
+                  src="https://itch.io/embed/2154313?linkback=true&amp;bg_color=ffb6c1&amp;fg_color=9e2835&amp;link_color=2C001E&amp;border_color=ffc0cb" 
+                  width="552" 
+                  height="167">
+                    <a href="https://carlmariamikage.itch.io/gestalt">Gestalt by CarlMariaMikage (me), kumroDev (an irl friend)</a>
+                </iframe>
+
+                <ul>
+                  <li>
+                    <i>Tiger Engine</i> (<a href="https://github.com/CarlMariaMikage/TigerEngine" 
+                    target="_blank">program website</a>|<a href="https://github.com/CarlMariaMikage/TigerEngine" target="_blank">github</a>), a Vulkan game engine written in C.
+                    <p style="font-size:small">
+                    This is based on Travis Vroman's
+                    <i><a href="https://github.com/travisvroman/kohi"
+                          target="_blank">Kohi Engine</a></i>.
+                    </p>
+                  </li>
+                </ul>
+
+                <a class="text" href="https://github.com/CarlMariaMikage/TigerEngine" target="_blank" name="en">
+                <img class="rightimageX" src="pictures/TAPI_example.png"
+                  title="Examples session in TigerEngine" />
+                </a>
+                <a class="text" href="https://github.com/CarlMariaMikage/TigerEngine" target="_blank" name="de" style="display:none">
+                  <img class="rightimageX" src="pictures/TAPI_example.png"
+                    title="Beispiel-Session in TigerEngine" />
+                </a>
+                <a class="text" href="https://github.com/CarlMariaMikage/TigerEngine" target="_blank" name="fr" style="display:none">
+                  <img class="rightimageX" src="pictures/TAPI_example.png"
+                    title="Session d'exemples dans TigerEngine" />
+                </a>
+
+              <!--
+
+                <h4 class="text" name="en">Computer programs</h4>
+                <h4 class="text" name="de"
+                style="display:none">Computerprogramme</h4>
+
+                <ul>
+                  <li>
+                    <i>kht++</i> (<a href="https://cbz20.raspberryip.com/code/khtpp/docs/index.html" 
+                    target="_blank">program website</a>|<a href="https://github.com/cbz20/khtpp" target="_blank">github</a>), a C++ program for computing Khovanov 
+                  invariants of links and tangles. 2021.
+                    <p style="font-size:small">
+                    This program supersedes  
+                  <i><a href="https://github.com/spinachstealer/KhT"
+                    target="_blank">KhT.py</a></i>, a python program that I wrote 
+                  with G. Chhina during an undergraduate summer research project.
+                  </p>
+                  </li>
+                  <li>
+                    <i><a href="code/BSFH/BSFH.zip"
+                    target="_blank">BSFH.m</a></i>, a Mathematica package for computing
+                    Zarev's <a href="https://arxiv.org/abs/0908.1106v2"
+                    target="_blank">bordered sutured Floer invariants</a>. 2017–2019.
+                    <p style="font-size:small">
+                  A manual can be
+                    found in appendix&#160;D of my thesis. An updated version which
+                    also handles more than two glueing surfaces
+                    and <nobr>\(\alpha\)-</nobr> and <nobr>\(\beta\)-</nobr>arcs
+                    simultaneously is available upon request.
+                  </p>
+                  </li>
+                  <li>
+                    <i><a href="code/PQM/PQMv1.1.zip"
+                    target="_blank">PQM.m</a></i>, a Mathematica package for computing the invariant \(\operatorname{HFT}\) for Conway tangles. 2018.
+                    <p style="font-size:small">
+                    A manual can be
+                    found <a href="code/PQM/Manual_PQM.pdf"
+                    target="_blank">here</a>.
+                  </p>
+                  </li>
+                  <li>
+                    <i><a href="code/APT/APT.zip"
+                    target="_blank">APT.m</a></i>, a Mathematica package for computing the decategorified
+                    polynomial tangle invariants&#160;\(\nabla_T^s\) from my
+                    thesis. 2017.
+                    <p style="font-size:small">
+                  A manual can be found in appendix&#160;C of my thesis.
+                  </p>
+                  </li>
+                </ul>
+
+                <p>
+                  All four programs are licensed
+                  under <a href="https://www.gnu.org/licenses/agpl-3.0.html"
+                  target="_blank">AGPLv3</a>.
+                </p>
+              -->
+
+              </div>
+
+              <div class="details" id="#wiki" style="display: none">
+                <!--
+                <h4>Outreach talks</h4>
+                <ul>     
+                  <li>
+                    (<a href="https://cbz20.raspberryip.com/documents/talks/2022-10-21-Nacht-Schafft-Wissen.pdf">slides</a>) <i>Mathematik zum Anfassen</i>, <a href="https://www.nacht-schafft-wissen.de/fileadmin/user_upload/Final-Programmheft.pdf#page=26">Nacht.Schafft.Wissen 2022</a> (Night of Science), Regensburg
+                  </li>
+                </ul>
+
+                <h4>Lectures</h4>
+                <h5>Universität Regensburg</h5>
+                <ul>     
+                  <li>
+                      Winter Term '21: <a href="teaching/2021-Elementargeometrie">Elementargeometrie für Lehramt</a>
+                  </li>
+                </ul>
+                <h5>University of British Columbia</h5>
+                <ul>
+                    <li>
+                      Spring Term '20: <a href="teaching/2020-math101/">101:201 Integral Calculus with Applications to Physical Sciences and Engineering</a>
+                  </li>
+                  <li>
+                      Winter Term '19: <a href="teaching/2019-math100/">100:101 Differential Calculus with Applications to Physical Sciences and Engineering</a>
+                  </li>
+                    <li>
+                      Spring Term '19: <a href="teaching/2019-math101/">101:207 Integral Calculus with Applications to Physical Sciences and Engineering </a>
+                  </li>
+                  <li>
+                      Winter Term '18: <a href="teaching/2018-math100/">100:102 Differential Calculus with Applications to Physical Sciences and Engineering</a>
+                  </li>
+                </ul>  
+                -->
+                <ul>
+                  <li>
+                    Big List of Problems : <br>
+                    <a href="documents/notes/big_list.html">HTML</a>
+                  </li>
+                </ul>
+				
+                <p class="text" name="en">
+                  Below are some notes I took during my undergraduate studies. Above is a big list of problems I've collected over the years.
+                </p>
+
+                <p class="text" name="de" style="display:none;">
+                  Im Folgenden finden Sie einige Notizen, die ich während meines Bachelor-Studiums gemacht habe. Oben ist eine große Liste 
+                  von Problemen, die ich im Laufe der Jahre gesammelt habe.
+                </p>
+
+                <p class="text" name="fr" style="display:none;">
+                  Vous trouverez ci-dessous quelques notes que j'ai prises pendant mes études de premier cycle. Ci-dessus, une grande liste 
+                  de problèmes que j'ai rassemblés au fil des ans.
+                </p>
+
+                <div align="right">
+                  <a class="text" name="en">
+                      <img
+                      class="rightimageX"
+                      src="pictures/cancellationwebsimplified.png"
+                      title="A concise proof of the cancellation lemma"
+                      />
+                  </a>
+                  <a class="text" name="de" style="display:none">
+                      <img
+                      class="rightimageX"
+                      src="pictures/cancellationwebsimplified.png"
+                      title="Ein kurzer Beweis für das Cancellation-Lemma"
+                      />
+                  </a>
+                  <a class="text" name="fr" style="display:none">
+                    <img
+                    class="rightimageX"
+                    src="pictures/cancellationwebsimplified.png"
+                    title="Une preuve concise du lemme d'annulation"
+                    />
+                </a>
+                </div>
+                
+                <h2 class="text" name="en">Year 1</h2>
+                <h2 class="text" name="de" style="display:none">1. Jahr</h2>
+                <h2 class="text" name="fr" style="display:none">1ère année</h2>
+
+                <h3 class="text" name="en">Semester 1</h3>
+                <h3 class="text" name="de" style="display:none">1. Semester</h3>
+                <h3 class="text" name="fr" style="display:none">Semestre 1</h3>
+
+                <ul>
+                  <li>
+                    Calculus, Geometry, Algebra <br>
+                    <a href="documents/notes/calculus.html">HTML</a> | <a class="text" name="en">A general introduction to mathematics</a><a class="text" name="de" style="display:none;">Eine allgemeine Einführung in die Mathematik</a><a class="text" name="fr" style="display:none;">Une introduction générale aux mathématiques</a>
+                  </li>
+                  <li>
+                    Group Theory 1 <br>
+                    <a href="documents/notes/group_theory_1.html">HTML</a> | <a class="text" name="en">A first course in group theory</a><a class="text" name="de" style="display:none;">Ein erster Kurs in der Gruppentheorie</a><a class="text" name="fr" style="display:none;">Un premier cours sur la théorie des groupes</a>
+                  </li>
+				          <li>
+                    <i>Mechanics 1</i>
+                  </li>
+				          <li>
+                    <i>Theormodynamics and Statistical Mechanics</i>
+                  </li>
+                </ul>
+
+                <h3 class="text" name="en">Semester 2</h3>
+                <h3 class="text" name="de" style="display:none">2. Semester</h3>
+                <h3 class="text" name="fr" style="display:none">Semestre 2</h3>
+
+                <ul>
+                  <li>
+                    Real Analysis 1
+                  </li>
+                  <li>
+                    Differential Equations
+                  </li>
+				          <li>
+                    <i>Mechanics 2</i>
+                  </li>
+				          <li>
+                    <i>Classical Electrodynamics</i>
+                  </li>
+                </ul>
+
+                <h2 class="text" name="en">Year 2</h2>
+                <h2 class="text" name="de" style="display:none">2. Jahr</h2>
+                <h2 class="text" name="fr" style="display:none">2ème année</h2>
+
+                <h3 class="text" name="en">Semester 3</h3>
+                <h3 class="text" name="de" style="display:none">3. Semester</h3>
+                <h3 class="text" name="fr" style="display:none">Semestre 3</h3>
+
+                <ul>
+                  <li>
+                    Theory of Real Functions
+                  </li>
+                  <li>
+                    Ring Theory and Linear Algebra 1
+                  </li>
+                  <li>
+                    Numerical Methods
+                  </li>
+                  <li>
+                    <i>General Relativity</i>
+                  </li>
+				          <li>
+                    <i>Quantum Mechanics 1</i>
+                  </li>
+				          <li>
+                    <i>Quantum Mechanics 2</i>
+                  </li>
+                </ul>
+
+                <h3 class="text" name="en">Semester 4</h3>
+                <h3 class="text" name="de" style="display:none">4. Semester</h3>
+                <h3 class="text" name="fr" style="display:none">Semestre 4</h3>
+
+                <ul>
+                  <li>
+                    Riemann Integration and Series of Functions
+                  </li>
+                  <li>
+                    Ring Theory and Linear Algebra 2
+                  </li>
+                  <li>
+                    Multivariate Calculus
+                  </li>
+                  <li>
+                    <i>Quantum Mechanics 3</i>
+                  </li>
+				          <li>
+                    <i>Relativistic Quantum Mechanics</i>
+                  </li>
+				          <li>
+                    <i>Field Quantisation</i>
+                  </li>
+                </ul>
+
+                <h2 class="text" name="en">Year 3</h2>
+                <h2 class="text" name="de" style="display:none">3. Jahr</h2>
+                <h2 class="text" name="fr" style="display:none">3ème année</h2>
+
+                <h3 class="text" name="en">Semester 5</h3>
+                <h3 class="text" name="de" style="display:none">5. Semester</h3>
+                <h3 class="text" name="fr" style="display:none">Semestre 5</h3>
+
+                <ul>
+                  <li>
+                    Partial Differential Equations
+                  </li>
+                  <li>
+                    Metric Space and Complex Analysis
+                  </li>
+                  <li>
+                    Linear Programming and Game Theory
+                  </li>
+                  <li>
+                    Probability and Statistics
+                  </li>
+                  <li>
+                    <i>Quantum Electrodynamics</i>
+                  </li>
+				          <li>
+                    <i>Quantum Chromodynamics</i>
+                  </li>
+				          <li>
+                    <i>Nuclear Models</i>
+                  </li>
+                </ul>
+
+                <h3 class="text" name="en">Semester 6</h3>
+                <h3 class="text" name="de" style="display:none">6. Semester</h3>
+                <h3 class="text" name="fr" style="display:none">Semestre 6</h3>
+
+                <ul>
+                  <li>
+                    Group Theory 2
+                  </li>
+                  <li>
+                    Differential Geometry
+                  </li>
+                  <li>
+                    Point Set Topology
+                  </li>
+                  <li>
+                    Combinatorics and Graph Theory
+                  </li>
+                  <li>
+                    <i>Gauge Theory of Weak Interactions</i>
+                  </li>
+				          <li>
+                    <i>Superstring Perturbation Theory</i>
+                  </li>
+				          <li>
+                    <i>Quantum Fields and Strings</i>
+                  </li>
+                </ul>
+
+                <h2 class="text" name="en">Year 4</h2>
+                <h2 class="text" name="de" style="display:none">4. Jahr</h2>
+                <h2 class="text" name="fr" style="display:none">4ème année</h2>
+
+                <h3 class="text" name="en">Semester 7</h3>
+                <h3 class="text" name="de" style="display:none">7. Semester</h3>
+                <h3 class="text" name="fr" style="display:none">Semestre 7</h3>
+
+                <ul>
+                  <li>
+                    Measure Theory
+                  </li>
+                  <li>
+                    Lie Groups and Representation Theory
+                  </li>
+                </ul>
+
+                <h3 class="text" name="en">Semester 8</h3>
+                <h3 class="text" name="de" style="display:none">8. Semester</h3>
+                <h3 class="text" name="fr" style="display:none">Semestre 8</h3>
+
+                <ul>
+                  <li>
+                    Functional Analysis
+                  </li>
+                  <li>
+                    Commutative Algebra and Algebraic Geometry
+                  </li>
+                </ul>
+
+                <div align="right">
+                  <a class="text" name="en">
+                      <img
+                      class="rightimageX"
+                      src="pictures/groupaxiom.png"
+                      title="Combined commutative diagram of group axioms"
+                      />
+                  </a>
+                  <a class="text" name="de" style="display:none">
+                      <img
+                      class="rightimageX"
+                      src="pictures/groupaxiom.png"
+                      title="Kombiniertes kommutatives Diagramm der Gruppenaxiome"
+                      />
+                  </a>
+                  <a class="text" name="fr" style="display:none">
+                    <img
+                    class="rightimageX"
+                    src="pictures/groupaxiom.png"
+                    title="Diagramme commutatif combiné des axiomes de groupe"
+                    />
+                </a>
+                </div>
+                
+                <!--
+                <h5>Université de Sherbrooke</h5>
+                <ul>     
+                  <li>
+                      Hiver '18: <a href="teaching/2018-AlgTop/">MAT623/MAT813 Topologie algébrique</a>
+                  </li>
+                </ul>
+                <h4>Tripos supervisions (University of Cambridge)</h4>
+                <ul>   
+                  <li>
+                      Lent '17: <a href="https://www.dpmms.cam.ac.uk/~agk22/teaching.html" target="_blank" >Part Ib Geometry</a> (Dr Alexei Kovalev)
+                  </li>
+                  <li>
+                      Michaelmas '15+'16: <a href="https://www.dpmms.cam.ac.uk/~hjrw2/teaching.html" target="_blank" >Part II Algebraic Topology</a> (Dr Henry Wilton)
+                  </li>
+                  <li>
+                      Lent '15: <a href="https://www.dpmms.cam.ac.uk/~or257/teaching.htm" target="_blank">Part III Homotopy Theory</a> (Dr Oscar Randal-Williams)
+                  </li>
+                  <li>
+                      Michaelmas '13+'14: <a href="https://www.dpmms.cam.ac.uk/~or257/teaching.htm" target="_blank" >Part II Algebraic Topology</a> (Dr Oscar Randal-Williams)<br>
+                  </li>
+                </ul>
+                <h4>Student mentoring</h4>
+                <h5>Graduate projects</h5>
+                <ul>     
+                  <li>
+                      Ludovico Morellato (2022): <a href="https://github.com/ludomorellato/nicepy" target="_blank"><i>Implementing the Sarkar-Wang nicefication algorithm for Heegaard diagrams</i></a>
+                  <p style="font-size:small">
+                  joint supervision with <a href="https://lewark.de/lukas/">Lukas Lewark</a>
+                  </p>
+                  </li>
+                <li>
+                      Benedikt Aubeck (2021): <a href="documents/2021-Aubeck-Thesis-MSc.pdf" target="_blank"><i>Determining the Seifert genus via the Heegaard Floer tangle invariant HFT</i></a>
+                  <p style="font-size:small">
+                  joint supervision with <a href="https://lewark.de/lukas/">Lukas Lewark</a>
+                  </p>
+                  </li>
+                </ul>
+
+                <h5>Undergraduate projects</h5>
+                <ul>     
+                  <li>
+                      Gurkeerat Chhina (2019): <a href="https://github.com/GurkeeratChhina/KhT"><i>Computing immersed curves in Khovanov homology</i></a>
+                  </li>
+                <li>
+                      Johnny Nicholson (2016): <i>Comparing generalisations of the Alexander polynomial to tangles</i>
+                  </li>
+                </ul>
+
+                -->              
+              </div>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+      <!--               footer           -->
+      <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+      <table id="footer">
+        <tr>
+          <td id="leftfooter">
+            <a href="https://cbz20.raspberryip.com/impressum/">
+            Impressum (German Legal Notices)</a>
+          </td>
+
+          <td id="centerfooter">
+            Based on a design by <a href="https://cbz20.raspberryip.com/">Claudius Zibrowius</a>.
+            Public domain icons from <a href="https://www.svgrepo.com">SVGRepo</a>.
+          </td>
+
+          <td id="rightfooter">
+            <div class="text" name="en">
+            last updated on 29.8.2023
+            </div>
+
+            <div class="text" name="de" style="display:none">
+            zuletzt aktualisiert am 29.8.23
+            </div>
+
+            <div class="text" name="fr" style="display:none">
+            dernière mise à jour le 29.8.23
+            </div>
+          </td>
+        </tr>
+      </table>
+
+  </body>
 </html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.1 Transitional//EN">
+<html>
+	<head>	
+		<meta charset="utf-8" />
+  		<meta name="generator" content="pandoc" />
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  		<meta name="dcterms.date" content="2023-07-13" />
+  		<title>Calculus, Geometry and Algebra</title>
+		<link rel="icon" type="image/png" href="../../pictures/mpg.png">
+		<style>
+			code{white-space: pre-wrap;}
+				span.smallcaps{font-variant: small-caps;}
+				span.underline{text-decoration: underline;}
+				div.column{display: inline-block; vertical-align: top; width: 50%;}
+				div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+				ul.task-list{list-style: none;}
+				div.csl-bib-body { }
+				div.csl-entry {
+				  clear: both;
+				}
+				.hanging div.csl-entry {
+				  margin-left:2em;
+				  text-indent:-2em;
+				}
+				div.csl-left-margin {
+				  min-width:2em;
+				  float:left;
+				}
+				div.csl-right-inline {
+				  margin-left:2em;
+				  padding-left:1em;
+				}
+				div.csl-indent {
+				  margin-left: 2em;
+				}  
+		</style>
+		<link rel="stylesheet" href="../../note_style.css">
+
+		<script type="text/javascript" async src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+		</script>
+	</head>
+	<body>
+		<header id="title-block-header">
+			<h1 class="title">Calculus, Geometry and Algebra</h1>
+		</header>
+		
+		<nav id="TOC" role="doc-toc">
+			<h3 id="toc-title">Contents</h3>
+			<ol>
+				<li><a href="#intro">Introduction</a></li>
+				<li><a href="#bibliography">References</a></li>
+			</ol>
+		</nav>
+
+		<h2 id="intro">Introduction</h2>
+		<p>
+			For this course we'll be following 
+			<span class="citation" data-cites="apostol">[<a href="#apostol" role="doc-biblioref">Apostol</a>]</span> 
+            for calculus and analytic geometry. For the algebra we'll be using 
+            <span class="citation" data-cites="knapp">[<a href="#knapp" role="doc-biblioref">Knapp</a>]</span> and 
+            <span class="citation" data-cites="vinberg">[<a href="#vinberg" role="doc-biblioref">Vinberg</a>]</span>. 
+        </p>
+        
+		<h3>Sets, Maps and Structures</h3>
+        <p>
+            <hr />
+			<div class="remark">
+				For an axiomatic treatment of set theory refer to 
+				<span class="citation" data-cites="kunen">[<a href="#kunen" role="doc-biblioref">Kunen</a>]</span>.
+				For our purposes, naive set theory will suffice. In fact, most working mathematicians not specialising
+				in logic do not have to worry about axiomatic foundations. Logic is to mathematics what grammar is to
+				languages, we use it intuitively all the time but we rarely care to dwell on it too much. In fact the
+				naive set theory and basic propositional logic is in some sense a natural extension of our common sense,
+				and thus rather intuitive. The purpose of rigour is not to banish intuition, but to banish bad intuition.
+				Correct intuition is important, and rigour is there to helps us achieve that.
+			</div>
+            <hr />
+
+            If it is at all possible to define the subject of algebra precisely, then this is the study of algebraic 
+			structures: sets on which operations are defined. But what <i>is</i> a <b>set</b> ? <br>
+			We may call any collection of objects that is clearly determined a set. There are certain problems with this: 
+			for example, can a set contain itself ? 
+            <div class="example">
+                Consider the set \(A_0\), the simplest possibility for which is for it to be empty i.e. \(A_0 = \{\}\) or \(\varnothing\).
+                Clearly in this case its cardinality \(Card(A_0) = 0\). Let's now consider the set \(A_1 = \{A_0\} = \{\varnothing\}\). 
+                Note that \(Card(A_1) = 1\) and <b>NOT 0</b> as it does contain exactly one element, \(\varnothing\). <br>
+                In this way, by setting \(A_0 = \varnothing\) and \(A_{s(n)} = \displaystyle \bigcup_{k=0}^{n}A_k\), where \(s(n)\) is 
+                the successor of \(n\), we can define \(\mathbb{N}_0\) by <br>
+                \(0 = Card(A_0) \in \mathbb{N}_0\), and <br>
+                \(n = Card(A_n) \in \mathbb{N}_0 \Rightarrow s(n) = Card(A_s(n)) \in \mathbb{N}_0\).
+            </div>
+		</p>
+
+		<h1 class="unnumbered" id="bibliography">References</h1>
+		
+			<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+				<div id="apostol" class="csl-entry" role="doc-biblioentry">
+				<div class="csl-left-margin">1. </div><div class="csl-right-inline">Tom M. Apostol, <em>Calculus Vol.s 1 & 2</em> (John Wiley & Sons, 1967).</div>
+                <div id="knapp" class="csl-entry" role="doc-biblioentry">
+                <div class="csl-left-margin">2. </div><div class="csl-right-inline">Anthony W. Knapp, <em>Basic Algebra</em> (Digital Second Edition, 2016).</div>
+                <div id="vinberg" class="csl-entry" role="doc-biblioentry">
+                <div class="csl-left-margin">3. </div><div class="csl-right-inline">Ernest B. Vinberg, <em>A Course in Algebra</em> (AMS Graduate Studies in Mathematics, Vol. 56, 2003).</div>
+                <div id="kunen" class="csl-entry" role="doc-biblioentry">
+                <div class="csl-left-margin">4. </div><div class="csl-right-inline">K. Kunen, <em>Set Theory</em> (Elsevier Science, 1983).</div>
+                <div id="kuga" class="csl-entry" role="doc-biblioentry">
+                <div class="csl-left-margin">5. </div><div class="csl-right-inline">M. Kuga, <em>Galois' Dream: Group Theory and Differential Equations</em> (Birkh&auml;user Boston, 1993).</div>
+			</div>
+		<hr />
+		
+			<small>	
+				<p class="date">
+					Last updated on 03.09.2023.<br>
+					<a href="../../index.html#wiki">Notes</a>
+				</p>
+			</small>
+	</body>
+</html>
