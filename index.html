@@ -37,6 +37,7 @@
       var pathtitleen = new Array();
       var pathtitlefr = new Array();
       var pathtitlede = new Array();
+      var pathtitlejp = new Array();
       var click = 0;
       var noim = 0;
 
@@ -45,14 +46,17 @@
       pathtitleen[0] = "Japanese cherry blossom";
       pathtitlefr[0] = "Fleur de cerisier japonais";
       pathtitlede[0] = "Japanische Kirschblüte";
+      pathtitlejp[0] = "日本の桜";
       path[1] = "pictures/ipmu-sakura13.jpg";
       pathtitleen[1] = "Kavli Institute for the Physics and Mathematics of the Universe, The University of Tokyo";
       pathtitlefr[1] = "Institut Kavli pour la physique et les mathématiques de l'univers, Université de Tokyo";
       pathtitlede[1] = "Kavli-Institut für Physik und Mathematik des Universums, Universität Tokio";
+      pathtitlejp[1] = "カブリ数物連携宇宙研究機構、東京大学";
       path[2] = "pictures/komaba.jpg";
       pathtitleen[2] = "Building 1 of Komaba Campus, University of Tokyo";
       pathtitlefr[2] = "Bâtiment 1 du campus de Komaba, Université de Tokyo";
       pathtitlede[2] = "Gebäude 1 des Komaba Campus, Universität Tokio";
+      pathtitlejp[2] = "東大駒場Iキャンパス1号館";
 
       /*Language switch*/
       var text = document.getElementsByClassName("text");
@@ -224,16 +228,25 @@
                   <a style="color:brown" onclick="toggleLang('en');">⟩EN </a>
                   <a style="color:palevioletred" onclick="toggleLang('de');">⟩DE </a>
                   <a style="color:palevioletred" onclick="toggleLang('fr');">⟩FR </a>
+                  <a style="color:palevioletred" onclick="toggleLang('jp');">⟩日本 </a>
                 </div>
                 <div class="text" name="de" style="display:none">
                   <a style="color:palevioletred" onclick="toggleLang('en');">⟩EN </a>
                   <a style="color:brown" onclick="toggleLang('de');">⟩DE </a>
                   <a style="color:palevioletred" onclick="toggleLang('fr');">⟩FR </a>
+                  <a style="color:palevioletred" onclick="toggleLang('jp');">⟩日本 </a>
                 </div>
                 <div class="text" name="fr" style="display:none">
                   <a style="color:palevioletred" onclick="toggleLang('en');">⟩EN </a>
                   <a style="color:palevioletred" onclick="toggleLang('de');">⟩DE </a>
                   <a style="color:brown" onclick="toggleLang('fr');">⟩FR </a>
+                  <a style="color:palevioletred" onclick="toggleLang('jp');">⟩日本 </a>
+                </div>
+                <div class="text" name="jp" style="display:none">
+                  <a style="color:palevioletred" onclick="toggleLang('en');">⟩EN </a>
+                  <a style="color:palevioletred" onclick="toggleLang('de');">⟩DE </a>
+                  <a style="color:palevioletred" onclick="toggleLang('fr');">⟩FR </a>
+                  <a style="color:brown" onclick="toggleLang('jp');">⟩日本 </a>
                 </div>
               </h3>
 
@@ -261,11 +274,19 @@
               </h3>
 
               <h3 class="text" name="fr" style="display:none">
-                <a id="de-header#home" onclick="toggleDisplay('#home');">Accueil</a> |
-                <a id="de-header#publications" onclick="toggleDisplay('#publications');">Publications</a> |
-                <a id="de-header#books" onclick="toggleDisplay('#books');">Livres que j'aime</a> |
-                <a id="de-header#code" onclick="toggleDisplay('#code');">Code</a> |
-                <a id="de-header#wiki" onclick="toggleDisplay('#wiki');">Notes</a>
+                <a id="fr-header#home" onclick="toggleDisplay('#home');">Accueil</a> |
+                <a id="fr-header#publications" onclick="toggleDisplay('#publications');">Publications</a> |
+                <a id="fr-header#books" onclick="toggleDisplay('#books');">Livres que j'aime</a> |
+                <a id="fr-header#code" onclick="toggleDisplay('#code');">Code</a> |
+                <a id="fr-header#wiki" onclick="toggleDisplay('#wiki');">Notes</a>
+              </h3>
+
+              <h3 class="text" name="jp" style="display:none">
+                <a id="jp-header#home" onclick="toggleDisplay('#home');">ホーム</a> |
+                <a id="jp-header#publications" onclick="toggleDisplay('#publications');">出版物</a> |
+                <a id="jp-header#books" onclick="toggleDisplay('#books');">好きな本</a> |
+                <a id="jp-header#code" onclick="toggleDisplay('#code');">コード</a> |
+                <a id="jp-header#wiki" onclick="toggleDisplay('#wiki');">ノート</a>
               </h3>
 
               <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
@@ -295,6 +316,13 @@
                     width="30%"
                     title="Représentation visuelle du groupe E8. Crédits : Jgmoxness, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons." />
                 </a>
+                <a class="text" href="https://commons.wikimedia.org/wiki/File:Percolation.gif" target="_blank" name="jp" style="display:none" >
+                  <img
+                    class="rightimage"
+                    src="pictures/E8Petrie.png"
+                    width="30%"
+                    title="E8グループの視覚的表現。クレジット:Jgmoxness, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons." />
+                </a>
 
                 <p class="text" name="en">
                   I am currently an undergraduate student of mathematics. Aiming to pursue graduate studies at either the Research Institute for Mathematical Sciences
@@ -311,6 +339,10 @@
                   l'université de Kyoto ou à l'École supérieure de sciences mathématiques de l'université de Tokyo.
                 </p>
 
+                <p class="text" name="jp" style="display:none">
+                  現在、数学の学部生です。 京都大学数理解析研究所または東京大学大学院数理科学研究科での大学院進学を目指す。
+                </p>
+
 
                 <p class="text" name="en">
                   Broadly interested in the fields of combinatorics, representation theory, complex geometry and mathematical physics.
@@ -320,6 +352,9 @@
                 </p>
                 <p class="text" name="fr" style="display:none">
                   Largement intéressé par les domaines de la combinatoire, la théorie des représentations, de la géométrie complexe et de la physique mathématique.
+                </p>
+                <p class="text" name="fr" style="display:none">
+                  組合せ数学、表現論、複素幾何学、数理物理学の各分野に広く興味を持つ。
                 </p>
 
                 <table>
@@ -380,6 +415,13 @@
                     width="30%"
                     title="Tractrix comme involution de la caténaire - Sam Derbyshire" />
                 </a>
+                <a class="text" href="https://blogs.ams.org/visualinsight/2016/05/01/involutes-of-a-cubical-parabola/" target="_blank" name="jp" style="display:none" >
+                  <img
+                    class="rightimageX"
+                    src="pictures/tractrix_as_involute_of_catenary.gif"
+                    width="30%"
+                    title="カテナリーのインボリューションとしてのトラクトリックス - Sam Derbyshire" />
+                </a>
 
               </div>
 
@@ -406,6 +448,13 @@
                     Samuel Barclay Beckett (traduit par Edith Fournier pour les Editions de Minuit), <i>&laquo; Cap au pire &raquo;</i>
                   </span>
                 </p>
+                <p class="text" name="jp" style="display:none;text-align:center;padding-top:20pt;padding-bottom:10pt">
+                  <i>&laquo; Ever tried. Ever failed. No matter. Try again. Fail again. Fail better. &raquo;</i>
+                  <br>
+                  <span style="font-size:small">
+                    Samuel Barclay Beckett, <i>&laquo; Worstward Ho &raquo;</i>
+                  </span>
+                </p>
 
                 <a class="text" name="en" href="https://johncarlosbaez.wordpress.com/2017/12/07/wigner-crystals/">
                   <img
@@ -428,32 +477,47 @@
                     title="Cristal de Wigner"
                     />
                 </a>
+                <a class="text" name="jp" style="display:none" href="https://johncarlosbaez.wordpress.com/2017/12/07/wigner-crystals/">
+                  <img
+                    class="rightimage"
+                    src="pictures/wigner_-cluster.png"
+                    title="ウィグナー結晶"
+                    />
+                </a>
 
                 <a class="text" name="en" href="https://blogs.ams.org/visualinsight/2016/11/01/escudero-nonic/">
                   <img
                     class="rightimage"
                     src="pictures/escudero_nonic_Q9.jpg"
-                    title="Escudero Nonic Q_9 – Juan García Escudero"
+                    title="Escudero Nonic Q_9 - Juan García Escudero"
                     />
                 </a>
                 <a class="text" name="de" style="display:none" href="https://blogs.ams.org/visualinsight/2016/11/01/escudero-nonic/">
                   <img
                     class="rightimage"
                     src="pictures/escudero_nonic_Q9.jpg"
-                    title="Escudero Nonic Q_9 – Juan García Escudero"
+                    title="Escudero Nonic Q_9 - Juan García Escudero"
                     />
                 </a>
                 <a class="text" name="fr" style="display:none" href="https://blogs.ams.org/visualinsight/2016/11/01/escudero-nonic/">
                   <img
                     class="rightimage"
                     src="pictures/escudero_nonic_Q9.jpg"
-                    title="Escudero Nonic Q_9 – Juan García Escudero"
+                    title="Escudero Nonic Q_9 - Juan García Escudero"
+                    />
+                </a>
+                <a class="text" name="jp" style="display:none" href="https://blogs.ams.org/visualinsight/2016/11/01/escudero-nonic/">
+                  <img
+                    class="rightimage"
+                    src="pictures/escudero_nonic_Q9.jpg"
+                    title="エスクデロ・ノニック Q_9 - Juan García Escudero"
                     />
                 </a>
 
                 <h4 class="text" name="en">Creative Writing</h4>
                 <h4 class="text" name="de" style="display:none">Kreatives Schreiben</h4>
                 <h4 class="text" name="fr" style="display:none">Écriture créative</h4>
+                <h4 class="text" name="jp" style="display:none">創作</h4>
 
                 <ul>
                   <li>
@@ -470,6 +534,9 @@
                     </p>
                     <p class="text" name="fr" style="display: none;font-size:small">
                       Oregairu fanfic sur lequel je travaille.
+                    </p>
+                    <p class="text" name="jp" style="display: none;font-size:small">
+                      俺ガイルのファンフィクに取り組んでいる。
                     </p>
                   </li>
                 </ul>
@@ -796,10 +863,15 @@
                   <img class="rightimage" src="pictures/togliatti_quintic.jpg"
                       title="Togliatti Quintic - Abdelaziz Nait Merzouk" />
                 </a>
+                <a class="text" name="jp" style="display:none" href="https://blogs.ams.org/visualinsight/2016/09/15/togliatti-quintic-surface/">
+                  <img class="rightimage" src="pictures/togliatti_quintic.jpg"
+                      title="トリアッティ・クインティック - Abdelaziz Nait Merzouk" />
+                </a>
 
                 <a class="text" name="en"><h4>Analysis</h4></a>
-                <a class="text" name="de" style="display:none"><h4>Analysis und Wahrscheinlichkeitstheorie</h4></a>
-                <a class="text" name="fr" style="display:none"><h4>Analyse et théorie des probabilités</h4></a>
+                <a class="text" name="de" style="display:none"><h4>Analysis</h4></a>
+                <a class="text" name="fr" style="display:none"><h4>Analyse</h4></a>
+                <a class="text" name="jp" style="display:none"><h4>解&#x3000;析</h4></a>
                   <ul>
                     <li>Walter Rudin - <i>Principles of Mathematical Analysis</i></li>
                     <li>Manfred Leopold Einsiedler, Thomas Ward - <i>Functional Analysis, Spectral Theory, and Applications</i></li>
@@ -810,6 +882,7 @@
                 <a class="text" name="en"><h4>Algebra</h4></a>
                 <a class="text" name="de" style="display:none"><h4>Algebra</h4></a>
                 <a class="text" name="fr" style="display:none"><h4>Algèbre</h4></a>
+                <a class="text" name="jp" style="display:none"><h4>代&#x3000;数</h4></a>
                   <ul>
                     <li>Paul Richard Halmos - <i>Finite Dimensional Vector Spaces</i></li>
                     <li>Ernest Borissowitsch Winberg - <i>A Course in Algebra</i></li>
@@ -819,9 +892,10 @@
                     <li>Michael Francis Atiyah, Ian Grant Macdonald - <i>Commutative Algebra</i></li>
                     <li>Joseph Daniel Harris, William Edgar Fulton - <i>Representation theory: A first course</i></li>
                   </ul>
-                <a class="text" name="en"><h4>Geometry, Topology and Number Theory</h4></a>
-                <a class="text" name="de" style="display:none"><h4>Geometrie, Topologie und Zahlentheorie</h4></a>
-                <a class="text" name="fr" style="display:none"><h4>Géométrie, topologie et théorie des nombres</h4></a>
+                <a class="text" name="en"><h4>Geometry and Topology</h4></a>
+                <a class="text" name="de" style="display:none"><h4>Geometrie und Topologie</h4></a>
+                <a class="text" name="fr" style="display:none"><h4>Géométrie et topologie</h4></a>
+                <a class="text" name="jp" style="display:none"><h4>幾&#x3000;何</h4></a>
                   <ul>
                     <li>Klaus Jänich - <i>Topologie</i></li>
                     <li>John Willard Milnor - <i>Topology from the Differentiable Viewpoint</i></li>
@@ -832,12 +906,11 @@
                     <li>Daniel Huybrechts - <i>Complex Geometry: An Introduction</i></li>
                     <li>Qing Liu - <i>Algebraic Geometry and Arithmetic Curves</i></li>
                     <li>Gary Cornell, Joseph Hillel Silverman - <i>Arithmetic Geometry</i></li>
-                    <li>Senon Iwanowitsch Borewitsch, Igor Rostislawowitsch Schafarewitsch - <i>Number Theory</i></li>
-                    <li>Maruti Ram Pedaprolu Murty, Jody Esmonde - <i>Problems in Algebraic Number Theory</i></li>
                   </ul>
                 <a class="text" name="en"><h4>Mathematical Physics</h4></a>
                 <a class="text" name="de" style="display:none"><h4>Mathematische Physik</h4></a>
                 <a class="text" name="fr" style="display:none"><h4>Physique mathématique</h4></a>
+                <a class="text" name="jp" style="display:none"><h4>数&#x3000;理&#x3000;物&#x3000;理&#x3000;学</h4></a>
                   <ul>
                     <li>Peter Szekeres - <i>A Course in Modern Mathematical Physics: Groups, Hilbert Space and Differential Geometry</i></li>
                     <li>Wladimir Igorewitsch Arnol'd - <i>Mathematical Methods of Classical Mechanics</i></li>
@@ -858,6 +931,10 @@
                     <img class="rightimage" src="pictures/Togliatti_surface.png"
                       title="Togliatti Surface avec w=1, délimitée par une sphère de rayon=6. Crédits : Claudio Rocchini, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons" />
                   </a>
+                  <a class="text" name="jp" style="display:none">
+                    <img class="rightimage" src="pictures/Togliatti_surface.png"
+                      title="半径=6の球に囲まれたw=1のトリアッティ曲面。クレジット Claudio Rocchini, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons" />
+                  </a>
 
               </div>
 
@@ -866,6 +943,7 @@
                 <h4 class="text" name="en">Computer programs</h4>
                 <h4 class="text" name="de" style="display:none">Computerprogramme</h4>
                 <h4 class="text" name="fr" style="display:none">Programmes informatiques</h4>
+                <h4 class="text" name="jp" style="display:none">コンピュータ・プログラム</h4>
 
                 <iframe 
                   frameborder="0" 
@@ -898,6 +976,10 @@
                 <a class="text" href="https://github.com/CarlMariaMikage/TigerEngine" target="_blank" name="fr" style="display:none">
                   <img class="rightimageX" src="pictures/TAPI_example.png"
                     title="Session d'exemples dans TigerEngine" />
+                </a>
+                <a class="text" href="https://github.com/CarlMariaMikage/TigerEngine" target="_blank" name="jp" style="display:none">
+                  <img class="rightimageX" src="pictures/TAPI_example.png"
+                    title="TigerEngineでのセッション例" />
                 </a>
 
               <!--
@@ -1013,6 +1095,10 @@
                   de problèmes que j'ai rassemblés au fil des ans.
                 </p>
 
+                <p class="text" name="jp" style="display:none;">
+                  以下は私が学部在学中に取ったメモの一部である。上にあるのは、私が長年にわたって集めてきた問題の大きなリストだ。
+                </p>
+
                 <div align="right">
                   <a class="text" name="en">
                       <img
@@ -1034,25 +1120,61 @@
                     src="pictures/cancellationwebsimplified.png"
                     title="Une preuve concise du lemme d'annulation"
                     />
+                  <a class="text" name="jp" style="display:none">
+                    <img
+                    class="rightimageX"
+                    src="pictures/cancellationwebsimplified.png"
+                    title="キャンセル・レンマの簡潔な証明"
+                    />  
                 </a>
                 </div>
                 
                 <h2 class="text" name="en">Year 1</h2>
                 <h2 class="text" name="de" style="display:none">1. Jahr</h2>
                 <h2 class="text" name="fr" style="display:none">1ère année</h2>
+                <h2 class="text" name="jp" style="display:none">1年目</h2>
 
                 <h3 class="text" name="en">Semester 1</h3>
                 <h3 class="text" name="de" style="display:none">1. Semester</h3>
                 <h3 class="text" name="fr" style="display:none">Semestre 1</h3>
+                <h3 class="text" name="jp" style="display:none">1学期</h3>
 
                 <ul>
                   <li>
                     Calculus, Geometry, Algebra <br>
-                    <a href="documents/notes/calculus.html">HTML</a> | <a class="text" name="en">A general introduction to mathematics</a><a class="text" name="de" style="display:none;">Eine allgemeine Einführung in die Mathematik</a><a class="text" name="fr" style="display:none;">Une introduction générale aux mathématiques</a>
+                    <a href="documents/notes/calculus.html">
+                      HTML
+                    </a> | 
+                    <a class="text" name="en">
+                      A general introduction to mathematics
+                    </a>
+                    <a class="text" name="de" style="display:none;">
+                      Eine allgemeine Einführung in die Mathematik
+                    </a>
+                    <a class="text" name="fr" style="display:none;">
+                      Une introduction générale aux mathématiques
+                    </a>
+                    <a class="text" name="jp" style="display:none;">
+                      数学の一般的な紹介
+                    </a>
                   </li>
                   <li>
                     Group Theory 1 <br>
-                    <a href="documents/notes/group_theory_1.html">HTML</a> | <a class="text" name="en">A first course in group theory</a><a class="text" name="de" style="display:none;">Ein erster Kurs in der Gruppentheorie</a><a class="text" name="fr" style="display:none;">Un premier cours sur la théorie des groupes</a>
+                    <a href="documents/notes/group_theory_1.html">
+                      HTML
+                    </a> | 
+                    <a class="text" name="en">
+                      A first course in group theory
+                    </a>
+                    <a class="text" name="de" style="display:none;">
+                      Ein erster Kurs in der Gruppentheorie
+                    </a>
+                    <a class="text" name="fr" style="display:none;">
+                      Un premier cours sur la théorie des groupes
+                    </a>
+                    <a class="text" name="jp" style="display:none;">
+                      群論の最初のコース
+                    </a>
                   </li>
 				          <li>
                     <i>Mechanics 1</i>
@@ -1065,6 +1187,7 @@
                 <h3 class="text" name="en">Semester 2</h3>
                 <h3 class="text" name="de" style="display:none">2. Semester</h3>
                 <h3 class="text" name="fr" style="display:none">Semestre 2</h3>
+                <h3 class="text" name="jp" style="display:none">2学期</h3>
 
                 <ul>
                   <li>
@@ -1084,10 +1207,12 @@
                 <h2 class="text" name="en">Year 2</h2>
                 <h2 class="text" name="de" style="display:none">2. Jahr</h2>
                 <h2 class="text" name="fr" style="display:none">2ème année</h2>
+                <h2 class="text" name="jp" style="display:none">2年目</h2>
 
                 <h3 class="text" name="en">Semester 3</h3>
                 <h3 class="text" name="de" style="display:none">3. Semester</h3>
                 <h3 class="text" name="fr" style="display:none">Semestre 3</h3>
+                <h3 class="text" name="jp" style="display:none">3学期</h3>
 
                 <ul>
                   <li>
@@ -1113,6 +1238,7 @@
                 <h3 class="text" name="en">Semester 4</h3>
                 <h3 class="text" name="de" style="display:none">4. Semester</h3>
                 <h3 class="text" name="fr" style="display:none">Semestre 4</h3>
+                <h3 class="text" name="jp" style="display:none">4学期</h3>
 
                 <ul>
                   <li>
@@ -1138,10 +1264,12 @@
                 <h2 class="text" name="en">Year 3</h2>
                 <h2 class="text" name="de" style="display:none">3. Jahr</h2>
                 <h2 class="text" name="fr" style="display:none">3ème année</h2>
+                <h2 class="text" name="jp" style="display:none">3年目</h2>
 
                 <h3 class="text" name="en">Semester 5</h3>
                 <h3 class="text" name="de" style="display:none">5. Semester</h3>
                 <h3 class="text" name="fr" style="display:none">Semestre 5</h3>
+                <h3 class="text" name="jp" style="display:none">5学期</h3>
 
                 <ul>
                   <li>
@@ -1170,6 +1298,7 @@
                 <h3 class="text" name="en">Semester 6</h3>
                 <h3 class="text" name="de" style="display:none">6. Semester</h3>
                 <h3 class="text" name="fr" style="display:none">Semestre 6</h3>
+                <h3 class="text" name="jp" style="display:none">6学期</h3>
 
                 <ul>
                   <li>
@@ -1198,10 +1327,12 @@
                 <h2 class="text" name="en">Year 4</h2>
                 <h2 class="text" name="de" style="display:none">4. Jahr</h2>
                 <h2 class="text" name="fr" style="display:none">4ème année</h2>
+                <h2 class="text" name="jp" style="display:none">4年目</h2>
 
                 <h3 class="text" name="en">Semester 7</h3>
                 <h3 class="text" name="de" style="display:none">7. Semester</h3>
                 <h3 class="text" name="fr" style="display:none">Semestre 7</h3>
+                <h3 class="text" name="jp" style="display:none">7学期</h3>
 
                 <ul>
                   <li>
@@ -1215,6 +1346,7 @@
                 <h3 class="text" name="en">Semester 8</h3>
                 <h3 class="text" name="de" style="display:none">8. Semester</h3>
                 <h3 class="text" name="fr" style="display:none">Semestre 8</h3>
+                <h3 class="text" name="jp" style="display:none">8学期</h3>
 
                 <ul>
                   <li>
@@ -1245,6 +1377,12 @@
                     class="rightimageX"
                     src="pictures/groupaxiom.png"
                     title="Diagramme commutatif combiné des axiomes de groupe"
+                    />
+                  <a class="text" name="jp" style="display:none">
+                    <img
+                    class="rightimageX"
+                    src="pictures/groupaxiom.png"
+                    title="群公理の可換図"
                     />
                 </a>
                 </div>
