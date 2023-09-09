@@ -59,12 +59,48 @@
 		<nav id="TOC" role="doc-toc">
 			<h3 id="toc-title">Contents</h3>
 			<ol>
-				<li><a href="#intro">Introduction : 1992 Putnam A6</a></li>
+				<li><a href="#intro">Introduction</a></li>
+				<li>
+					<a href="#spaces">Spaces</a>
+					<ol>
+						<li><a href="#spaces#fields">Fields</a></li>
+						<li><a href="#spaces#vectorspaces">Vector Spaces</a></li>
+						<li><a href="#spaces#examples">Examples</a></li>
+						<li><a href="#spaces#comments">Comments</a></li>
+						<li><a href="#spaces#lineardependence">Linear dependence</a></li>
+						<li><a href="#spaces#linearcombinations">Linear combinations</a></li>
+						<li><a href="#spaces#bases">Bases</a></li>
+						<li><a href="#spaces#dimension">Dimension</a></li>
+						<li><a href="#spaces#isomorphism">Isomorphism</a></li>
+						<li><a href="#spaces#subspaces">Subspaces</a></li>
+						<li><a href="#spaces#calculusofsubspaces">Calculus of subspaces</a></li>
+						<li><a href="#spaces#dimensionofasubspace">Dimension of a subspace</a></li>
+						<li><a href="#spaces#dualspaces">Dual spaces</a></li>
+						<li><a href="#spaces#brackets">Brackets</a></li>
+						<li><a href="#spaces#dualbases">Dual bases</a></li>
+						<li><a href="#spaces#reflexivity">Reflexivity</a></li>
+						<li><a href="#spaces#annihilators">Annihilators</a></li>
+						<li><a href="#spaces#directsums">Direct sums</a></li>
+						<li><a href="#spaces#dimensionofadirectsum">Dimension of a direct sum</a></li>
+						<li><a href="#spaces#dualofadirectsum">Dual of a direct sum</a></li>
+						<li><a href="#spaces#quotientpaces">Quotient spaces</a></li>
+						<li><a href="#spaces#dimensionofaquotientspace">Dimension of a quotient space</a></li>
+						<li><a href="#spaces#bilinearforms">Bilinear forms</a></li>
+						<li><a href="#spaces#tensorproducts">Tensor products</a></li>
+						<li><a href="#spaces#productbases">Product bases</a></li>
+						<li><a href="#spaces#permutations">Permutations</a></li>
+						<li><a href="#spaces#cycles">Cycles</a></li>
+						<li><a href="#spaces#parity">Parity</a></li>
+						<li><a href="#spaces#multilinearforms">Multilinear forms</a></li>
+						<li><a href="#spaces#alternatingforms">Alternating forms</a></li>
+						<li><a href="#spaces#alternatingformsofmaximaldegree">Alternating forms of maximal degree</a></li>
+					</ol>
+				</li>
 				<li><a href="#bibliography">References</a></li>
 			</ol>
 		</nav>
 
-		<h2 id="intro">Introduction : 1992 Putnam A6</h2>
+		<h2 id="intro">Introduction</h2>
 		<p>
 			From the 1992 Putnam (
 			<span class="citation" data-cites="klosinski">[<a href="#klosinski" role="doc-biblioref">Klosinski</a>]</span>) 
@@ -133,6 +169,126 @@
 				center (call it \(\mathbf{O}\)). Thus \(\mathbb{P}(P_{0}P_{1}P_{2}P_{3} \ni \mathbf{O} \mid \mathbf{E}) = \frac{1}{8}.\)
 			</div>
         </p>
+		<p>
+			In chapters 1, 2, 3, and 4 the exercises are from <span class="citation" data-cites="halmos1">[<a href="#halmos1" role="doc-biblioref">Halmos1</a>]</span>
+		</p>
+
+		<h2 id="spaces">Spaces</h2>
+		<h3 id="spaces#fields">Fields</h3>
+		<p>
+			<div class="question"> <b>1.</b> <br>
+				Almost all the laws of elementary arithmetic are consequences of the axioms defining
+				a field. Prove, in particular, that if \(\mathfrak{F}\) is a field, and if \(\alpha, \beta,\) and \(\gamma\) 
+				belong to \(\mathfrak{F}\), then the following relations hold.
+				<ol style="list-style:lower-latin;">
+					<li>\(0 + \alpha = \alpha\).</li>
+					<li>If \(\alpha + \beta = \alpha + \gamma\), then \(\beta = \gamma\).</li>
+					<li>\(\alpha + (\beta - \alpha) = \beta\). \((\)Here \(\beta - \alpha = \beta + (-\alpha).)\)</li>
+					<li>\(0 \cdot \alpha = \alpha \cdot 0 = 0\). \((\)For clarity or emphasis we sometimes use the dot to indicate multiplication.\()\)</li>
+					<li>\((-1)\alpha = -\alpha.\)</li>
+					<li>\((-\alpha)(-\beta) = \alpha \beta.\)</li>
+					<li>If \(\alpha \beta = 0\), then either \(\alpha = 0\) or \(\beta = 0\) \((\)or both\()\).</li>
+				</ol>
+			</div>
+			<div class="question"> <b>2.</b>
+				<ol style="list-style:lower-latin;">
+					<li>Is the set of all positive integers a field ? (In familiar systems, such as the integers, we shall almost always use the ordinary operations of addition and multiplication. On the rare occasions when we depart from this convention, we shall give ample warning. As for &laquo; positive, &raquo; by that word we mean, here and elsewhere in this book, &laquo; greater than or equal to zero. &raquo; If 0 is to be excluded, we shall say &laquo; strictly positive. &raquo;)</li>
+					<li>What about the set of all integers ?</li>
+					<li>Can the answers to these questions be changed by re-defining addition or multiplication (or both) ?</li>
+				</ol>
+			</div>
+			<div class="question"> <b>3.</b> <br>
+				Let \(m\) be an integer, \(m \geq 2\), and let \(\mathbb{Z}_m\) be the set of all positive integers less than \(m\),
+				\(\mathbb{Z}_m = \{0,\ 1,\ ...,\ m-1\}\). If \(\alpha\) and \(\beta\) are in \(\mathbb{Z}_m\), let \(\alpha + \beta\) 
+				be the least positive remainder obtained by dividing the (ordinary) sum of \(\alpha\) and \(\beta\) by \(m\), and, 
+				similarly, let \(\alpha \beta\) be the least positive remainder obtained by dividing the (ordinary) product of \(\alpha\) 
+				and \(\beta\) by \(m\). (Example: if \(m = 12\), then \(3 + 11 = 2\) and \(3 \cdot 11 = 9\).)
+				<ol style="list-style:lower-latin;">
+					<li>Prove that \(\mathbb{Z}_m\) is a field if and only if \(m\) is a prime.</li>
+					<li>What is \(-1\) in \(\mathbb{Z}_5\) ?</li>
+					<li>What is \(\frac{1}{3}\) in \(\mathbb{Z}_7\) ?</li>
+				</ol>
+			</div>
+			<div class="question"> <b>4.</b> <br>
+				The example of \(\mathbb{Z}_p\) (where \(p\) is prime) shows that not quite all the laws of elementary arithmetic hold 
+				in fields; in \(\mathbb{Z}_2\), for instance, \(1 + 1 = 0\). Prove that if \(\mathfrak{F}\) is a field, them either the 
+				result of repeatedly adding 1 to itself is always different from 0, or else the first time that it is equal to 0 occurs 
+				when the number of summands is a prime. (The <b>characteristic</b> of the field \(\mathfrak{F}\) is defined to 0 in the 
+				first case and the crucial prime in the second.)
+			</div>
+			<div class="question"> <b>5.</b> <br>
+				Let \(\mathbb{Q}(\sqrt{2})\) be the set of all real numbers of the form \(\alpha + \beta \sqrt{2}\), where \(\alpha\) and 
+				\(\beta\) are rational.
+				<ol style="list-style:lower-latin;">
+					<li>Is \(\mathbb{Q}(\sqrt{2})\) a field ?</li>
+					<li>What if \(\alpha\) and \(\beta\) are required to be integers ?</li>
+				</ol>
+			</div>
+			<div class="question"> <b>6.</b> <br>
+				<ol style="list-style:lower-latin;">
+					<li>Does the set of all polynomials with integer coefficients form a field ?</li>
+					<li>What if the coefficients are allowed to be real numbers ?</li>
+				</ol>
+			</div>
+			<div class="question"> <b>7.</b> <br>
+				Let \(\mathfrak{F}\) be the set of all (ordered) pairs \((\alpha,\ \beta)\) of real numbers.
+				<ol style="list-style:lower-latin;">
+					<li>
+						If addition and multiplication are defined by
+						\[
+							(\alpha,\ \beta) + (\gamma,\ \delta) = (\alpha + \gamma,\ \beta + \delta)
+						\]
+						and
+						\[
+							(\alpha,\ \beta)(\gamma,\ \delta) = (\alpha\gamma,\ \beta\delta),
+						\]
+						does \(\mathfrak{F}\) become a field ?
+					</li>
+					<li>
+						If addition and multiplication are defined by
+						\[
+							(\alpha,\ \beta) + (\gamma,\ \delta) = (\alpha + \gamma,\ \beta + \delta)
+						\]
+						and
+						\[
+							(\alpha,\ \beta)(\gamma,\ \delta) = (\alpha\gamma - \beta\delta,\ \alpha\delta + \beta\gamma),
+						\]
+						is \(\mathfrak{F}\) a field then ?
+					</li>
+					<li>What happens (in both the preceding cases) if we consider ordered pairs of complex numbers instead ?</li>
+				</ol>
+			</div>
+		</p>
+		<h3 id="spaces#vectorspaces">Vector Spaces</h3>
+		<h3 id="spaces#examples">Examples</h3>
+		<h3 id="spaces#comments">Comments</h3>
+		<h3 id="spaces#lineardependence">Linear dependence</h3>
+		<h3 id="spaces#linearcombinations">Linear combinations</h3>
+		<h3 id="spaces#bases">Bases</h3>
+		<h3 id="spaces#dimension">Dimension</h3>
+		<h3 id="spaces#isomorphism">Isomorphism</h3>
+		<h3 id="spaces#subspaces">Subspaces</h3>
+		<h3 id="spaces#calculusofsubspaces">Calculus of subspaces</h3>
+		<h3 id="spaces#dimensionofasubspace">Dimension of a subspace</h3>
+		<h3 id="spaces#dualspaces">Dual spaces</h3>
+		<h3 id="spaces#brackets">Brackets</h3>
+		<h3 id="spaces#dualbases">Dual bases</h3>
+		<h3 id="spaces#reflexivity">Reflexivity</h3>
+		<h3 id="spaces#annihilators">Annihilators</h3>
+		<h3 id="spaces#directsums">Direct sums</h3>
+		<h3 id="spaces#dimensionofadirectsum">Dimension of a direct sum</h3>
+		<h3 id="spaces#dualofadirectsum">Dual of a direct sum</h3>
+		<h3 id="spaces#quotientpaces">Quotient spaces</h3>
+		<h3 id="spaces#dimensionofaquotientspace">Dimension of a quotient space</h3>
+		<h3 id="spaces#bilinearforms">Bilinear forms</h3>
+		<h3 id="spaces#tensorproducts">Tensor products</h3>
+		<h3 id="spaces#productbases">Product bases</h3>
+		<h3 id="spaces#permutations">Permutations</h3>
+		<h3 id="spaces#cycles">Cycles</h3>
+		<h3 id="spaces#parity">Parity</h3>
+		<h3 id="spaces#multilinearforms">Multilinear forms</h3>
+		<h3 id="spaces#alternatingforms">Alternating forms</h3>
+		<h3 id="spaces#alternatingformsofmaximaldegree">Alternating forms of maximal degree</h3>
 
 		<h1 class="unnumbered" id="bibliography">References</h1>
 		
@@ -145,6 +301,8 @@
                 <div class="csl-left-margin">3. </div><div class="csl-right-inline">Georg P&oacute;lya, Gabor Szeg&ouml;, <em>Aufgaben und Lehrs&auml;tze aus der Analysis Bände 1-2</em> (Heidelberger Taschenb&uuml;cher, Band 73, 4. Auflage, 1970).</div>
                 <div id="titu" class="csl-entry" role="doc-biblioentry">
                 <div class="csl-left-margin">4. </div><div class="csl-right-inline">Titu Andreescu, R&abreve;zvan Gelca, <em>Putnam and Beyond</em> (Springer Nature, 2017).</div>
+				<div id="halmos1" class="csl-entry" role="doc-biblioentry">
+				<div class="csl-left-margin">5. </div><div class="csl-right-inline">Paul R. Halmos, <em>Finite-Dimensional Vector Spaces</em> (Benediction Classics, Oxford, 2015).</div>
 			</div>
 		<hr />
 		
