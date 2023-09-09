@@ -20,10 +20,14 @@
           subtabs[itD].style.display="none";
             document.getElementById("en-header"+subtabs[itD].id).style.textDecoration = "none";
             document.getElementById("de-header"+subtabs[itD].id).style.textDecoration = "none";
+            document.getElementById("fr-header"+subtabs[itD].id).style.textDecoration = "none";
+            document.getElementById("jp-header"+subtabs[itD].id).style.textDecoration = "none";
         }
         document.getElementById(details).style.display = "";
         document.getElementById("en-header"+details).style.textDecoration = "underline";
         document.getElementById("de-header"+details).style.textDecoration = "underline";
+        document.getElementById("fr-header"+details).style.textDecoration = "underline";
+        document.getElementById("jp-header"+details).style.textDecoration = "underline";
         window.location.hash = details.substr(1);
       }
     </script>

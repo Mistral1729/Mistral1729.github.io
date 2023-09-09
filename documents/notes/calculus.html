@@ -38,7 +38,23 @@
 
 		<script type="text/javascript" async src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 		</script>
+
+		<script type="text/javascript">
+			function toggleSolution(tag) {
+				var x = document.getElementById("solution"+tag);
+				if (x.style.display === "none") {
+					x.style.display = "block";
+				} else {
+					x.style.display = "none";
+				}
+			}
+		</script>
 	</head>
+
+	<!--
+		<small><i><a href="#solution#1" class="text" onclick="toggleSolution('#1')">Solution</a></i></small>
+	-->
+
 	<body>
 		<header id="title-block-header">
 			<h1 class="title">Calculus, Geometry and Algebra</h1>
@@ -65,9 +81,9 @@
         <p>
             <hr />
 			<div class="remark">
-				For an axiomatic treatment of set theory refer to 
-				<span class="citation" data-cites="kunen">[<a href="#kunen" role="doc-biblioref">Kunen</a>]</span>.
-				For our purposes, naive set theory will suffice. In fact, most working mathematicians not specialising
+				For our purposes, naive set theory as in  
+				<span class="citation" data-cites="halmos">[<a href="#halmos" role="doc-biblioref">Halmos</a>]</span>
+				 will suffice. In fact, most working mathematicians not specialising
 				in logic do not have to worry about axiomatic foundations. Logic is to mathematics what grammar is to
 				languages, we use it intuitively all the time but we rarely care to dwell on it too much. In fact the
 				naive set theory and basic propositional logic is in some sense a natural extension of our common sense,
@@ -76,10 +92,19 @@
 			</div>
             <hr />
 
-            If it is at all possible to define the subject of algebra precisely, then this is the study of algebraic 
+            If it is at all possible to define the subject of algebra precisely, then it is the study of algebraic 
 			structures: sets on which operations are defined. But what <i>is</i> a <b>set</b> ? <br>
-			We may call any collection of objects that is clearly determined a set. There are certain problems with this: 
-			for example, can a set contain itself ? 
+			We may call any collection of objects that is clearly determined a set. There are certain problems with this 
+			which we may conveniently ignore, at least for the time being. Each object in a set is called an <b>element</b> 
+			of said set. Usually we denote sets by uppercase letters and their elements by lowercase letters. <br>
+			If \(\mathcal{M}\) contains \(x\) or \(x\) is in \(\mathcal{M}\) we write,
+			<div style="text-align: center;">
+				<span class="math display">
+					\[\begin{align}
+					\]
+				</span>
+			</div>
+
             <div class="example">
                 Consider the set \(A_0\), the simplest possibility for which is for it to be empty i.e. \(A_0 = \{\}\) or \(\varnothing\).
                 Clearly in this case its cardinality \(Card(A_0) = 0\). Let's now consider the set \(A_1 = \{A_0\} = \{\varnothing\}\). 
@@ -100,8 +125,8 @@
                 <div class="csl-left-margin">2. </div><div class="csl-right-inline">Anthony W. Knapp, <em>Basic Algebra</em> (Digital Second Edition, 2016).</div>
                 <div id="vinberg" class="csl-entry" role="doc-biblioentry">
                 <div class="csl-left-margin">3. </div><div class="csl-right-inline">Ernest B. Vinberg, <em>A Course in Algebra</em> (AMS Graduate Studies in Mathematics, Vol. 56, 2003).</div>
-                <div id="kunen" class="csl-entry" role="doc-biblioentry">
-                <div class="csl-left-margin">4. </div><div class="csl-right-inline">K. Kunen, <em>Set Theory</em> (Elsevier Science, 1983).</div>
+                <div id="halmos" class="csl-entry" role="doc-biblioentry">
+                <div class="csl-left-margin">4. </div><div class="csl-right-inline">Paul R. Halmos, <em>Naive Set Theory</em> (D. Van Nostrand Company, 1960).</div>
                 <div id="kuga" class="csl-entry" role="doc-biblioentry">
                 <div class="csl-left-margin">5. </div><div class="csl-right-inline">M. Kuga, <em>Galois' Dream: Group Theory and Differential Equations</em> (Birkh&auml;user Boston, 1993).</div>
 			</div>

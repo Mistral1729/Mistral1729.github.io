@@ -38,7 +38,19 @@
 
 		<script type="text/javascript" async src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 		</script>
+
+		<script type="text/javascript">
+			function toggleSolution(tag) {
+				var x = document.getElementById("solution"+tag);
+				if (x.style.display === "none") {
+					x.style.display = "block";
+				} else {
+					x.style.display = "none";
+				}
+			}
+		</script>
 	</head>
+	
 	<body>
 		<header id="title-block-header">
 			<h1 class="title">Group Theory 1</h1>

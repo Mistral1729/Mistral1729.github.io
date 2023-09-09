@@ -38,7 +38,19 @@
 
 		<script type="text/javascript" async src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 		</script>
+
+		<script type="text/javascript">
+			function toggleSolution(tag) {
+				var x = document.getElementById("solution"+tag);
+				if (x.style.display === "none") {
+					x.style.display = "block";
+				} else {
+					x.style.display = "none";
+				}
+			}
+		</script>
 	</head>
+
 	<body>
 		<header id="title-block-header">
 			<h1 class="title">Big List of Problems</h1>
@@ -63,7 +75,9 @@
 				vertices are at the four points ? (It is understood that each point is 
 				independently chosen relative to a uniform distribution on the sphere.)
 			</div>
-			<div class="proof">
+		
+			<small><i><a href="#solution#1" class="text" onclick="toggleSolution('#1')">Solution</a></i></small>
+			<div id="solution#1" class="proof" style="display: none;">
 				Recall that if four points are in general position in 3-space, then a point 
 				\(P\) lies in the tetrahedron formed by said four points iff the barycentric
 				coordinates of \(P\) with respect to the tetrahedron's vertices are positive.
