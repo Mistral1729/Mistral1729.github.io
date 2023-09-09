@@ -97,22 +97,52 @@
 			We may call any collection of objects that is clearly determined a set. There are certain problems with this 
 			which we may conveniently ignore, at least for the time being. Each object in a set is called an <b>element</b> 
 			of said set. Usually we denote sets by uppercase letters and their elements by lowercase letters. <br>
-			If \(\mathcal{M}\) contains \(x\) or \(x\) is in \(\mathcal{M}\) we write,
+			If "\(\mathcal{M}\) contains \(x\)" or "\(x\) is in \(\mathcal{M}\)" we write,
 			<div style="text-align: center;">
 				<span class="math display">
 					\[\begin{align}
-					\]
+						\mathcal{M} \ni x \ or \ x \in \mathcal{M}.
+					\end{align}\]
+				</span>
+			</div>
+			If "\(\mathcal{M}\) doesn't contain \(y\)" or "\(y\) is not in \(\mathcal{M}\)" we write,
+			<div style="text-align: center;">
+				<span class="math display">
+					\[\begin{align}
+						\mathcal{M} \not\ni y \ or \ x \notin \mathcal{M}.
+					\end{align}\]
 				</span>
 			</div>
 
-            <div class="example">
-                Consider the set \(A_0\), the simplest possibility for which is for it to be empty i.e. \(A_0 = \{\}\) or \(\varnothing\).
-                Clearly in this case its cardinality \(Card(A_0) = 0\). Let's now consider the set \(A_1 = \{A_0\} = \{\varnothing\}\). 
-                Note that \(Card(A_1) = 1\) and <b>NOT 0</b> as it does contain exactly one element, \(\varnothing\). <br>
-                In this way, by setting \(A_0 = \varnothing\) and \(A_{s(n)} = \displaystyle \bigcup_{k=0}^{n}A_k\), where \(s(n)\) is 
-                the successor of \(n\), we can define \(\mathbb{N}_0\) by <br>
-                \(0 = Card(A_0) \in \mathbb{N}_0\), and <br>
-                \(n = Card(A_n) \in \mathbb{N}_0 \Rightarrow s(n) = Card(A_s(n)) \in \mathbb{N}_0\).
+			Okay, now what's an <b>operation</b> ? When talking about algebraic structures we really mean <i>binary</i> operations; 
+			an operation on the set \(\mathcal{M}\) is a map 
+			<div style="text-align: center;">
+				<span class="math display">
+					\[\begin{align}
+						\mathcal{M} \times \mathcal{M} \to \mathcal{M},
+					\end{align}\]
+				</span>
+			</div>
+			which is essentially a rule that assigns to every two elements of \(\mathcal{M}\) some element in the same set \(\mathcal{M}\).
+
+            <div class="example" style="text-align: left;">
+                The following number sets are well-known examples of algebraic structures, having the operations of addition and multiplication: 
+				<span class="math display">
+						\(
+							\mathbb{N},\ \text{the set of all natural numbers}, \\
+							\mathbb{Z},\ \text{the set of all integers}, \\
+							\mathbb{Z}_{+} = \mathbb{N} \cup \{0\},\ \text{the set of all nonnegative integers}, \\
+							\mathbb{Q},\ \text{the set of all rational numbers}, \\
+							\mathbb{R},\ \text{the set of all real numbers}, \\
+							\mathbb{R}_{+},\ \text{the set of all nonnegative real numbers}.
+						\)
+				</span>
+				Not all number sets have addition or multiplication defined on them. <small><i><a href="#solution#1" class="text" onclick="toggleSolution('#1')">Why ?</a></i></small>
+				<div id="solution#1" class="text" style="display: none;">
+					On the set of negative numbers multiplication is not defined, as the product of two negative numbers is positive. Moreover on 
+					the set of irrational numbers neither addition nor multiplication is defined, as the sum or product of two irrational numbers 
+					can be rational.
+				</div>
             </div>
 		</p>
 
@@ -134,7 +164,7 @@
 		
 			<small>	
 				<p class="date">
-					Last updated on 03.09.2023.<br>
+					Last updated on 09.09.2023.<br>
 					<a href="../../index.html#wiki">Notes</a>
 				</p>
 			</small>
