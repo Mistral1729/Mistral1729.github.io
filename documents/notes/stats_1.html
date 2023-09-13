@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.1 Transitional//EN">
+<html>
+	<head>	
+		<meta charset="utf-8" />
+  		<meta name="generator" content="pandoc" />
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  		<meta name="dcterms.date" content="2023-09-13" />
+  		<title>Statistics 1</title>
+		<link rel="icon" type="image/png" href="../../pictures/mpg.png">
+		<style>
+			code{white-space: pre-wrap;}
+				span.smallcaps{font-variant: small-caps;}
+				span.underline{text-decoration: underline;}
+				div.column{display: inline-block; vertical-align: top; width: 50%;}
+				div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+				ul.task-list{list-style: none;}
+				div.csl-bib-body { }
+				div.csl-entry {
+				  clear: both;
+				}
+				.hanging div.csl-entry {
+				  margin-left:2em;
+				  text-indent:-2em;
+				}
+				div.csl-left-margin {
+				  min-width:2em;
+				  float:left;
+				}
+				div.csl-right-inline {
+				  margin-left:2em;
+				  padding-left:1em;
+				}
+				div.csl-indent {
+				  margin-left: 2em;
+				}  
+		</style>
+		<link rel="stylesheet" href="../../note_style.css">
+
+		<script type="text/javascript" async src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+		</script>
+
+		<script type="text/javascript">
+			function toggleSolution(tag) {
+				var x = document.getElementById("solution"+tag);
+				if (x.style.display === "none") {
+					x.style.display = "block";
+				} else {
+					x.style.display = "none";
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<header id="title-block-header">
+			<h1 class="title">Statistics 1</h1>
+		</header>
+		
+		<nav id="TOC" role="doc-toc">
+			<h3 id="toc-title">Contents</h3>
+			<ol>
+                <li><a href="#prob">Probability</a></li>
+				<li>
+                    <a href="#stats">Statistics</a>
+                    <ol>
+                        <a href="#stats#ineq">Basic inequalities</a>
+                        <a href="#stats#cov">Covariance</a>
+                        <a href="#stats#corrcoeff">Correlation coefficient</a>
+                    </ol>
+                </li>
+				<li><a href="#bibliography">References</a></li>
+			</ol>
+		</nav>
+
+		<h2 id="prob">Probability</h2>
+
+        <h2 id="stats">Statistics</h2>
+        <h3 id="#stats#ineq">Basic inequalities</h3>
+        <p>
+            <div class="lemma">
+                <ol>
+                    <li>\(\lvert x - a \rvert < \epsilon \iff -\epsilon < x - a < \epsilon \iff a - \epsilon < x < a + \epsilon \iff x \in (a - \epsilon,\ a + \epsilon). \)</li>
+                    <li>(Triange Inequality) \(\lvert x + y \rvert \leq \lvert x \rvert + \lvert y \rvert\).</li>
+                    <li>\(\lvert \lvert a \rvert - \lvert b \rvert \rvert \leq \lvert a - b \rvert.\)</li>
+                    <li>(Cauchy-Schwarz Inequality) \(\displaystyle (\sum_{i=1}^n a_{i}^2)(\sum_{i=1}^n b_{i}^2) \geq (\sum_{i=1}^n a_i b_i)^2\).</li>
+                </ol>
+            </div>
+        </p>
+
+        <h3 id="stats#cov">Covariance</h3>
+        <p>
+            <div class="definition">
+                Consider \(n\) pairs of values \((x_{i}, y_{i})\ (\forall i = 1,\ ...,\ n)\) of the variables \(x\) and \(y\). 
+                Then  
+                \[\displaystyle
+                    \text{Cov}(x, y) := \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})
+                \]
+                is the <b>covariance of \(x\) and \(y\)</b>.
+            </div>
+        </p>
+
+        <h3 id="#stats#corrcoeff">Correlation coefficient</h3>
+        <p>
+            <div class="definition">
+                Consider \(n\) pairs of values \((x_{i}, y_{i})\ (\forall i = 1,\ ...,\ n)\) of the variables \(x\) and \(y\). 
+                Then  
+                \[\displaystyle
+                    r_{xy} := \frac{\text{Cov}(x, y)}{\sqrt{\text{Var}(x)\text{Var}(y)}}
+                \]
+                is the <b>correlation coefficient between the variables \(x\) and \(y\)</b>.
+            </div>
+            <div class="theorem">
+                <ol style="list-style: lower-latin;">
+                    <li>\(\displaystyle \text{Cov}(x, y) = \frac{1}{n} \sum_{i=1}^n x_i y_i - \bar{x}\bar{y}.\)</li>
+                    <li>\(\displaystyle \text{Var}(x) = \frac{1}{n} \sum_{i=1}^n x_i^2 - \bar{x}^2.\)</li>
+                    <li>\(\displaystyle \text{Var}(y) = \frac{1}{n} \sum_{i=1}^n y_i^2 - \bar{y}^2.\)</li>
+                </ol>
+            </div>
+        </p>
+
+		<h1 class="unnumbered" id="bibliography">References</h1>
+		
+			<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+				<div id="rudin" class="csl-entry" role="doc-biblioentry">
+                <div class="csl-left-margin">1. </div><div class="csl-right-inline">Walter Rudin, <em>Principles of Mathematical Analysis</em> (International Series in Pure and Applied Mathematics, 1976).</div>
+			</div>
+		<hr />
+		
+			<small>	
+				<p class="date">
+					Last updated on 13.09.2023.<br>
+					<a href="../../index.html#wiki">Notes</a>
+				</p>
+			</small>
+	</body>
+</html>
