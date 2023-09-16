@@ -63,7 +63,8 @@
                     <a href="#stats">Statistics</a>
                     <ol>
                         <li><a href="#stats#def">Basic definitions</a></li>
-                        <li><a href="#stats#cov">Covariance</a></li>
+                        <li><a href="#stats#biv">Bivariate data</a></li>
+						<li><a href="#stats#cov">Covariance</a></li>
                         <li><a href="#stats#corrcoeff">Correlation coefficient</a></li>
                     </ol>
                 </li>
@@ -100,14 +101,50 @@
             </div>
 			<div class="definition">
                 <ol>
-					Consider n pairs of values \(x_i\ \forall i = 1,\ ...,\ n \) of the variable x. Then we define the following
+					Consider \(n\) pairs of values \(x_i\ \forall i = 1,\ ...,\ n \) of the variable \(x\). Then we define the following
                     <li>\(\displaystyle \bar{x} = \mu = \mathbb{E}[x] := \frac{1}{n} \sum_{i=1}^n x_i\). (Mean, or expectation.) </li>
                     <li>\(\displaystyle \text{Var}(x) := \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2 = \mathbb{E}[(x - \bar{x})^2]\). (Variance.) </li>
                     <li>\(\displaystyle \text{S}_x := \sqrt{\text{Var}(x)} = \sqrt{\frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2} \). (Standard deviation.)</li>
 					<li>\(\displaystyle \text{MD}_{\bar{x}} := \mathbb{E}[\ \lvert x - \bar{x} \rvert\ ] = \frac{1}{n} \sum_{i=1}^n \lvert x_i - \bar{x} \rvert \). (Mean deviation about mean.)</li> 
                 </ol>
             </div>
+			<div class="theorem">
+				Standard deviation cannot be less than the mean deviation about mean.
+			</div>
+			<small><i><a href="#solution#1" class="text" onclick="toggleSolution('#1')">Show proof</a></i></small>
+			<div id="solution#1" class="proof" style="display: none;">
+				Consider \(n\) pairs of values \(x_i\ \forall i = 1,\ ...,\ n \) of the variable \(x\). By definition, 
+				\[\displaystyle
+					\text{S}_x = \sqrt{\frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2}
+				\]
+				is the standard deviation of \(x\) and 
+				\[\displaystyle
+					\text{MD}_{\bar{x}} = \frac{1}{n} \sum_{i=1}^n \lvert x_i - \bar{x} \rvert
+				\]
+				is the mean deviation about mean of \(x\). We define 
+				\[\displaystyle
+					a_i = \lvert x_i - \bar{x} \rvert \ \forall i = 1,\ ...,\ n\\
+					b_i = 1 \ \forall i = 1,\ ...,\ n
+				\]
+				then by the Cauchy-Schwarz inequality (Lemma 5), we have 
+				\[\displaystyle
+					(\sum_{i=1}^n a_{i}^2)(\sum_{i=1}^n b_{i}^2) \geq (\sum_{i=1}^n a_i b_i)^2 \\
+					\iff (\sum_{i=1}^n {\lvert x_i - \bar{x} \rvert}^2)(\sum_{i=1}^n 1^2) \geq (\sum_{i=1}^n \lvert x_i - \bar{x} \rvert \cdot 1)^2 \\
+					\iff (\sum_{i=1}^n (x_i - \bar{x})^2)n \geq (\sum_{i=1}^n \lvert x_i - \bar{x} \rvert)^2 \\
+					\iff \frac{1}{n}(\sum_{i=1}^n (x_i - \bar{x})^2) \geq \frac{1}{n^2}(\sum_{i=1}^n \lvert x_i - \bar{x} \rvert)^2 \\
+					\iff \sqrt{\frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2} \geq \frac{1}{n} \sum_{i=1}^n \lvert x_i - \bar{x} \rvert \\
+					\iff \text{S}_x \geq \text{MD}_{\bar{x}}.
+				\]
+			</div>
         </p>
+
+		<h3 id="stats#biv">Bivariate data</h3>
+		<p>
+			
+		</p>
+		<h4>Correlation analysis</h4>
+		<h4>Regression analysis</h4>
+		<h4>Scatter or dot diagram</h4>
 
         <h3 id="stats#cov">Covariance</h3>
         <p>
