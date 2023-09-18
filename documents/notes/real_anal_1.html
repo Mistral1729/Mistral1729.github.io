@@ -59,7 +59,7 @@
 		<nav id="TOC" role="doc-toc">
 			<h3 id="toc-title">Contents</h3>
 			<ol>
-				<li><a href="#intro">The real numbers</a></li>
+				<li><a href="#R">The real numbers</a></li>
 				<li><a href="#seq">Sequences</a></li>
 				<li><a href="#ser">Series</a></li>
 				<li><a href="#bibliography">References</a></li>
@@ -92,17 +92,130 @@
 			series.
 		</p>
 
-		<h2 id="intro">The real numbers</h2>
+		<h2 id="R">The real numbers</h2>
+		<p>
+			We will try to describe the reals \((\mathbb{R})\) as an extension of the naturals \((\mathbb{N})\), and assume the properties of the latter.
+			The extension is threefold. <br>
+			The first extension may be called the completion of \(\mathbb{N}\) w.r.t. addition i.e. the minimum extension of \(\mathbb{N}\) to enable the 
+			solvability of all equations of the form \(x + m = n\) for \(m, n \in \mathbb{N}\). This extension is the set of integers \(\mathbb{Z}\).
+			(<small>The \(\mathbb{Z}\) is from <b>Z</b>ahlen, German for numbers.</small>) <br>
+			The second extension may be called the completion of \(\mathbb{Z}\) w.r.t. multiplication i.e. the minimum extension of \(\mathbb{Z}\) to enable the 
+			solvability of all equations of the form \(bx = a\) for \(a \in \mathbb{Z}, b \in \mathbb{Z}\setminus\{0\}\). This extension is the set of rationals \(\mathbb{Q}\).
+			(<small>The \(\mathbb{Q}\) is from <b>Q</b>uotient.</small>) <br>
+			The third extension involves the completion of \(\mathbb{Q}\) w.r.t. order i.e. the minimum extension of \(\mathbb{Q}\) necessary such that 
+			every nonempty subset (of the resulting set) bounded above has a <b>least upper bound</b>, or <b>supremum</b>. This resulting set is the set of reals \(\mathbb{R}\). <br>
+			One may also extend \(\mathbb{N}\) to \(\mathbb{R}\) in other ways, including the following two 
+			\[
+				\mathbb{N} \to \mathbb{Q}^+ \to \mathbb{R}^+ \to \mathbb{R}, \\
+				\mathbb{N} \to \mathbb{Q}^+ \to \mathbb{Q} \to \mathbb{R}. 
+			\]
+		</p>
+		<h3 id="R#N">The natural numbers</h3>
+		<p>
+			<div class="definition">
+				A <b>partial order</b> on a set \(S\) is a relation \(\preceq\) that is reflexive, antisymmetric and transitive. 
+				The pair \((S,\ \preceq)\) is called a <b>partially ordered set</b>, or <b>poset</b>.
+			</div>
+			<div class="definition">
+				A triple \((X,\ g,\ x_0)\), where \(X\) is a set, \(g\) is a unary operation in \(X\) i.e. 
+			a function on \(X\) into \(X\), and \(x_0\) is an element of \(X\) is a <b>unary system</b>.
+			</div>
+			<div class="definition">
+				A <b>homomorphism</b> between two unary systems \((X,\ s,\ x_0)\) and \((Y,\ t,\ y_0)\) is 
+				a mapping \(h : X \to Y\) such that,
+				\[
+					h(x_0) = y_0 \ \text{, and} \\
+					h(s(x)) = t(h(x)).
+				\]
+				If \(h\) is bijective then it is an <b>isomorphism</b> and the two unary systems are said to be 
+				<b>isomorphic</b>.
+			</div>
+			<div class="definition">
+				An <b>integral system</b> is a unary system \((X,\ s,\ x_0)\) such that 
+				<ol style="list-style: lower-roman;">
+					<li>s is an injective mapping on \(X\) into \(X \setminus \{x_0\},\) and</li>
+					<li>if \(Y\) is a subset of \(X\) such that \(x_0 \in Y\) and \(s(y) \in Y\ \forall y \in Y,\) then \(Y=X.\)</li>
+				</ol>
+			</div>
+			<div class="remark">
+				In case of natural numbers that we're used to from our school days, we have 
+				\[
+					X = \mathbb{N} = \{1,\ 2,\ 3,\ 4,\ ....\}, \\
+					x_0 = 1,\ \text{and} \\
+					s : \mathbb{N} \to \mathbb{N} \setminus \{1\} \\
+					s(n) = n + 1.
+				\]
+				Also note that, for an integral system, i. and ii. \(\implies s\) is a surjective mapping onto \(X \setminus \{x_0\}.\)
+			</div>
+			<small><i><a href="#solution#1" class="text" onclick="toggleSolution('#1')">Why ?</a></i></small>
+			<div id="solution#1" style="display:none;font-style:italic;">
+				Consider the set  
+				\[
+					s(X) = \{y \in X\setminus\{x_0\} : y = s(x) \ \text{for some} \ x \in X\}.
+				\]
+				Due to \(x_0 \notin s(X)\) and \(s\) being injective with domain \(X\) (i.), for every \(y \in s(X)\) we have \(s(y) \in s(X)\). 
+				Thus by (ii.) we have 
+				\[
+					\{x_0\} \cup s(X) = X \\
+					\iff s(X) = X\setminus\{x_0\}.
+				\] 
+			</div>
+			<div class="proposition">
+				Any two integral systems are <b>isomorphic</b>.
+			</div>
+			<small><i><a href="#solution#2" class="text" onclick="toggleSolution('#2')">Toggle proof</a></i></small>
+			<div id="solution#2" class="proof" style="display:none;">
+				The following proof is taken from <span class="citation" data-cites="stoll">[<a href="#stoll" role="doc-biblioref">Stoll</a>]</span>.
+				Let \((X,\ s,\ x_0)\) and \((Y,\ t,\ y_0)\) be two integral systems, then there exists a homomorphism \(f : X \to Y\) and a homomorphism 
+				\(g : Y \to X\). We contend that \(g \circ f = i_X\), the identity function on \(X\). Define \(Z\) as the set of all \(x \in X\) such that 
+				\((g \circ f)(x) = x\). By definition,    
+				\[
+					f(x_0) = y_0,\ f(s(x)) = t(f(x)) \ \forall x \in X, \ \text{and} \
+					g(y_0) = x_0,\ g(t(y)) = s(g(y)) \ \forall y \in Y. \\
+					\therefore (g \circ f)(x_0) = g(f(x_0)) = g(y_0) = x_0,\ and \\
+					(g \circ f)(s(x)) = g(f(s(x))) = g(t(f(x))) = s(g(f(x))) = s(x) \ \forall x \in Z \\
+					\text{i.e.} \ x \in Z \implies s(x) \in Z.
+				\] 
+				Thus, \(Z = X\) and \(g \circ f = i_X\). Similarly, \(f \circ g = i_Y\), the identity function on \(Y\). Thus, we have shown that the two 
+				homomorphisms are indeed bijective and, in particular, mutual inverses; i.e. they are isomorphisms, and the systems are isomorphic. 
+			</div>
+			<div class="definition">
+				The <b>natural number system</b> is defined as the set \(\mathbb{N}\) of natural numbers along with two binary operations \(+\) and \(\cdot\), and 
+				a relation \(\leq\) satisfying the following properties,
+				<ol>
+					<li>
+						<ol style="list-style:lower-roman;">
+							<li>
+								\((\mathbb{N},\ \leq)\) is a <b>well-ordered set</b>, by which we mean that \((\mathbb{N},\ \leq)\) is a poset in which every nonempty
+								subset of \(\mathbb{N}\) has a least element.
+							</li>
+							<li>
+								\(x < y \ \text{and}\ y < z \implies x < z\ \forall x,\ y,\ z \in \mathbb{N}.\)
+							</li>
+							<li>
+								(<b>Law of trichotomy</b>) \(\forall x,\ y \in \mathbb{N}\) exactly one of the following holds, 
+								\[
+									x = y,\ x < y,\ y < x. 
+								\]
+							</li>
+						</ol>
+					</li>
+				</ol>
+			</div>
+		</p>
+
 		<h2 id="seq">Sequences</h2>
 		<h2 id="ser">Series</h2>
 
 		<h1 class="unnumbered" id="bibliography">References</h1>
 		
 			<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+				<div id="stoll" class="csl-entry" role="doc-biblioentry">
+				<div class="csl-left-margin">1. </div><div class="csl-right-inline">Robert R. Stoll, <em>Set Theory and Logic</em> (Dover Publications, 1979).</div>
 				<div id="rudin" class="csl-entry" role="doc-biblioentry">
-				<div class="csl-left-margin">1. </div><div class="csl-right-inline">Walter Rudin, <em>Principles of Mathematical Analysis</em> (International Series in Pure and Applied Mathematics, 1976).</div>
+				<div class="csl-left-margin">2. </div><div class="csl-right-inline">Walter Rudin, <em>Principles of Mathematical Analysis</em> (International Series in Pure and Applied Mathematics, 1976).</div>
 				<div id="kaczornowak" class="csl-entry" role="doc-biblioentry">
-                <div class="csl-left-margin">2. </div><div class="csl-right-inline">Wies&lstrok;awa J. Kaczor, Maria T. Nowak, <em>Problems in Mathematical Analysis Volume I</em> (AMS Student Mathematical Library, Vol. 4, 2000).</div>
+                <div class="csl-left-margin">3. </div><div class="csl-right-inline">Wies&lstrok;awa J. Kaczor, Maria T. Nowak, <em>Problems in Mathematical Analysis Volume I</em> (AMS Student Mathematical Library, Vol. 4, 2000).</div>
 			</div>
 		<hr />
 		
