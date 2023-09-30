@@ -39,8 +39,8 @@
   
   
   BODY{
-      background:lightpink;
-      color:darkred;
+      background:lightcyan;
+      color:darkgoldenrod;
       font-size: 100%;
       font-size: 15px;
       font-family: 'Latin Modern Roman', serif;
@@ -54,8 +54,8 @@
   
   .code { padding: 2px 2px 2px 2px;
       color: #AEA79F;
-      background:#2C001E;
-      border: 2px solid #77216F;
+      background:#0a002c;
+      border: 2px solid #216a77;
       border-radius:3px;
       }
   
@@ -205,19 +205,19 @@
   }
   A:link{
       /*font: bold 12px "arial black";*/
-      color: magenta;
+      color: gold;
       text-decoration: none;
   }
   A:visited{
-      color: rebeccapurple;
+      color: goldenrod;
       text-decoration: none;
   }
   A:hover{
-      color: rebeccapurple;
+      color: goldenrod;
       text-decoration: underline;
   }
   A:active{
-      color: beige;
+      color: lightgoldenrodyellow;
       text-decoration: underline;
   }
   UL{
@@ -313,7 +313,7 @@
   .title .abstract {
       visibility: hidden;
       width: 400pt;
-      background-color: brown;
+      background-color: cadetblue;
       color: lightgoldenrodyellow;
       text-align: left;
       padding: 5px 5px;
@@ -339,8 +339,8 @@
   }
   
   #footer{
-      box-shadow: 0 0 20px 10px palevioletred;
-      background-color: brown;
+      box-shadow: 0 0 20px 10px lightcyan;
+      background-color: darkblue;
       bottom:0;
       margin-top:50px;
       position:fixed;

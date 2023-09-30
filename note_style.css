@@ -40,8 +40,8 @@
   /* Page Layout */
 
 body {
-    background-color: pink;
-    color: brown;
+    background-color: lightcyan;
+    color: darkgoldenrod;
     font-size: 13pt;
   }
   
@@ -55,7 +55,7 @@ body {
   }
   
   a, a:visited {
-      color: darkmagenta;
+      color: darkblue;
   }
   
   ul {
@@ -98,14 +98,14 @@ body {
   }
 
   hr {
-    border: 1px solid sienna;
+    border: 1px solid goldenrod;
   }
   
   .conjecture {
       margin: 10px;
       font-style: italic;
       display: block;
-      border: 2px solid sienna;
+      border: 2px solid goldenrod;
       padding: 10px;
   }
   .conjecture:before {
@@ -118,7 +118,7 @@ body {
       margin: 10px;
       font-style: italic;
       display: block;
-      border: 2px solid sienna;
+      border: 2px solid goldenrod;
       padding: 10px;
   }
   .theorem:before {
@@ -130,7 +130,7 @@ body {
       margin: 10px;
       font-style: italic;
       display: block;
-      border: 2px solid sienna;
+      border: 2px solid goldenrod;
       padding: 10px;
   }
   .proposition:before {
@@ -186,7 +186,7 @@ body {
       margin: 10px ;
       font-style: italic;
       display: block;
-      border: 1px solid sienna;
+      border: 1px solid goldenrod;
       padding: 10px;
   }
   .question:before {
@@ -214,7 +214,7 @@ body {
       margin: 10px ;
       font-style: italic;
       display: block;
-      border: 1px solid sienna;
+      border: 1px solid goldenrod;
       padding: 10px;
   }
   
@@ -246,7 +246,7 @@ body {
   
   #TOC {
       display: inline-block;
-      border: 1px solid sienna;
+      border: 1px solid goldenrod;
       padding: 10px;
   }
   
