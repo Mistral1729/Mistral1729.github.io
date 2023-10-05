@@ -156,7 +156,7 @@
         <h3 id="stats#cov">Covariance</h3>
         <p>
             <div class="definition">
-                Consider \(n\) pairs of values \((x_{i}, y_{i})\ (\forall i = 1,\ ...,\ n)\) of the variables \(x\) and \(y\). 
+                Consider \(n\) pairs of values \(\{(x_{i}, y_{i})\}_{i=1}^n\) of the variables \(x\) and \(y\). 
                 Then  
                 \[\displaystyle
                     \text{Cov}(x, y) := \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})
@@ -168,7 +168,7 @@
         <h3 id="stats#corrcoeff">Correlation coefficient</h3>
         <p>
             <div class="definition">
-                Consider \(n\) pairs of values \((x_{i}, y_{i})\ (\forall i = 1,\ ...,\ n)\) of the variables \(x\) and \(y\). 
+                Consider \(n\) pairs of values \(\{(x_{i}, y_{i})\}_{i=1}^n\) of the variables \(x\) and \(y\). 
                 Then  
                 \[\displaystyle
                     r_{xy} := \frac{\text{Cov}(x, y)}{\sqrt{\text{Var}(x)\text{Var}(y)}}
@@ -182,15 +182,73 @@
                     <li>\(\displaystyle \text{Var}(y) = \frac{1}{n} \sum_{i=1}^n y_i^2 - \bar{y}^2.\)</li>
                 </ol>
             </div>
+			<small><i><a href="#solution#2" class="text" onclick="toggleSolution('#2')">Toggle proof</a></i></small>
+			<div id="solution#2" class="proof" style="display: none;"> 
+				By definition, 
+				\[\displaystyle
+					\text{Cov}(x, y) = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y}) \\
+					= \frac{1}{n} \sum_{i=1}^n (x_i y_i - \bar{x} y_i - x_i \bar{y} + \bar{x} \bar{y}) \\
+					= \frac{1}{n} (\sum_{i=1}^n x_i y_i - \sum_{i=1}^n \bar{x} y_i - \sum_{i=1}^n x_i \bar{y} + \sum_{i=1}^n \bar{x} \bar{y}) \\
+					= \frac{1}{n} (\sum_{i=1}^n x_i y_i - \bar{x} \sum_{i=1}^n y_i - \bar{y} \sum_{i=1}^n x_i + n \bar{x} \bar{y}) \\
+					= \frac{1}{n} (\sum_{i=1}^n x_i y_i - \bar{x} n \bar{y} - \bar{y} n \bar{x} + n \bar{x} \bar{y}) \\
+					= \frac{1}{n} (\sum_{i=1}^n x_i y_i - n \bar{x} \bar{y}) \\
+					= \frac{1}{n} \sum_{i=1}^n x_i y_i - \bar{x}\bar{y}.\ \text{(a)}
+				\]
+				Again, by definition,
+				\[\displaystyle
+					\text{Var}(x) = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2 \\
+					= \frac{1}{n} \sum_{i=1}^n (x_i^2 - 2 x_i \bar{x} + \bar{x}^2) \\
+					= \frac{1}{n} (\sum_{i=1}^n x_i^2 - \sum_{i=1}^n 2 x_i \bar{x} + n \bar{x}^2) \\
+					= \frac{1}{n} (\sum_{i=1}^n x_i^2 - 2 \sum_{i=1}^n x_i \bar{x} + n \bar{x}^2) \\
+					= \frac{1}{n} (\sum_{i=1}^n x_i^2 - 2 n \bar{x}^2 + n \bar{x}^2) \\
+					= \frac{1}{n} (\sum_{i=1}^n x_i^2 - n \bar{x}^2) \\
+					= \frac{1}{n} \sum_{i=1}^n x_i^2 - \bar{x}^2.\ \text{(b)}
+				\]
+				Substituting \(y = x\) in (b) yields (c).	
+			</div>
+
             <div class="theorem">
                 Correlation coefficient of any two variables is a dimensionless quantity, <br>
                 i.e. it's a pure number, <br>
                 i.e. it's independent of any units of measurement.
             </div>
+			<small><i><a href="#solution#3" class="text" onclick="toggleSolution('#3')">Toggle proof</a></i></small>
+			<div id="solution#3" class="proof" style="display: none;"> 
+				Consider the correlation coefficient of n pairs of values \(\{(x_{i}, y_{i})\}_{i=1}^n\) of the variables \(x\) and \(y\). 
+				Let the unit of \(x\) be \(L\) and that of \(y\) be \(M\). Then, the unit of \(\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i\) is 
+				\(L\) and similarly that of \(\bar{y} = \frac{1}{n} \sum_{i=1}^n y_i\) is \(M\). <br>
+				Thus unit of \(\text{Var}(x) = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2\) is \(L^2\), and similarly that of \(\text{Var}(y)\ M^2\). <br>
+				Also, unit of \(\text{Cov}(x, y) = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})\) is \(LM\). <br>
+				So, for the correlation coefficient of x and y we have the units highlighted in red,
+				\[\displaystyle
+                    r_{xy} = 
+					\frac{
+						\overbrace{\text{Cov}(x, y)}^{\color{red}{LM}}
+					}
+					{
+						\underbrace{\sqrt{\text{Var}(x)\text{Var}(y)}}_{\color{red}{\sqrt{L^2 M^2}\ =\ LM}}
+					}
+                \] 
+				\(\therefore\) unit of \(r_{xy}\) is \(\color{red}{\frac{LM}{LM} = L^0 M^0}\).
+					
+			</div>
+
             <div class="theorem">
                 Correlation coefficient of any two variables is symmetrical w.r.t. the variables, <br>
                 i.e. \(r_{xy} = r_{yx}\).
             </div>
+			<small><i><a href="#solution#4" class="text" onclick="toggleSolution('#4')">Toggle proof</a></i></small>
+			<div id="solution#4" class="proof" style="display: none;">
+				By definition, 
+				\[\displaystyle
+					r_{xy} = \frac{\text{Cov}(x, y)}{\sqrt{\text{Var}(x)\text{Var}(y)}} \\
+					= \frac{\frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\text{Var}(y)\text{Var}(x)}} \\
+					= \frac{\frac{1}{n} \sum_{i=1}^n (y_i - \bar{y})(x_i - \bar{x})}{\sqrt{\text{Var}(y)\text{Var}(x)}} \\
+					= \frac{\text{Cov}(y, x)}{\sqrt{\text{Var}(y)\text{Var}(x)}}
+				\]
+				\(\hspace{5cm} = r_{yx}\).
+			</div>
+
             <div class="theorem">
                 The numerical value of the correlation coefficient is independent of the change of origin and 
                 scale of the axis.
