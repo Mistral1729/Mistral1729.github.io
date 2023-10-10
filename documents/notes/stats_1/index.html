@@ -131,7 +131,20 @@
 
 		<h3 id="stats#biv">Bivariate data</h3>
 		<p>
-			Data collected simultaneously for two variables. In bivariate analysis there are two fundamental types of problems, 
+			Data that is collected simultaneously for two variables is bivariate. 
+			Consider a class of students with their heights and 
+			weights collected simultaneously for the variables, say, \(X_a\) and \(Y_a\) 
+			respectively, such that, 
+			\[\displaystyle
+				\begin{array}{ c c }
+					X_a & Y_a \\
+					x_1 & y_1 \\
+					x_2 & y_2
+				\end{array}
+			\]
+			Consider another bivariate data, where the marks of the students in maths and physics are 
+			collected simultaneously for the variables, say, \(X\) and \(Y\) respectively. <br>
+			In bivariate analysis there are two fundamental types of problems, 
 			<ol>
 				<li>correlation analysis, and</li>
 				<li>regression analysis.</li>
@@ -139,7 +152,9 @@
 		</p>
 		<h4>Correlation analysis</h4>
 		<p>
-			In correlation analysis we want to study the nature of existence of association (if any) between the variables.
+			In correlation analysis we want to study the nature of existence of association (if any) between the variables. 
+			Considering the second piece of bivariate data for the class, our aim is to make an association, or <i>correlation</i> 
+			between the marks in maths and marks in physics, i.e. a relation between \(X\) and \(Y\).
 		</p>
 		<h4>Regression analysis</h4>
 		<p>
@@ -151,7 +166,29 @@
 		<h4>Scatter or dot diagram</h4>
 		<p>
 			Scatter diagram is a graphical representation of bivariate data. 
+			Suppose we have \(n\) pairs of values \(\{(x_{i}, y_{i})\}_{i=1}^n\). 
+			If we plot the points \((x_{i}, y_{i})\) in \(\mathbb{R}^2\) (or the 
+			\(2\)-dimensional \(xy\)-plane), the diagram so obtained is called a 
+			scatter or dot diagram. <br>
+			From a scatter diagram we may study the nature of existence or association 
+			between the two variables.
 		</p>
+		<div class="example">
+			<ul>
+				<li>
+					When there is no clear relation between \(x_i\) and \(y_i\), <br> <br>
+					<img src="/documents/notes/stats_1/diagrams/no_corr.png">
+				</li>
+				<li>
+					When there is a linear relation between \(x_i\) and \(y_i\) with positive slope, <br> <br>
+					<img src="/documents/notes/stats_1/diagrams/pos_corr.png">
+				</li>
+				<li>
+					When there is a linear relation between \(x_i\) and \(y_i\) with negative slope, <br> <br>
+					<img src="/documents/notes/stats_1/diagrams/neg_corr.png">
+				</li>
+			</ul>
+		</div>
 
         <h3 id="stats#cov">Covariance</h3>
         <p>
@@ -244,15 +281,57 @@
 					r_{xy} = \frac{\text{Cov}(x, y)}{\sqrt{\text{Var}(x)\text{Var}(y)}} \\
 					= \frac{\frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\text{Var}(y)\text{Var}(x)}} \\
 					= \frac{\frac{1}{n} \sum_{i=1}^n (y_i - \bar{y})(x_i - \bar{x})}{\sqrt{\text{Var}(y)\text{Var}(x)}} \\
-					= \frac{\text{Cov}(y, x)}{\sqrt{\text{Var}(y)\text{Var}(x)}}
+					= \frac{\text{Cov}(y, x)}{\sqrt{\text{Var}(y)\text{Var}(x)}} \\
+					= r_{yx}
 				\]
-				\(\hspace{5cm} = r_{yx}\).
+				which proves the theorem.
 			</div>
 
             <div class="theorem">
                 The numerical value of the correlation coefficient is independent of the change of origin and 
-                scale of the axis.
+                scale of the axes.
             </div>
+			<small><i><a href="#solution#5" class="text" onclick="toggleSolution('#5')">Toggle proof</a></i></small>
+			<div id="solution#5" class="proof" style="display: none;">
+				Consider \(n\) pairs of values \(\{(x_{i}, y_{i})\}_{i=1}^n\) of the variables \(x\) and \(y\). 
+				In general, any transformation of the origin and scale of the axes from \(x\) and \(y\) to \(u\) 
+				and \(v\) will be of the form,
+				\[\displaystyle
+					u = \frac{(x - a)}{c},\ v = \frac{(y - b)}{d},\ a,\ b,\ c,\ d \in \mathbb{R}\\
+					\iff x = c u + a,\ y = d v + b \\
+					\therefore\ x_i = c u_i + a,\ y_i = d v_i + b. \\
+					\implies \frac{1}{n} \sum_{i=1}^n x_i = \frac{1}{n} \sum_{i=1}^n (c u_i + a),\ 
+					\frac{1}{n} \sum_{i=1}^n y_i = \frac{1}{n} \sum_{i=1}^n (d v_i + b)\\ 
+					\overbrace{\implies}^{\text{by linearity}} \bar{x} = \frac{c}{n} \sum_{i=1}^n u_i + \frac{1}{n} \sum_{i=1}^n a,\ 
+					\bar{y} = \frac{d}{n} \sum_{i=1}^n v_i + \frac{1}{n} \sum_{i=1}^n b \\
+					\therefore\ \bar{x} = c \bar{u} + a,\ \bar{y} = d \bar{v} + b \\
+				\]
+				We also know that, 
+				\[\displaystyle
+					\text{Var}(x) = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2 \\
+					= \frac{1}{n} \sum_{i=1}^n (c u_i + \color{red}{a} - c \bar{u} + \color{red}{a})^2 \\
+					= \frac{c^2}{n} \sum_{i=1}^n (u_i - \bar{u})^2 \\
+					= c^2 \text{Var}(u).
+				\]
+				And similarly, \(\text{Var}(y) = d^2 \text{Var}(v)\). Now, 
+				\[\displaystyle
+					\text{Cov}(x, y) = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y}) \\
+					= \frac{1}{n} \sum_{i=1}^n (c u_i + \color{red}{a} - c \bar{u} + \color{red}{a})(d v_i + \color{red}{b} - d \bar{v} + \color{red}{b}) \\
+					= \frac{cd}{n} \sum_{i=1}^n (u_i - \bar{u})(v_i - \bar{v}) \\
+					= cd \text{Cov}(u, v).
+				\]
+				Finally, 
+				\[\displaystyle
+					r_{xy} = \frac{\text{Cov}(x, y)}{\sqrt{\text{Var}(x)\ \text{Var}(y)}} \\
+					= \frac{cd \text{Cov}(u, v)}{\sqrt{c^2 \text{Var}(u)\ d^2 \text{Var}(v)}} \\ 
+					= \frac{cd}{|cd|} \frac{\text{Cov}(x, y)}{\sqrt{\text{Var}(x)\ \text{Var}(y)}} \\
+					\implies 
+					|r_{xy}| = |\frac{cd}{|cd|} \frac{\text{Cov}(x, y)}{\sqrt{\text{Var}(x)\ \text{Var}(y)}}| \\
+					= \frac{|cd|}{|cd|} |\frac{\text{Cov}(x, y)}{\sqrt{\text{Var}(x)\ \text{Var}(y)}}| \\
+					= |r_{uv}|.
+				\]
+				This proves the theorem.
+			</div>
         </p>
 
 		<h2 id="prob">Probability</h2>
