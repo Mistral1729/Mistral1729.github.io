@@ -218,11 +218,47 @@
 		<h2 id="seq">Sequences</h2>
 		<p>
 			<div class="definition">
-				Consider a point \(p \in \mathbb{R}.\) Then a <b>neighbourhood</b> of \(p\) is defined as, 
+				Consider a point \(a \in \mathbb{R}.\) Then a <b>neighbourhood</b> of \(a\) is defined as, 
 				\[\displaystyle
-					N(p; r) := \{x \in \mathbb{R} : \lvert x - p \rvert < r\} \\
-					= \{x : p - r < x - p < p + r\} \\
-					= (p-r,\ p+r).
+					N(a; \delta) := \{x \in \mathbb{R} : \lvert x - a \rvert < \delta\}
+					= \{x : a - \delta < x < a + \delta\}
+					= (a-\delta,\ a+\delta).
+				\]
+				Further, a <b>deleted neighbourhood</b> of \(a\) is defined as, 
+				\[\displaystyle
+					N'(a; \delta) := N(a; \delta) - \{a\}.
+				\]
+			</div>
+
+			<div class="definition">
+				A <b>sequence</b> is a mapping \(f : \mathbb{N} \to \mathbb{R}\), denoted by \(\{f(n)\}\) or \(\{x_n\}\). 
+				A <b>bounded sequence</b> is a sequence \(\{x_n\}\) such that \(\{x_n\}\) is bounded above or bounded below. <br>
+				A sequence \(\{x_n\}\) is <b>bounded above</b> iff, 
+				\[
+					\exists\ M \in \mathbb{R} : x_n \leq M\ \forall n \in \mathbb{N}
+				\]
+				and \(M\) is said to be an <b>upper bound</b> of \(\{x_n\}\). <br>
+				A sequence \(\{x_n\}\) is <b>bounded below</b> iff, 
+				\[
+					\exists\ m \in \mathbb{R} : x_n \geq m\ \forall n \in \mathbb{N}
+				\]
+				and \(m\) is said to be a <b>lower bound</b> of \(\{x_n\}\).
+			</div>
+
+			<div class="theorem">
+				A sequence \(\{x_n\}\) is <b>bounded</b> iff, 
+				\[
+					\exists\ k \in \mathbb{R}^+ : |x_n| \leq k\ \forall n \in \mathbb{N}
+				\]
+				and \(k\) is said to be a <b>bound</b> of \(\{x_n\}\). 
+			</div>
+
+			<div class="definition">
+				A sequence \(\{x_n\}\) is said to converge to a <b>limit L</b> iff, 
+				\[
+					\forall\ \epsilon > 0\ \exists\ m \in \mathbb{N} : \\
+					|x_n - L| < \epsilon,\ \forall\ m \geq n \\
+					\iff x_n \in N(L; \epsilon),\ \forall\ m \geq n.
 				\]
 			</div>
 		</p>
