@@ -230,6 +230,15 @@ body {
         font-variant-caps: small-caps;
         text-align: center;
   }
+
+  .centerimage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    width:30%;
+    max-width:350px;
+ }
   
   .sourceCode {
     font-size: 8pt;
