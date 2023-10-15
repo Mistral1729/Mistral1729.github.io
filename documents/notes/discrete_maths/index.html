@@ -5,7 +5,7 @@
   		<meta name="generator" content="pandoc" />
   		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   		<meta name="dcterms.date" content="2023-09-13" />
-  		<title>Statistics 1</title>
+  		<title>Discrete Mathematics</title>
 		<link rel="icon" type="image/png" href="/pictures/mpg.png">
 		<style>
 			code{white-space: pre-wrap;}
@@ -103,6 +103,17 @@
                     = n - 1 < n.
                 \]
                 Thus the statement follows from pigeonhole principle.
+			</div>
+			<div class="question"> (Ramsey problem)
+                Prove or disprove: In any gathering of \(6\) people, either \(3\) are mutually friends or \(3\) are mutually strangers.
+            </div>
+            <img class="centerimage" src="/documents/notes/discrete_maths/diagrams/intro2.png">
+			<small><i><a href="#solution#2" class="text" onclick="toggleSolution('#2')">Toggle solution</a></i></small>
+			<div id="solution#2" class="proof" style="display: none;">
+				It is true that in any gathering of \(6\) people, either \(3\) are mutually friends or \(3\) are mutually strangers. <br>
+				For any person \(u\), \(\text{Friends}(u) + \text{Strangers}(u) = 5\) clearly holds. <br>
+				Thus, for any person \(u\) either \(\text{Friends}(u) \geq 3\) or \(\text{Strangers}(u) \geq 3\).
+				<img class="centerimage" src="/documents/notes/discrete_maths/diagrams/intro2_1.png">
 			</div>
         </p>
 
