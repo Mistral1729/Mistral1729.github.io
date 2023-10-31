@@ -336,6 +336,29 @@
 				\]
 				This proves the theorem.
 			</div>
+			<div class="proposition">
+                The value of the correlation coefficient lies between \(-1\) and \(+1\), inclusive of the endpoints, i.e. 
+				\[
+					-1 \leq r_{xy} \leq 1.
+				\]
+            </div>
+			<small><i><a href="#solution#6" class="text" onclick="toggleSolution('#6')">Toggle proof</a></i></small>
+			<div id="solution#6" class="proof" style="display: none;">
+				Consider \(n\) pairs of values \(\{(x_{i}, y_{i})\}_{i=1}^n\) of the variables \(x\) and \(y\). <br>
+				Let us define \(a_i := x_i - \bar{x}\) and \(b_i := y_i - \bar{y} \ \forall\ i = 1,...,n\ ;\) then, 
+				applying the Cauchy-Schwarz inequality we have, 
+				\[\displaystyle
+					(\sum_{i=1}^n a_i^2) (\sum_{i=1}^n b_i^2) \geq (\sum_{i=1}^n a_i b_i)^2\\
+					\implies (\sum_{i=1}^n (x_i - \bar{x})^2) (\sum_{i=1}^n (y_i - \bar{y})^2) \geq (\sum_{i=1}^n (x_i - \bar{x}) (y_i - \bar{y}))^2\\
+					\implies n \text{Var}(x) n \text{Var}(y) \geq (n \text{Cov}(x,\ y))^2\\
+					\implies \sqrt{\text{Var}(x) \text{Var}(y)}^2 \geq \text{Cov}(x,\ y)^2\\
+					\implies 1 \geq (\frac{\text{Cov}(x,\ y)}{\sqrt{\text{Var}(x) \text{Var}(y)}})^2\\
+					\implies 1 \geq r_{xy}^2 = | r_{xy} |^2 \implies | r_{xy} |^2 - 1^2 \leq 0\\
+					\implies \underbrace{(| r_{xy} | + 1)}_{\geq\ 1\ >\ 0} (| r_{xy} | - 1) \leq 0\\
+					\implies (| r_{xy} | - 1) \leq 0.
+				\] 
+				Thus, we have \(| r_{xy} | \leq 1 \iff -1 \leq r_{xy} \leq 1.\)
+			</div>
         </p>
 
 		<h1 class="unnumbered" id="bibliography">References</h1>
