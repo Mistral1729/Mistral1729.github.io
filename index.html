@@ -405,34 +405,309 @@
                   </tr>
                 </table> 
                 
-                <a class="text" href="https://blogs.ams.org/visualinsight/2016/05/01/involutes-of-a-cubical-parabola/" target="_blank" name="en">
-                  <img
-                    class="rightimageX"
-                    src="pictures/tractrix_as_involute_of_catenary.gif"
-                    width="30%"
-                    title="Tractrix as an Involute of the Catenary - Sam Derbyshire" />
-                </a>
-                <a class="text" href="https://blogs.ams.org/visualinsight/2016/05/01/involutes-of-a-cubical-parabola/" target="_blank" name="de" style="display:none" >
-                  <img
-                    class="rightimageX"
-                    src="pictures/tractrix_as_involute_of_catenary.gif"
-                    width="30%"
-                    title="Tractrix als Involut der Oberleitung - Sam Derbyshire" />
-                </a>
-                <a class="text" href="https://blogs.ams.org/visualinsight/2016/05/01/involutes-of-a-cubical-parabola/" target="_blank" name="fr" style="display:none" >
-                  <img
-                    class="rightimageX"
-                    src="pictures/tractrix_as_involute_of_catenary.gif"
-                    width="30%"
-                    title="Tractrix comme involution de la caténaire - Sam Derbyshire" />
-                </a>
-                <a class="text" href="https://blogs.ams.org/visualinsight/2016/05/01/involutes-of-a-cubical-parabola/" target="_blank" name="jp" style="display:none" >
-                  <img
-                    class="rightimageX"
-                    src="pictures/tractrix_as_involute_of_catenary.gif"
-                    width="30%"
-                    title="カテナリーのインボリューションとしてのトラクトリックス - Sam Derbyshire" />
-                </a>
+                <p class="text" name="en">
+                  <a href="https://glitch.com/edit/#!/your-first-webgpu-app">Conway's Game of Life (using WebGPU) : </a>
+                </p>
+                <p class="text" name="de" style="display:none">
+                  <a href="https://glitch.com/edit/#!/your-first-webgpu-app">Conways Game of Life (mit WebGPU) : </a>
+                </p>
+                <p class="text" name="fr" style="display:none">
+                  <a href="https://glitch.com/edit/#!/your-first-webgpu-app">Game of Life de Conway (à l'aide de WebGPU) : </a>
+                </p>
+                <p class="text" name="jp" style="display:none">
+                  <a href="https://glitch.com/edit/#!/your-first-webgpu-app">コンウェイの人生ゲーム（WebGPU使用）：</a>
+                </p>
+                <canvas width="512" height="512"></canvas>
+                <script type="module">
+                  const GRID_SIZE = 32;
+                  const UPDATE_INTERVAL = 250;
+                  const WORKGROUP_SIZE = 8;
+
+                  const canvas = document.querySelector("canvas");
+
+                  // WebGPU device initialization
+                  if (!navigator.gpu) {
+                    throw new Error("WebGPU not supported on this browser.");
+                  }
+
+                  const adapter = await navigator.gpu.requestAdapter();
+                  if (!adapter) {
+                    throw new Error("No appropriate GPUAdapter found.");
+                  }
+
+                  const device = await adapter.requestDevice();
+
+                  // Canvas configuration
+                  const context = canvas.getContext("webgpu");
+                  const canvasFormat = navigator.gpu.getPreferredCanvasFormat();
+                  context.configure({
+                      device: device,
+                      format: canvasFormat,
+                  });
+
+                  // Create a buffer with the vertices for a single cell.
+                  const vertices = new Float32Array([
+                    -0.8, -0.8,
+                    0.8, -0.8,
+                    0.8,  0.8,
+
+                    -0.8, -0.8,
+                    0.8,  0.8,
+                    -0.8,  0.8,
+                  ]);
+                  const vertexBuffer = device.createBuffer({
+                    label: "Cell vertices",
+                    size: vertices.byteLength,
+                    usage: GPUBufferUsage.VERTEX | GPUBufferUsage.COPY_DST,
+                  });
+                  device.queue.writeBuffer(vertexBuffer, 0, vertices);
+
+                  const vertexBufferLayout = {
+                    arrayStride: 8,
+                    attributes: [{
+                      format: "float32x2",
+                      offset: 0,
+                      shaderLocation: 0, // Position. Matches @location(0) in the @vertex shader.
+                    }],
+                  };
+
+                  // Create the bind group layout and pipeline layout.
+                  const bindGroupLayout = device.createBindGroupLayout({
+                    label: "Cell Bind Group Layout",
+                    entries: [{
+                      binding: 0,
+                      visibility: GPUShaderStage.VERTEX | GPUShaderStage.COMPUTE,
+                      buffer: {} // Grid uniform buffer
+                    }, {
+                      binding: 1,
+                      visibility: GPUShaderStage.VERTEX | GPUShaderStage.COMPUTE,
+                      buffer: { type: "read-only-storage"} // Cell state input buffer
+                    }, {
+                      binding: 2,
+                      visibility: GPUShaderStage.COMPUTE,
+                      buffer: { type: "storage"} // Cell state output buffer
+                    }]
+                  });
+
+                  const pipelineLayout = device.createPipelineLayout({
+                    label: "Cell Pipeline Layout",
+                    bindGroupLayouts: [ bindGroupLayout ],
+                  });
+
+                  // Create the shader that will render the cells.
+                  const cellShaderModule = device.createShaderModule({
+                    label: "Cell shader",
+                    code: `
+                    struct VertexOutput {
+                        @builtin(position) position: vec4f,
+                        @location(0) cell: vec2f,
+                      };
+
+                      @group(0) @binding(0) var<uniform> grid: vec2f;
+                      @group(0) @binding(1) var<storage> cellState: array<u32>;
+
+                      @vertex
+                      fn vertexMain(@location(0) position: vec2f,
+                                    @builtin(instance_index) instance: u32) -> VertexOutput {
+                        var output: VertexOutput;
+
+                        let i = f32(instance);
+                        let cell = vec2f(i % grid.x, floor(i / grid.x));
+
+                        let scale = f32(cellState[instance]);
+                        let cellOffset = cell / grid * 2;
+                        let gridPos = (position*scale+1) / grid - 1 + cellOffset;
+
+                        output.position = vec4f(gridPos, 0, 1);
+                        output.cell = cell / grid;
+                        return output;
+                      }
+
+                      @fragment
+                      fn fragmentMain(input: VertexOutput) -> @location(0) vec4f {
+                        return vec4f(input.cell, 1.0 - input.cell.x, 1);
+                      }
+                    `
+                  });
+
+                  // Create a pipeline that renders the cell.
+                  const cellPipeline = device.createRenderPipeline({
+                    label: "Cell pipeline",
+                    layout: pipelineLayout,
+                    vertex: {
+                      module: cellShaderModule,
+                      entryPoint: "vertexMain",
+                      buffers: [vertexBufferLayout]
+                    },
+                    fragment: {
+                      module: cellShaderModule,
+                      entryPoint: "fragmentMain",
+                      targets: [{
+                        format: canvasFormat
+                      }]
+                    }
+                  });
+
+                  // Create the compute shader that will process the game of life simulation.
+                  const simulationShaderModule = device.createShaderModule({
+                    label: "Life simulation shader",
+                    code: `
+                      @group(0) @binding(0) var<uniform> grid: vec2f;
+
+                      @group(0) @binding(1) var<storage> cellStateIn: array<u32>;
+                      @group(0) @binding(2) var<storage, read_write> cellStateOut: array<u32>;
+
+                      fn cellIndex(cell: vec2u) -> u32 {
+                        return (cell.y % u32(grid.y)) * u32(grid.x) +
+                              (cell.x % u32(grid.x));
+                      }
+
+                      fn cellActive(x: u32, y: u32) -> u32 {
+                        return cellStateIn[cellIndex(vec2(x, y))];
+                      }
+
+                      @compute @workgroup_size(${WORKGROUP_SIZE}, ${WORKGROUP_SIZE})
+                      fn computeMain(@builtin(global_invocation_id) cell: vec3u) {
+                        // Determine how many active neighbors this cell has.
+                        let activeNeighbors = cellActive(cell.x+1, cell.y+1) +
+                                              cellActive(cell.x+1, cell.y) +
+                                              cellActive(cell.x+1, cell.y-1) +
+                                              cellActive(cell.x, cell.y-1) +
+                                              cellActive(cell.x-1, cell.y-1) +
+                                              cellActive(cell.x-1, cell.y) +
+                                              cellActive(cell.x-1, cell.y+1) +
+                                              cellActive(cell.x, cell.y+1);
+
+                        let i = cellIndex(cell.xy);
+
+                        // Conway's game of life rules:
+                        switch activeNeighbors {
+                          case 2: { // Active cells with 2 neighbors stay active.
+                            cellStateOut[i] = cellStateIn[i];
+                          }
+                          case 3: { // Cells with 3 neighbors become or stay active.
+                            cellStateOut[i] = 1;
+                          }
+                          default: { // Cells with < 2 or > 3 neighbors become inactive.
+                            cellStateOut[i] = 0;
+                          }
+                        }
+                      }
+                    `
+                  });
+
+                  // Create a compute pipeline that updates the game state.
+                  const simulationPipeline = device.createComputePipeline({
+                    label: "Simulation pipeline",
+                    layout: pipelineLayout,
+                    compute: {
+                      module: simulationShaderModule,
+                      entryPoint: "computeMain",
+                    }
+                  });
+
+                  // Create a uniform buffer that describes the grid.
+                  const uniformArray = new Float32Array([GRID_SIZE, GRID_SIZE]);
+                  const uniformBuffer = device.createBuffer({
+                    label: "Grid Uniforms",
+                    size: uniformArray.byteLength,
+                    usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
+                  });
+                  device.queue.writeBuffer(uniformBuffer, 0, uniformArray);
+
+                  // Create an array representing the active state of each cell.
+                  const cellStateArray = new Uint32Array(GRID_SIZE * GRID_SIZE);
+
+                  // Create two storage buffers to hold the cell state.
+                  const cellStateStorage = [
+                    device.createBuffer({
+                      label: "Cell State A",
+                      size: cellStateArray.byteLength,
+                      usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST,
+                    }),
+                    device.createBuffer({
+                      label: "Cell State B",
+                      size: cellStateArray.byteLength,
+                      usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST,
+                    })
+                  ];
+
+                  // Set each cell to a random state, then copy the JavaScript array into
+                  // the storage buffer.
+                  for (let i = 0; i < cellStateArray.length; ++i) {
+                    cellStateArray[i] = Math.random() > 0.6 ? 1 : 0;
+                  }
+                  device.queue.writeBuffer(cellStateStorage[0], 0, cellStateArray);
+
+                  // Create a bind group to pass the grid uniforms into the pipeline
+                  const bindGroups = [
+                    device.createBindGroup({
+                      label: "Cell renderer bind group A",
+                      layout: bindGroupLayout,
+                      entries: [{
+                        binding: 0,
+                        resource: { buffer: uniformBuffer }
+                      }, {
+                        binding: 1,
+                        resource: { buffer: cellStateStorage[0] }
+                      }, {
+                        binding: 2,
+                        resource: { buffer: cellStateStorage[1] }
+                      }],
+                    }),
+                    device.createBindGroup({
+                      label: "Cell renderer bind group B",
+                      layout: bindGroupLayout,
+                      entries: [{
+                        binding: 0,
+                        resource: { buffer: uniformBuffer }
+                      }, {
+                        binding: 1,
+                        resource: { buffer: cellStateStorage[1] }
+                      }, {
+                        binding: 2,
+                        resource: { buffer: cellStateStorage[0] }
+                      }],
+                    }),
+                  ];
+
+                  let step = 0;
+                  function updateGrid() {
+                    const encoder = device.createCommandEncoder();
+
+                    // Start a compute pass
+                    const computePass = encoder.beginComputePass();
+
+                    computePass.setPipeline(simulationPipeline);
+                    computePass.setBindGroup(0, bindGroups[step % 2]);
+                    const workgroupCount = Math.ceil(GRID_SIZE / WORKGROUP_SIZE);
+                    computePass.dispatchWorkgroups(workgroupCount, workgroupCount);
+                    computePass.end();
+
+                    step++; // Increment the step count
+
+                    // Start a render pass
+                    const pass = encoder.beginRenderPass({
+                      colorAttachments: [{
+                        view: context.getCurrentTexture().createView(),
+                        loadOp: "clear",
+                        clearValue: { r: 0, g: 0, b: 0.4, a: 1.0 },
+                        storeOp: "store",
+                      }]
+                    });
+
+                    // Draw the grid.
+                    pass.setPipeline(cellPipeline);
+                    pass.setBindGroup(0, bindGroups[step % 2]); // Updated!
+                    pass.setVertexBuffer(0, vertexBuffer);
+                    pass.draw(vertices.length / 2, GRID_SIZE * GRID_SIZE);
+
+                    // End the render pass and submit the command buffer
+                    pass.end();
+                    device.queue.submit([encoder.finish()]);
+                  }
+                  setInterval(updateGrid, UPDATE_INTERVAL);
+                </script>
 
               </div>
 
@@ -532,315 +807,6 @@
                     </p>
                   </li>
                 </ul>
-                
-                <!--
-                <h4 class="text" name="en">Preprints</h4>
-                <h4 class="text" name="de" style="display:none">Preprints</h4>
-                
-                <ul>
-                  <li>
-                    <i>
-                  Rasmussen invariants of Whitehead doubles and other satellites
-                    </i>
-                    <br>
-                    <p style="font-size:small">
-                      <a href="https://arxiv.org/abs/2208.13612"
-                      target="_blank">arXiv:2208.13612</a>, 48 pages, joint with
-                      <a href="http://www.lewark.de/lukas/" target="_blank">Lukas Lewark</a>
-                    <br>
-                    A supplementary table of invariants can be found
-                      <a href="https://llewark.github.io/theta/"
-                        target="_blank">here</a>.
-                    </p>
-                  </li>
-                  <li>
-                    <i>
-                      Khovanov multicurves are linear
-                    </i>
-                    <br>
-                    <p style="font-size:small">
-                      <a href="https://arxiv.org/abs/2202.01460"
-                      target="_blank">arXiv:2202.01460</a>, 41 pages, joint with
-                      <a href="https://artofkot.github.io/" target="_blank">Artem
-                      Kotelskiy</a> and
-                      <a href="https://www.math.ubc.ca/~liam/" target="_blank">Liam
-                      Watson</a>
-                    </p>
-                  </li>
-                  <li>
-                    <i>
-                      Thin links and Conway spheres
-                    </i>
-                    <br>
-                    <p style="font-size:small">
-                      <a href="https://arxiv.org/abs/2105.06308"
-                      target="_blank">arXiv:2105.06308</a>, 50 pages, joint with
-                      <a href="https://artofkot.github.io/" target="_blank">Artem
-                      Kotelskiy</a> and
-                      <a href="https://www.math.ubc.ca/~liam/" target="_blank">Liam
-                      Watson</a>, submitted 
-                    </p>
-                  </li>
-                  <li>
-                    <i>
-                      Khovanov invariants via Fukaya categories: the tangle
-                      invariants agree
-                    </i>
-                    <br>
-                    <p style="font-size:small">
-                      <a href="https://arxiv.org/abs/2004.01619"
-                      target="_blank">arXiv:2004.01619</a>, 14 pages, joint with
-                      <a href="https://artofkot.github.io/" target="_blank">Artem
-                      Kotelskiy</a> and
-                      <a href="https://www.math.ubc.ca/~liam/" target="_blank">Liam
-                      Watson</a>, submitted 
-                    </p>
-                  </li>
-                  <li>
-                    <i>
-                      Immersed curves in Khovanov homology
-                    </i>
-                    <br>
-                    <p style="font-size:small">
-                      <a href="https://arxiv.org/abs/1910.14584"
-                      target="_blank">arXiv:1910.14584</a>, 95 pages, joint with
-                      <a href="https://artofkot.github.io/" target="_blank">Artem
-                      Kotelskiy</a> and
-                      <a href="https://www.math.ubc.ca/~liam/" target="_blank">Liam
-                  Watson</a>, submitted 
-                    <br>
-                      I gave a mini-course on selected material from this paper at
-                      the 2019 ISM discovery school
-                      <a href="http://ism.uqam.ca/Low-dimensions/en/index.html"
-                        target="_blank">Current Progress in Low Dimensions</a> in
-                      Montréal. My lecture notes are available
-                      <a href="teaching/2019-ISM/Lectures.pdf"
-                        target="_blank">here</a> along with
-                      <a href="teaching/2019-ISM/Handouts.pdf"
-                        target="_blank">exercises</a>.
-                    </p>
-                  </li>
-                </ul>
-
-                <h4 class="text" name="en">Publications in major scientific journals</h4>
-                <h4 class="text" name="de" style="display:none">Veröffentlichungen in bedeutenden wissenschaftlichen Journalen</h4> 
-
-                <ul>
-                  <li>
-                    <i>
-                      Cosmetic operations and Khovanov multicurves
-                    </i>
-                    <br>
-                    <p style="font-size:small">
-                      joint with
-                      <a href="https://artofkot.github.io/" target="_blank">Artem
-                      Kotelskiy</a>, 
-                    <a href="https://tlidman.math.ncsu.edu/" target="_blank">Tye
-                      Lidman</a>,
-                      <a href="https://people.vcu.edu/~moorea14/"
-                      target="_blank">Allison Moore</a>,
-                    and
-                      <a href="https://www.math.ubc.ca/~liam/" target="_blank">Liam
-                      Watson</a><br>
-                      accepted at <a href="https://www.springer.com/journal/208/" target="_blank">Mathematische Annalen</a>, 20 pages, <a href="https://arxiv.org/abs/2109.14049"
-                      target="_blank">arXiv:2109.14049</a>
-                    </p>
-                  </li>
-                  <li>
-                    <i>
-                      A mnemonic for the Lipshitz-Ozsváth-Thurston correspondence
-                    </i>
-                    <br>
-                    <p style="font-size:small">
-                      joint with
-                      <a href="https://artofkot.github.io/" target="_blank">Artem
-                      Kotelskiy</a> and
-                      <a href="https://www.math.ubc.ca/~liam/" target="_blank">Liam
-                      Watson</a><br>
-                    accepted at <a href="https://msp.org/soon/coming.php?jpath=agt" target="_blank">Algebraic & Geometric Topology</a>, 23 pages, <a href="https://arxiv.org/abs/2005.02792"
-                      target="_blank">arXiv:2005.02792</a>
-                    </p>
-                  </li>
-
-                <a class="text" name="en">
-                  <img
-                    class="rightimage"
-                    src="pictures/dotgraphs.png"
-                    width="30%"
-                      title="Output of the Mathematica package PQM.m:
-                a graphical interpretation of a peculiar module" />
-                </a>
-                <a class="text" name="de" style="display:none" >
-                  <img
-                    class="rightimage"
-                    src="pictures/dotgraphs.png"
-                    width="30%"
-                    title="Output des Mathematica Pakets PQM.m:
-                eine graphische Interpretation eines peculiar modules" />
-                </a>
-
-
-                  <li>
-                    <i>
-                      L-space knots have no essential Conway spheres
-                    </i>
-                    <br>
-                    <p style="font-size:small">
-                  joint with
-                      <a href="https://tlidman.math.ncsu.edu/" target="_blank">Tye
-                      Lidman</a> and
-                      <a href="https://people.vcu.edu/~moorea14/"
-                      target="_blank">Allison Moore</a><br>
-                      Geometry & Topology 26.5 (2022), 2065–2102
-                      (<a href="https://arxiv.org/abs/2006.03521"
-                      target="_blank">arXiv:2006.03521</a> |
-                      <a href="https://www.doi.org/10.2140/gt.2022.26.2065"
-                      target="_blank">doi:10.2140/gt.2022.26.2065</a>)
-                    </p>
-                  </li>
-                  <li>
-                    <i>
-                      On symmetries of peculiar modules; or, \(\delta\)-graded link
-                      Floer homology is mutation invariant
-                    </i>
-                    <br>
-                    <p style="font-size:small">
-                      <a href="https://www.ems-ph.org/journals/forthcoming.php?jrn=JEMS" target="_blank">accepted</a> at the Journal of the EMS, 47 pages, <a href="https://arxiv.org/abs/1909.04267" target="_blank">arXiv:1909.04267</a> 
-                    </p>
-                </li>
-                <li>
-                    <i>
-                      Peculiar modules for 4-ended tangles
-                    </i>
-                    <br>
-                    <p style="font-size:small">
-                      Journal of Topology 13.1 (2020), 77–158
-                      (<a href="https://arxiv.org/abs/1712.05050"
-                      target="_blank">arXiv:1712.05050</a> |
-                      <a href="https://www.doi.org/10.1112/topo.12120"
-                      target="_blank">doi:10.1112/topo.12120</a>)
-                    </p>
-                  </li>
-                  <li>
-                    <i>
-                      Kauffman states and Heegaard diagrams for tangles
-                    </i>
-                    <br>
-                    <p style="font-size:small">
-                      Algebraic & Geometric Topology 19.5 (2019), 2233–2282
-                      (<a href="https://arxiv.org/abs/1601.04915"
-                      target="_blank">arXiv:1601.04915</a> |
-                      <a href="https://www.doi.org/10.2140/agt.2019.19.2233"
-                      target="_blank">doi:10.2140/agt.2019.19.2233</a>)
-                    </p>
-                  </li>
-                </ul>
-
-                <h4 class="text" name="en">Publications in conference proceedings and in other peer-reviewed scientific journals</h4>
-                <h4 class="text" name="de" style="display:none">Veröffentlichungen in Konferenzbänden oder in anderen peer-reviewten Journalen</h4>
-
-                <ul>
-                  <li>
-                    <i>
-                  Heegaard Floer multicurves of double tangles
-                    </i>
-                    <br>
-                    <p style="font-size:small">
-                      <a href="https://arxiv.org/abs/2212.08501"
-                      target="_blank">arXiv:2212.08501</a>, 31 pages, to appear in the proceedings of <a href="http://indico.ictp.it/event/9706/" target="_blank">Frontiers in Geometry and Topology</a>, a conference in honour of Tom Mrowka's 60th birthday.
-                    </p>
-                  </li>
-                  <li>
-                    <i>
-                      Khovanov homology and strong inversions
-                    </i>
-                    <br>
-                    <p style="font-size:small">
-                      joint with
-                      <a href="https://artofkot.github.io/" target="_blank">Artem
-                      Kotelskiy</a> and
-                      <a href="https://www.math.ubc.ca/~liam/" target="_blank">Liam
-                      Watson</a><br>
-                      in <i>Gauge theory and low-dimensional topology: progress and interaction</i>,<br> 
-                      Open Book Series 5.1 (2022), 223–244
-                    (<a href="https://arxiv.org/abs/2104.13592" 
-                    target="_blank">arXiv:2104.13592</a> |
-                    <a href="https://www.doi.org/10.2140/obs.2022.5.223"
-                    target="_blank">doi:10.2140/obs.2022.5.223</a>)
-                    </p>
-                  </li>
-
-                  <li>
-                    <i>
-                      Rasmussen invariants
-                    </i>
-                    <br>
-                    <p style="font-size:small">
-                  joint with
-                      <a href="http://www.lewark.de/lukas/" target="_blank">Lukas Lewark</a><br>
-                      <a href="https://secure.math.ubc.ca/Links/mrp/" target="_blank">Mathematical Research Postcards 1.2 (2021)</a>
-                      (<a href="documents/RasmussenInvariants.pdf" target="_blank">pdf</a>)
-                    </p>
-                  </li>
-                </ul>
-
-
-                <h4 class="text" name="en">Theses</h4>
-                <h4 class="text" name="de" style="display:none">Doktor- und
-                Masterarbeit</h4>
-                <ul>
-                  <li class="text" name="en">
-                    <i>
-                      On a Heegaard Floer theory for tangles
-                    </i> (PhD thesis)
-                    <br>
-                    <p style="font-size:small">
-                      <a href="https://arxiv.org/abs/1610.07494"
-                      target="_blank">arXiv:1610.07494</a>, also available
-                      from <a href="https://doi.org/10.17863/CAM.8706"
-                      target="_blank">Cambridge Apollo</a>
-                    </p>
-                  </li>
-                  <li class="text" name="de" style="display:none">
-                    <i>
-                      On a Heegaard Floer theory for tangles
-                    </i> (Doktorarbeit)
-                    <br>
-                    <p style="font-size:small">
-                      <a href="https://arxiv.org/abs/1610.07494"
-                      target="_blank">arXiv:1610.07494</a>, auch
-                      bei <a href="https://doi.org/10.17863/CAM.8706"
-                      target="_blank">Cambridge Apollo</a> verfügbar
-                    </p>
-                  </li>
-                  <li class="text" name="en">
-                    <i>
-                      <a href="documents/KhovanovStableHomotopy.pdf"
-                      target="_blank">Khovanov Stable Homotopy</a>
-                    </i> (Part III essay)
-                    <br>
-                    <p style="font-size:small">
-                      This is essentially a summary of Lipshitz and Sarkar's
-                      <a href="http://www.arXiv.org/abs/1112.3932"
-                      target="_blank">construction</a> of a Khovanov homotopy type.
-                    </p>
-                  </li>
-                  <li class="text" name="de" style="display:none">
-                    <i>
-                      <a href="documents/KhovanovStableHomotopy.pdf"
-                      target="_blank">Khovanov Stable Homotopy</a>
-                    </i> (Part III essay)
-                    <br>
-                    <p style="font-size:small">
-                      Dies ist hauptsächlich eine Zusammenfassung von Lipshitz and
-                      Sarkars
-                      <a href="http://www.arXiv.org/abs/1112.3932" target="_blank">
-                        Konstruktion</a> eines Khovanov-Homotopie-Typs.
-                    </p>
-                  </li>
-                </ul>
-                -->
-              </div>
 
               <div class="details" id="#books" style="display: none">
                 <a class="text" name="en" href="https://blogs.ams.org/visualinsight/2016/09/15/togliatti-quintic-surface/">
@@ -947,125 +913,30 @@
 
                 <ul>
                   <li>
-                    <i>Tiger Engine</i> (<a href="https://github.com/CarlMariaMikage/TigerEngine" 
-                    target="_blank">program website</a>|<a href="https://github.com/CarlMariaMikage/TigerEngine" target="_blank">github</a>), a Vulkan game engine written in C.
-                    <p style="font-size:small">
-                    This is based on Travis Vroman's
-                    <i><a href="https://github.com/travisvroman/kohi"
-                          target="_blank">Kohi Engine</a></i>.
-                    </p>
+                    <i>Leviathan</i> (<a href="https://github.com/Mistral1729/Leviathan" 
+                    target="_blank">program website</a>|<a href="https://github.com/Mistral1729/Leviathan" target="_blank">github</a>), a 3D game engine written in C++ utilising DirectX 11.
                   </li>
                 </ul>
 
                 <a class="text" href="https://github.com/CarlMariaMikage/TigerEngine" target="_blank" name="en">
                 <img class="rightimageX" src="pictures/TAPI_example.png"
-                  title="Examples session in TigerEngine" />
+                  title="Examples session in Leviathan" />
                 </a>
                 <a class="text" href="https://github.com/CarlMariaMikage/TigerEngine" target="_blank" name="de" style="display:none">
                   <img class="rightimageX" src="pictures/TAPI_example.png"
-                    title="Beispiel-Session in TigerEngine" />
+                    title="Beispiel-Session in Leviathan" />
                 </a>
                 <a class="text" href="https://github.com/CarlMariaMikage/TigerEngine" target="_blank" name="fr" style="display:none">
                   <img class="rightimageX" src="pictures/TAPI_example.png"
-                    title="Session d'exemples dans TigerEngine" />
+                    title="Session d'exemples dans Leviathan" />
                 </a>
                 <a class="text" href="https://github.com/CarlMariaMikage/TigerEngine" target="_blank" name="jp" style="display:none">
                   <img class="rightimageX" src="pictures/TAPI_example.png"
-                    title="TigerEngineでのセッション例" />
+                    title="Leviathanでのセッション例" />
                 </a>
-
-              <!--
-
-                <h4 class="text" name="en">Computer programs</h4>
-                <h4 class="text" name="de"
-                style="display:none">Computerprogramme</h4>
-
-                <ul>
-                  <li>
-                    <i>kht++</i> (<a href="https://cbz20.raspberryip.com/code/khtpp/docs/index.html" 
-                    target="_blank">program website</a>|<a href="https://github.com/cbz20/khtpp" target="_blank">github</a>), a C++ program for computing Khovanov 
-                  invariants of links and tangles. 2021.
-                    <p style="font-size:small">
-                    This program supersedes  
-                  <i><a href="https://github.com/spinachstealer/KhT"
-                    target="_blank">KhT.py</a></i>, a python program that I wrote 
-                  with G. Chhina during an undergraduate summer research project.
-                  </p>
-                  </li>
-                  <li>
-                    <i><a href="code/BSFH/BSFH.zip"
-                    target="_blank">BSFH.m</a></i>, a Mathematica package for computing
-                    Zarev's <a href="https://arxiv.org/abs/0908.1106v2"
-                    target="_blank">bordered sutured Floer invariants</a>. 2017–2019.
-                    <p style="font-size:small">
-                  A manual can be
-                    found in appendix&#160;D of my thesis. An updated version which
-                    also handles more than two glueing surfaces
-                    and <nobr>\(\alpha\)-</nobr> and <nobr>\(\beta\)-</nobr>arcs
-                    simultaneously is available upon request.
-                  </p>
-                  </li>
-                  <li>
-                    <i><a href="code/PQM/PQMv1.1.zip"
-                    target="_blank">PQM.m</a></i>, a Mathematica package for computing the invariant \(\operatorname{HFT}\) for Conway tangles. 2018.
-                    <p style="font-size:small">
-                    A manual can be
-                    found <a href="code/PQM/Manual_PQM.pdf"
-                    target="_blank">here</a>.
-                  </p>
-                  </li>
-                  <li>
-                    <i><a href="code/APT/APT.zip"
-                    target="_blank">APT.m</a></i>, a Mathematica package for computing the decategorified
-                    polynomial tangle invariants&#160;\(\nabla_T^s\) from my
-                    thesis. 2017.
-                    <p style="font-size:small">
-                  A manual can be found in appendix&#160;C of my thesis.
-                  </p>
-                  </li>
-                </ul>
-
-                <p>
-                  All four programs are licensed
-                  under <a href="https://www.gnu.org/licenses/agpl-3.0.html"
-                  target="_blank">AGPLv3</a>.
-                </p>
-              -->
-
               </div>
 
               <div class="details" id="#wiki" style="display: none">
-                <!--
-                <h4>Outreach talks</h4>
-                <ul>     
-                  <li>
-                    (<a href="https://cbz20.raspberryip.com/documents/talks/2022-10-21-Nacht-Schafft-Wissen.pdf">slides</a>) <i>Mathematik zum Anfassen</i>, <a href="https://www.nacht-schafft-wissen.de/fileadmin/user_upload/Final-Programmheft.pdf#page=26">Nacht.Schafft.Wissen 2022</a> (Night of Science), Regensburg
-                  </li>
-                </ul>
-
-                <h4>Lectures</h4>
-                <h5>Universität Regensburg</h5>
-                <ul>     
-                  <li>
-                      Winter Term '21: <a href="teaching/2021-Elementargeometrie">Elementargeometrie für Lehramt</a>
-                  </li>
-                </ul>
-                <h5>University of British Columbia</h5>
-                <ul>
-                    <li>
-                      Spring Term '20: <a href="teaching/2020-math101/">101:201 Integral Calculus with Applications to Physical Sciences and Engineering</a>
-                  </li>
-                  <li>
-                      Winter Term '19: <a href="teaching/2019-math100/">100:101 Differential Calculus with Applications to Physical Sciences and Engineering</a>
-                  </li>
-                    <li>
-                      Spring Term '19: <a href="teaching/2019-math101/">101:207 Integral Calculus with Applications to Physical Sciences and Engineering </a>
-                  </li>
-                  <li>
-                      Winter Term '18: <a href="teaching/2018-math100/">100:102 Differential Calculus with Applications to Physical Sciences and Engineering</a>
-                  </li>
-                </ul>  
-                -->
                 <ul>
                   <li>
                     Big List of Problems : <br>
@@ -1409,57 +1280,6 @@
                     />
                 </a>
                 </div>
-                
-                <!--
-                <h5>Université de Sherbrooke</h5>
-                <ul>     
-                  <li>
-                      Hiver '18: <a href="teaching/2018-AlgTop/">MAT623/MAT813 Topologie algébrique</a>
-                  </li>
-                </ul>
-                <h4>Tripos supervisions (University of Cambridge)</h4>
-                <ul>   
-                  <li>
-                      Lent '17: <a href="https://www.dpmms.cam.ac.uk/~agk22/teaching.html" target="_blank" >Part Ib Geometry</a> (Dr Alexei Kovalev)
-                  </li>
-                  <li>
-                      Michaelmas '15+'16: <a href="https://www.dpmms.cam.ac.uk/~hjrw2/teaching.html" target="_blank" >Part II Algebraic Topology</a> (Dr Henry Wilton)
-                  </li>
-                  <li>
-                      Lent '15: <a href="https://www.dpmms.cam.ac.uk/~or257/teaching.htm" target="_blank">Part III Homotopy Theory</a> (Dr Oscar Randal-Williams)
-                  </li>
-                  <li>
-                      Michaelmas '13+'14: <a href="https://www.dpmms.cam.ac.uk/~or257/teaching.htm" target="_blank" >Part II Algebraic Topology</a> (Dr Oscar Randal-Williams)<br>
-                  </li>
-                </ul>
-                <h4>Student mentoring</h4>
-                <h5>Graduate projects</h5>
-                <ul>     
-                  <li>
-                      Ludovico Morellato (2022): <a href="https://github.com/ludomorellato/nicepy" target="_blank"><i>Implementing the Sarkar-Wang nicefication algorithm for Heegaard diagrams</i></a>
-                  <p style="font-size:small">
-                  joint supervision with <a href="https://lewark.de/lukas/">Lukas Lewark</a>
-                  </p>
-                  </li>
-                <li>
-                      Benedikt Aubeck (2021): <a href="documents/2021-Aubeck-Thesis-MSc.pdf" target="_blank"><i>Determining the Seifert genus via the Heegaard Floer tangle invariant HFT</i></a>
-                  <p style="font-size:small">
-                  joint supervision with <a href="https://lewark.de/lukas/">Lukas Lewark</a>
-                  </p>
-                  </li>
-                </ul>
-
-                <h5>Undergraduate projects</h5>
-                <ul>     
-                  <li>
-                      Gurkeerat Chhina (2019): <a href="https://github.com/GurkeeratChhina/KhT"><i>Computing immersed curves in Khovanov homology</i></a>
-                  </li>
-                <li>
-                      Johnny Nicholson (2016): <i>Comparing generalisations of the Alexander polynomial to tangles</i>
-                  </li>
-                </ul>
-
-                -->              
               </div>
 
             </td>
