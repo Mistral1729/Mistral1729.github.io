@@ -62,7 +62,13 @@
 				<li>
 					<a href="#prob">Probability</a>
 					<ol>
-						<li><a href="#prob#3">Probability distributions and densities</a></li>
+						<li>
+							<a href="#prob#3">Probability distributions and densities</a>
+							<ol>
+								<li><a href="#prob#3#1">Univariate case</a></li>
+								<li><a href="#prob#3#2">Bivariate case</a></li>
+							</ol>
+						</li>
 					</ol>
 				</li>
 				<li>
@@ -100,12 +106,13 @@
 				If the sample space is finite or countably infinite then X is a discrete random variable, whilst for continuous sample spaces we have continuous random variables.
 			</div>
 
+			<h4 id="prob#3#1">Univariate case</h4>
 			<div class="definition">
 				If \(X\) is a discrete random variable, then the function
 				\[
 					f(x) = P(X = x) \ \text{for each x within the range of X}
 				\]
-				is called the <b>probability mass function</b> of \(X\). <br>
+				is called the <b>probability mass function</b> or probability distribution of \(X\). <br>
 				An association such as, 
 				<table>
 					<tr><td>\(X \)</td><td>\(:\ x_1\)</td><td>\(x_2\)</td><td>...</td><td>\(x_i\)</td><td>...</td></tr>
@@ -127,7 +134,7 @@
 				\[
 					F(x) = P(X \leq x) = \sum_{t \leq x} f(t), \ \text{ for }\ -\infty < x < \infty
 				\]
-				is called the <b>cumulative probability distribution</b> or distribution function of \(X\). <br>
+				is called the <b>cumulative probability distribution function</b> or distribution function of \(X\). <br>
 				(\(f(t)\) being the probability distribution of \(X\) at \(t\).)
 			</div>
 			
@@ -180,7 +187,7 @@
 			<div class="definition">
 				If \(X\) is a continuous random variable and the value of its probability density at \(t\) is \(f(t)\), then the function given by 
 				\[
-					F(x) = P(X \leq x) = \int_{-\infty} f(t)dt, \ \text{ for }\ -\infty < x < \infty
+					F(x) = P(X \leq x) = \int_{-\infty}^x f(t)dt, \ \text{ for }\ -\infty < x < \infty
 				\]
 				is called the <b>cumulative probability distribution function</b> or distribution function of \(X\).
 			</div>
@@ -192,6 +199,64 @@
 					f(x) = \frac{\mathrm{d}F(x)}{\mathrm{d}x}
 				\]
 				where the derivative exists.
+			</div>
+
+			<h4 id="prob#3#2">Bivariate case</h4>
+			<div class="definition">
+				If \(X\) and \(Y\) are discrete random variables, then the function  
+				\[
+					f(x, y) = P(X = x, Y = y) \ \text{ for each pair }\ (x,\ y)\ \text{ within the range of X and Y}
+				\]
+				is called the <b>joint probability mass function</b> or joint probability distribution of \(X\) and \(Y\). <br>
+			</div>
+
+			<div class="theorem">
+				A bivariate function \(f(x, y)\) can serve as the joint probability distribution of a pair of discrete random variables \(X\) and \(Y\) iff, 
+				<ol>
+					<li>\(f(x, y) \geq 0\) for all pairs \((x,\ y)\) within the function's domain,</li>
+					<li>\(\displaystyle \sum_x \sum_y f(x, y) = 1, \) where the double summation extends over all possible pairs \((x,\ y)\) within the function's domain.</li>
+				</ol>
+			</div>
+
+			<div class="definition">
+				If \(X\) and \(Y\) are discrete random variables, then the function  
+				\[
+					F(x, y) = P(X \leq x, Y \leq y) = \sum_{s \leq x} \sum_{t \leq y} f(s, t),\ \text{ for }\ -\infty < x < \infty,\ -\infty < x < \infty
+				\]
+				is called the <b>joint cumulative distribution function</b> or joint distribution function of \(X\) and \(Y\). <br>
+			</div>
+
+			<div class="definition">
+				A bivariate function \(f(x, y)\) defined over the \(xy\)-plane is called a <b>joint probability density function</b> of the 
+				continuous random variables \(X\) and \(Y\) iff, 
+				\[
+					P[(X, Y) \in A] = \iint_A f(x, y) dx dy
+				\]
+				for any region \(A\) in the \(xy\)-plane.
+			</div>
+
+			<div class="theorem">
+				A bivariate function \(f(x, y)\) can serve as the joint probability density function of the continuous random variables \(X\) and \(Y\) iff, 
+				<ol>
+					<li>\(f(x, y) \geq 0\ \text{ for }\ -\infty < x < \infty, -\infty < y < \infty\),</li>
+					<li>\(\displaystyle \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x, y) dx dy = 1\).</li>
+				</ol>
+			</div>
+
+			<div class="definition">
+				If \(X\) and \(Y\) are continuous random variables, then the function  
+				\[
+					F(x, y) = P(X \leq x, Y \leq y) = \int_{-\infty}^{y} \int_{-\infty}^{x} f(s, t) ds dt,\ \text{ for }\ -\infty < x < \infty,\ -\infty < x < \infty
+				\]
+				is called the <b>joint cumulative distribution function</b> or joint distribution function of \(X\) and \(Y\). <br>
+			</div>
+
+			<div class="remark">
+				We have 
+				\[
+					f(x, y) = \frac{\partial^2}{\partial x\partial y} F(x,y)
+				\]
+				whenever the partial derivatives exist.
 			</div>
 
 		</p>
