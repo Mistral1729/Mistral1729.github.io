@@ -116,36 +116,55 @@
 				at the extremities of the chords drawn through that point. More precisely, if the chords of a conic be drawn through 
 				a fixed point and tangents be drawn at the extremities of all such chords, then the locus of the point of intersection 
 				of these tangents to the conic is called the <b>polar</b> of the fixed point which itself is called the <b>pole</b>. <br>
-				The terms pole and polar are thus correlative. Let the equation of the conic be
+				The terms pole and polar are thus correlative. 
+			</div>
+
+			<h4>Equation of the polar w.r.t. a conic</h4>
+
+			<p>
+				Let the equation of the conic be
 				\[\displaystyle
 					ax^2 + 2hxy + by^2 + 2gx + 2fy + c = 0\ ... (1) 
 				\]
 				Let \(AB\) be a chord passing through the point \(P(x_1,\ y_1)\) and
 				let the tangets at \(A\) and \(B\) meet at the point \(T(x_2,\ y_2)\).
-				The locus of the point \(T\) is the polar, \(T\) being the pole.
+				The locus of the point \(T\) is the polar, \(P\) being the pole.
 				Now \(AB\) is the <b>chord of contact</b> of the tangents drawn from \(T(x_2,\ y_2)\) to the conic. So its equation 
 				\[\displaystyle
 					axx_2 + h(xy_2 + yx_2) + byy_2 + g(x+x_2) + f(y+y_2) + c = 0
 				\]
 				passes through the point \(P(x_1,\ y_1)\). Thus 
 				\[\displaystyle
-					ax_1x_2 + h(x_1y_2 + y_1x_2) + by_1y_2 + g(x_1+x_2) + f(y_1+y_2) + c = 0
+					ax_1x_2 + h(x_1y_2 + y_1x_2) + by_1y_2 + g(x_1+x_2) + f(y_1+y_2) + c = 0.
 				\]
 				It shows that the locus of \((x_2,\ y_2)\) is the line 
 				\[\displaystyle
-					axx_1 + h(xy_1 + yx_1) + byy_1 + g(x+x_1) + f(y+y_1) + c = 0
+					axx_1 + h(xy_1 + yx_1) + byy_1 + g(x+x_1) + f(y+y_1) + c = 0\ ... (2)
 				\]
-				which is the polar of \((x_1,\ y_1)\).
-			</div>
+				Thus, \((2)\) is the polar of \((x_1,\ y_1)\) w.r.t. the conic \((1)\).
+			</p>
+
 			<div class="question">
-				<tr> Find the equation of the polar of a point w.r.t. a circle.
+				<tr> Find the equation of the polar of a point \((x_1,\ y_1)\) w.r.t. the circle \(x^2 + y^2 = a^2\).
 			</div>
 			<small><i><a href="#solution#1" class="text" onclick="toggleSolution('#1')">Toggle solution</a></i></small>
-			<div id="solution#1" class="proof" style="">
-				The equation of a circle is 
+			<div id="solution#1" class="proof" style="display: none;"><br>
+				The equation of the circle is 
 				\[\displaystyle
-					(x-h)^2 + (y-k)^2 = r^2
+					x^2 + y^2 = a^2 \ ... (1)
 				\]
+				Let \(AB\) be a chord passing through the point \(P(x_1,\ y_1)\) and
+				let the tangets at \(A\) and \(B\) meet at the point \(T(x_2,\ y_2)\).
+				The locus of \(T\) will be the polar of our pole \(P\) w.r.t. \((1)\).
+				<br>
+				Now \(AB\) is the <b>chord of contact</b> of the tangents drawn from
+				\(T\) to the \((1)\). So its equation is \(xx_2 + yy_2 = a^2\). <br>
+				This passes through the pole \(P\).
+				\[
+					\therefore\ x_1x_2 + y_1y_2 = a^2
+				\]
+				and hence the locus of \(T\) is \(xx_1 + yy_1 = a^2\), which is the 
+				required equation of the polar of \(P\) w.r.t. \((1)\).
 			</div>
 		</p>
 
@@ -165,7 +184,7 @@
 		
 			<small>	
 				<p class="date">
-					Last updated on 13.09.2023.<br>
+					Last updated on 8.11.2023.<br>
 					<a href="/#wiki">Notes</a>
 				</p>
 			</small>
