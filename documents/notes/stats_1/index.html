@@ -61,6 +61,9 @@
 			<ol>
 				<li>
 					<a href="#prob">Probability</a>
+					<ol>
+						<li><a href="#prob#3">Probability distributions and densities</a></li>
+					</ol>
 				</li>
 				<li>
                     <a href="#stats">Statistics</a>
@@ -90,6 +93,102 @@
 		</p>
 
 		<h2 id="prob">Probability</h2>
+		<h3 id="prob#3">Probability distributions and densities</h3>
+		<p>
+			<div class="definition">
+				If \(S\) is a sample space with a probability measure and \(X\) is a real-valued function defined over \(S\), then \(X\) is called a <b>random variable</b>.
+				If the sample space is finite or countably infinite then X is a discrete random variable, whilst for continuous sample spaces we have continuous random variables.
+			</div>
+
+			<div class="definition">
+				If \(X\) is a discrete random variable, then the function
+				\[
+					f(x) = P(X = x) \ \text{for each x within the range of X}
+				\]
+				is called the <b>probability distribution</b> of \(X\).
+			</div>
+			
+			<div class="theorem">
+				If \(X\) is a discrete random variable, then the function \(f(x)\) can serve as the probability distribution of \(X\) iff, 
+				<ol>
+					<li>\(f(x) \geq 0\) for all values in the function's domain,</li>
+					<li>\(\displaystyle \sum_x f(x) = 1, \) where the summation extends over all values within the function's domain.</li>
+				</ol>
+			</div>
+			
+			<div class="definition">
+				If \(X\) is a discrete random variable, then the function
+				\[
+					F(x) = P(X \leq x) = \sum_{t \leq x} f(t), \ \text{ for }\ -\infty < x < \infty
+				\]
+				is called the <b>cumulative probability distribution</b> or distribution function of \(X\).
+				(\(f(t)\) being the probability distribution of \(X\) at \(t\).)
+			</div>
+			
+			<div class="theorem">
+				If \(X\) is a discrete random variable, then the following hold for the cumulative probability distribution \(F(X)\),
+				<ol>
+					<li>\(F(-\infty) = 0\) and \(F(\infty) = 1\),</li>
+					<li>\(\forall a, b \in \mathbb{R},\ a < b \implies F(a) \leq F(b) \).</li>
+				</ol>
+			</div>
+			
+			<div class="theorem">
+				If \(X\) is a discrete random variable with its range consisting of the values 
+				\[
+					x_1 < x_2 < x_3 < ... < x_n
+				\]
+				then \(f(x_1) = F(x_1)\) and 
+				\[
+					f(x_i) = F(x_i) - F(x_{i-1}) \ \text{ for } i \geq 2.
+				\]
+			</div>
+			
+			<div class="definition">
+				If \(X\) is a continuous random variable and a function \(f(x)\) is defined for all \(x \in \mathbb{R}\), then it is called 
+				a <b>probability density function</b> of \(X\) iff 
+				\[
+					P(a \leq X \leq b) = \int_a^b f(x)dx, \ \text{ for any real constants }\ a\ \text{ and }\ b,\ a \leq b.
+				\]
+			</div>
+			
+			<div class="remark"> We have 
+				\(P(X = c) = 0\) for any real constant \(c\).
+			</div>
+			
+			<div class="corollary">
+				If \(X\) is a continuous random variable and \(a\) and \(b\) are real constants with \(a \leq b\), then 
+				\[
+					P(a \leq X \leq b) = P(a \leq X < b) = P(a < X \leq b) = P(a < X < b).
+				\]
+			</div>
+			
+			<div class="theorem">
+				If \(X\) is a continuous random variable, then a function \(f(x)\) can serve as a probability density function of \(X\) iff, 
+				<ol>
+					<li>\(f(x) \geq 0\ \text{ for }\ -\infty < x < \infty\),</li>
+					<li>\(\displaystyle \int_{-\infty}^{\infty} f(x) = 1\).</li>
+				</ol>
+			</div>
+			
+			<div class="definition">
+				If \(X\) is a continuous random variable and the value of its probability density at \(t\) is \(f(t)\), then the function given by 
+				\[
+					F(x) = P(X \leq x) = \int_{-\infty} f(t)dt, \ \text{ for }\ -\infty < x < \infty
+				\]
+				is called the <b>cumulative probability distribution function</b> or distribution function of \(X\).
+			</div>
+
+			<div class="theorem">
+				If \(f(x)\) and \(F(x)\) are the values of the probability density and distribution function of \(X\) at \(x\) respectively, then 
+				\[
+					P(a \leq X \leq b) = \int_a^b f(x)dx = F(b) - F(a), \ \text{ for any real constants }\ a\ \text{ and }\ b,\ a \leq b,\ \text{ and} \\
+					f(x) = \frac{\mathrm{d}F(x)}{\mathrm{d}x}
+				\]
+				where the derivative exists.
+			</div>
+
+		</p>
 
         <h2 id="stats">Statistics</h2>
         <h3 id="stats#def">Basic definitions</h3>
