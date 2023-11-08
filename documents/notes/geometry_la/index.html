@@ -67,12 +67,14 @@
 					<a href="#geom">Geometry</a>
 					<ol>
 						<li><a href="#geom#pole">Pole and polars</a></li>
+						<li><a href="#geom#polareqn">Polar equations</a></li>
+						<li><a href="#geom#sphere">Sphere</a></li>
 					</ol>
 				</li>
 				<li>
 					<a href="#la">Linear Algebra</a>
 					<ol>
-						<li><a href="#la#structures">Algebraic Structures</a></li>
+						<li><a href="#la#vecspaces">Vector spaces</a></li>
 					</ol>
 				</li>
 				<li><a href="#bibliography">References</a></li>
@@ -139,7 +141,7 @@
 				\]
 				It shows that the locus of \((x_2,\ y_2)\) is the line 
 				\[\displaystyle
-					axx_1 + h(xy_1 + yx_1) + byy_1 + g(x+x_1) + f(y+y_1) + c = 0\ ... (2)
+					\boxed{axx_1 + h(xy_1 + yx_1) + byy_1 + g(x+x_1) + f(y+y_1) + c = 0\ ... (2)}
 				\]
 				Thus, \((2)\) is the polar of \((x_1,\ y_1)\) w.r.t. the conic \((1)\).
 			</p>
@@ -163,8 +165,68 @@
 				\[
 					\therefore\ x_1x_2 + y_1y_2 = a^2
 				\]
-				and hence the locus of \(T\) is \(xx_1 + yy_1 = a^2\), which is the 
+				and hence the locus of \(T\) is \(\boxed{xx_1 + yy_1 = a^2}\), which is the 
 				required equation of the polar of \(P\) w.r.t. \((1)\).
+			</div>
+		</p>
+
+		<h3 id="geom#polareqn">Polar equations</h3>
+
+			<h4>Relationship between cartesian and polar coordinates</h4>
+		<p>
+			<div>
+				For converting a point \((x,\ y)\) in cartesian coordinates to polar coordinates \((r,\ \theta)\) we use,
+				\[
+					r = \sqrt{x^2 + y^2},\ \theta = tan^{-1}(\frac{y}{x}).
+				\]
+				For converting a point \((r,\ \theta)\) in cartesian coordinates to polar coordinates \((x,\ y)\) we use, 
+				\[
+					x = r \text{ cos}(\theta),\ y = r \text{ sin}(\theta).
+				\]
+			</div>
+		</p>
+
+		<h3 id="geom#sphere">Sphere</h3>
+		<p>
+			<div class="definition">
+				The <b>sphere</b> is a surface traced out by a moving point
+				which is always at a constant distance from a fixed point. 
+				The fixed point is the <b>center</b> of the sphere and the 
+				constant distance is its <b>radius</b>.
+				Let \(P(x,\ y,\ z)\) be a point on the sphere with the center 
+				at \(C(x_1,\ y_1,\ z_1)\). If the radius of the sphere be \(r\), then 
+				\[
+					CP^2 = r^2 \iff (x-x_1)^2 + (y-y_1)^2 + (z-z_1)^2 = r^2 \ ...(1)
+				\]
+				which is the equation of the sphere. If \(C\) is the origin, then
+				\[
+					x^2 + y^2 + z^2 = r^2 \ ... (2)
+				\]
+				is the equation of the sphere.
+			</div>
+
+			<div class="remark"><br>
+				Equation \((1)\) is a second degree equation in \(x,\ y,\ z\) where 
+				<ol style="list-style: lower-roman;">
+					<li>the coefficients of \(x^2,\ y^2,\ z^2\) are all equal,</li>
+					<li>the coefficients of \(xy,\ yz,\ zx\) are all zero.</li>
+				</ol>
+				The general second degree equation satisfying the above is 
+				\[
+					ax^2 + ay^2 + az^2 + 2lx + 2my + 2nz + d = 0\\
+					\overbrace{\implies}^{a \neq 0} x^2 + y^2 + z^2 + 2\underbrace{(\frac{l}{a})}_{ =:\ f}x + 2\underbrace{(\frac{m}{a})}_{ =:\ g}y + 2\underbrace{(\frac{n}{a})}_{ =:\ h}z + \underbrace{(\frac{d}{a})}_{ =:\ c} = 0\\
+					\implies \boxed{x^2 + y^2 + z^2 + 2fx + 2gy + 2hz + c = 0 \ ...(3)}
+				\]
+				which contains four independent constants \(f,\ g,\ h,\ c\), so a sphere 
+				can be made to satisfy four independent conditions. <br>
+				In particular, a sphere may be made to pass through four non-coplanar points. <br>
+				Putting \((3)\) in the same form as \((1)\),
+				\[
+					(x+f)^2 + (y+g)^2 + (z+h)^2 = f^2 + g^2 + h^2 - c
+				\]
+				implies that the center of the sphere is \((-f,\ -g,\ -h)\) and the radius is 
+				\(\sqrt{f^2 + g^2 + h^2 - c}\). <br>
+				For a real sphere, \(f^2 + g^2 + h^2 - c \geq 0\).
 			</div>
 		</p>
 
