@@ -215,9 +215,49 @@
 				<li>\(\lvert x y \rvert = \lvert x \rvert \cdot \lvert y \rvert\).</li>
 				<li>\(\lvert x + y \rvert \leq \lvert x \rvert + \lvert y \rvert\). (Triange Inequality.) </li>
 				<li>\(\lvert \lvert x \rvert - \lvert y \rvert \rvert \leq \lvert x - y \rvert.\)</li>
-				<li>\(\displaystyle (\sum_{i=1}^n a_{i}^2)(\sum_{i=1}^n b_{i}^2) \geq (\sum_{i=1}^n a_i b_i)^2\). (Cauchy-Schwarz Inequality.)</li> 
 			</ol>
 		</div>
+
+		<p>We now prove the Cauchy-Schwarz inequality which is very useful in analysis.</p>
+		<div class="theorem">
+			(Cauchy-Schwarz Inequality.)
+			If \(a_1,\ ...,\ a_n\) and \(b_1,\ ...,\ b_n\) are arbitrary real numbers, then
+			\[\displaystyle 
+				\left(\sum_{j=1}^n a_{j}^2\right) \left(\sum_{j=1}^n b_{j}^2\right) \geq  \left(\sum_{j=1}^n a_j b_j\right)^2.
+			\]
+			Moreover, if some \(a_i \neq 0\) equality holds iff there is a real \(x\) such that 
+			\(a_jx + b_j = 0\) for all \(j = 1,\ ...,\ n\).
+		</div>
+		<small><i><a href="#solution#3" class="text" onclick="toggleSolution('#3')">Toggle proof</a></i></small>
+		<div id="solution#3" class="proof" style="display:none;">
+			A sum of squares can never be negative. Hence we have, 
+			\[
+				\sum_{j=1}^n (a_jx + b_j)^2 \geq 0
+			\]  for every real \(x\), with equality iff each term is 0.
+			This inequality can be expressed as 
+			\[
+				Ax^2 + 2Bx + C \geq 0,
+			\]
+			where \(\displaystyle A = \sum_{j=1}^n a_{j}^2 \), \(\displaystyle B = \sum_{j=1}^n a_{j}b_{j} \), \(\displaystyle C = \sum_{j=1}^n b_{j}^2 \).
+			<br>
+			If \(A > 0\), set \(x = \frac{-B}{A}\) to obtain \(B^2 - AC \leq 0\), which is the desired inequality. And if \(A = 0\), then the inequality holds 
+			trivially.
+		</div>
+
+		<p>Another inequality that also comes up often in analysis is Bernoulli's inequality.</p>
+		<div class="theorem">
+			(Bernoulli's Inequality.)
+			If \(x\) is an element of an ordered field such that \(x \geq -1\), then for every positive integer \(n\)
+			\[\displaystyle 
+				(1 + x)^n \geq 1 + nx.
+			\]
+			Moreover, if \(x > -1\) and \(x \neq 0\), then \((1 + x)^n > 1 + nx\) for all \(n \geq 2\).
+		</div>
+		<small><i><a href="#solution#4" class="text" onclick="toggleSolution('#4')">Toggle proof</a></i></small>
+		<div id="solution#4" class="proof" style="display:none;">
+			Prove by induction.
+		</div>
+
 
 		<h2 id="seq">Sequences</h2>
 		<p>
@@ -268,6 +308,13 @@
 		</p>
 
 		<h2 id="ser">Series</h2>
+		<p>
+			<div class="definition">
+				An infinite series \(\displaystyle \sum_{n=1}^{\infty} a_n\) converges, diverges to \(-\infty\) or \(\infty\), or is oscillatory iff 
+				its sequence of \(n^{\text{th}}\)-partial sums \(\displaystyle \{s_n\} := \left\{\sum_{r=1}^{n} a_r\right\}\) converges, diverges to 
+				\(-\infty\) or \(\infty\), or is oscillatory.
+			</div>
+		</p>
 
 		<h1 class="unnumbered" id="bibliography">References</h1>
 		
