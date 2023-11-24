@@ -120,10 +120,11 @@ body {
       font-style: italic;
       display: block;
       border: 2px solid goldenrod;
+      background-color: darkslateblue;
       padding: 10px;
   }
   .theorem:before {
-      content: "Theorem";
+      content: "Theorem.";
       font-weight: bold;
       font-style: normal;
       color: goldenrod;
@@ -133,10 +134,11 @@ body {
       font-style: italic;
       display: block;
       border: 2px solid goldenrod;
+      background-color: dimgray;
       padding: 10px;
   }
   .proposition:before {
-      content: "Proposition";
+      content: "Proposition.";
       font-weight: bold;
       font-style: normal;
       color: goldenrod;
@@ -145,9 +147,10 @@ body {
       display: block;
       margin: 12px 0;
       font-style: italic;
+      background-color: dimgray;
   }
   .lemma:before {
-      content: "Lemma";
+      content: "Lemma.";
       font-weight: bold;
       font-style: normal;
       color: goldenrod;
@@ -157,9 +160,10 @@ body {
       display: block;
       margin: 12px 0;
       font-style: italic;
+      background-color: slateblue;
   }
   .corollary:before {
-      content: "Corollary";
+      content: "Corollary.";
       font-weight: bold;
       font-style: normal;
       color: goldenrod;
@@ -169,6 +173,7 @@ body {
       display: block;
       margin: 12px 0;
       font-style: italic;
+      background-color: steelblue;
   }
   .remark:before {
       content: "Nota bene.";
@@ -181,6 +186,7 @@ body {
       display: block;
       margin: 12px 0;
       font-style: italic;
+      background-color: darkblue;
   }
   .example:before {
       content: "Exempli gratia.";
@@ -195,9 +201,10 @@ body {
       display: block;
       border: 1px solid goldenrod;
       padding: 10px;
+      background-color: darkslategrey;
   }
   .question:before {
-      content: "Question";
+      content: "Question ";
       font-weight: bold;
       font-style: normal;
       color: goldenrod;
@@ -226,6 +233,7 @@ body {
       font-style: italic;
       display: block;
       border: 1px solid goldenrod;
+      background-color: steelblue;
       padding: 10px;
   }
   
@@ -268,6 +276,7 @@ body {
   #TOC {
       display: inline-block;
       border: 1px solid goldenrod;
+      background-color: darkblue;
       padding: 10px;
   }
   
