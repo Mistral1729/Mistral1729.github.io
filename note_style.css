@@ -40,8 +40,8 @@
   /* Page Layout */
 
 body {
-    background-color: lightcyan;
-    color: darkgoldenrod;
+    background-color: black;
+    color: lightgoldenrodyellow;
     font-size: 13pt;
   }
   
@@ -52,10 +52,11 @@ body {
   h1, h2, h3, h4, h5, h6 {
       border: none;
       font-weight: bold;
+      color: darkgoldenrod;
   }
   
   a, a:visited {
-      color: darkblue;
+      color: wheat;
   }
   
   ul {
@@ -125,6 +126,7 @@ body {
       content: "Theorem";
       font-weight: bold;
       font-style: normal;
+      color: goldenrod;
   }
   .proposition {
       margin: 10px;
@@ -137,6 +139,7 @@ body {
       content: "Proposition";
       font-weight: bold;
       font-style: normal;
+      color: goldenrod;
   }
   .lemma {
       display: block;
@@ -147,6 +150,7 @@ body {
       content: "Lemma";
       font-weight: bold;
       font-style: normal;
+      color: goldenrod;
   }
   
   .corollary {
@@ -158,6 +162,7 @@ body {
       content: "Corollary";
       font-weight: bold;
       font-style: normal;
+      color: goldenrod;
   }
   
   .remark {
@@ -169,6 +174,7 @@ body {
       content: "Nota bene.";
       font-weight: bold;
       font-style: normal;
+      color: goldenrod;
   }
   
   .example {
@@ -180,6 +186,7 @@ body {
       content: "Exempli gratia.";
       font-weight: bold;
       font-style: normal;
+      color: goldenrod;
   }
   
   .question {
@@ -193,16 +200,20 @@ body {
       content: "Question";
       font-weight: bold;
       font-style: normal;
+      color: goldenrod;
   }
   
   .proof {
       display: block;
       margin: 12px 0;
       font-style: normal;
+      background-color: slategrey;
   }
   .proof:before {
-      content: "Proof";
+      content: "Proof.";
       font-style: italic;
+      background-color: slateblue;
+      color: goldenrod;
   }
   
   .proof:after {
@@ -222,6 +233,7 @@ body {
       content: "Definition.";
       font-weight: bold;
       font-style: normal;
+      color: goldenrod;
   }
   
   .author {

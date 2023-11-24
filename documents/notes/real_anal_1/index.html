@@ -221,26 +221,26 @@
 		<p>We now prove the Cauchy-Schwarz inequality which is very useful in analysis.</p>
 		<div class="theorem">
 			(Cauchy-Schwarz Inequality.)
-			If \(a_1,\ ...,\ a_n\) and \(b_1,\ ...,\ b_n\) are arbitrary real numbers, then
+			If \(a_1,\ ...,\ a_n\) and \(b_1,\ ...,\ b_n\) are arbitrary elements of some ordered field \(\mathfrak{F}\), then
 			\[\displaystyle 
 				\left(\sum_{j=1}^n a_{j}^2\right) \left(\sum_{j=1}^n b_{j}^2\right) \geq  \left(\sum_{j=1}^n a_j b_j\right)^2.
 			\]
-			Moreover, if some \(a_i \neq 0\) equality holds iff there is a real \(x\) such that 
-			\(a_jx + b_j = 0\) for all \(j = 1,\ ...,\ n\).
+			Moreover, if some \(a_i \neq 0\) equality holds iff there is a \(\lambda \in \mathfrak{F}\) such that 
+			\(a_j\lambda + b_j = 0\) for all \(j = 1,\ ...,\ n\).
 		</div>
 		<small><i><a href="#solution#3" class="text" onclick="toggleSolution('#3')">Toggle proof</a></i></small>
 		<div id="solution#3" class="proof" style="display:none;">
 			A sum of squares can never be negative. Hence we have, 
 			\[
-				\sum_{j=1}^n (a_jx + b_j)^2 \geq 0
-			\]  for every real \(x\), with equality iff each term is 0.
+				\sum_{j=1}^n (a_j\lambda + b_j)^2 \geq 0
+			\]  for every \(\lambda \in \mathfrak{F}\), with equality iff each term is 0.
 			This inequality can be expressed as 
 			\[
-				Ax^2 + 2Bx + C \geq 0,
+				A\lambda^2 + 2B\lambda + C \geq 0,
 			\]
 			where \(\displaystyle A = \sum_{j=1}^n a_{j}^2 \), \(\displaystyle B = \sum_{j=1}^n a_{j}b_{j} \), \(\displaystyle C = \sum_{j=1}^n b_{j}^2 \).
 			<br>
-			If \(A > 0\), set \(x = \frac{-B}{A}\) to obtain \(B^2 - AC \leq 0\), which is the desired inequality. And if \(A = 0\), then the inequality holds 
+			If \(A > 0\), set \(\lambda = \frac{-B}{A}\) to obtain \(B^2 - AC \leq 0\), which is the desired inequality. And if \(A = 0\), then the inequality holds 
 			trivially.
 		</div>
 
@@ -255,7 +255,13 @@
 		</div>
 		<small><i><a href="#solution#4" class="text" onclick="toggleSolution('#4')">Toggle proof</a></i></small>
 		<div id="solution#4" class="proof" style="display:none;">
-			Prove by induction.
+			We proceed by induction on \(n\). <br>
+			For \(n = 1\), we have \((1 + x)^1 \geq 1 + (1)x\).
+			Now, suppose there is some \(n \in \mathbb{N}\) such that 
+			\[\displaystyle 
+				(1 + x)^n \geq 1 + nx.
+			\]
+			Then \((1 + x)^{n+1} = (1 + x)^n\ (1 + x) \geq (1 + nx) (1 + x) = 1 + (n+1)x + nx^2 \geq 1 + (n+1)x.\)
 		</div>
 
 
