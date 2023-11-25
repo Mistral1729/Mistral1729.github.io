@@ -311,18 +311,69 @@
 			\(\delta_x > 0 : B_{\delta_x}(x) \not\subset G\).
 			<br> Thus \(\varnothing\) is open (vacuously true), and \(\mathbb{R} = (-\infty,\ \infty)\) is open (corollary 13.).
 		</div>
+		<div class="example">
+			<ol>
+				<li>
+					\((0,\ 1)\ \cup\ \{1,\ 2,\ 3\}\) is not open.
+				</li>
+				<li>
+					\((0,\ 1)\ \cup\ (1,\ 2)\) is open.
+				</li>
+			</ol>
+		</div>
 
 		<div class="theorem">
-			Let \(G_1, \dots, G_n\) be open sets. Then 
+			Let \(G_1, \dots, G_n\) be open sets. Then the finite intersection 
 			\(\displaystyle\
 				\bigcap_{i=1}^n G_i
 			\) is also open.
 		</div>
+		<small><i><a href="#solution#-3" class="text" onclick="toggleSolution('#-3')">Toggle proof</a></i></small>
+		<div id="solution#-3" class="proof" style="display: none;">
+			If 
+			\(\displaystyle\
+				\bigcap_{i=1}^n G_i = \varnothing
+			\) then it is clearly open. Thus assume that, 
+			\(\displaystyle\
+				\bigcap_{i=1}^n G_i \neq \varnothing
+			\). 
+			\[\displaystyle\
+				\text{Let } x \in \bigcap_{i=1}^n G_i\\
+				\implies x \in G_i \forall i = 1, \dots, n\\
+				\implies \exists \delta_i > 0 : B_{\delta_i}(x) \subset G_i.
+			\] 
+			\[\displaystyle\
+				\text{Let } \delta := \min_{1 \leq i \leq n}{\delta_i}\\
+				\implies B_{\delta}(x) \subset B_{\delta_i}(x) \subset G_i\\
+				\implies B_{\delta}(x) \subset \bigcap_{i=1}^n G_i.
+			\] 
+			Thus the finite union of open sets is open.
+		</div>
 		<div class="theorem">
-			Let \(G = \{ G_n : n \in \mathbb{N}\}\) be an (infinite) set of open sets. Then 
+			Let \(G = \{ G_n : n \in \mathbb{N}\}\) be an (infinite) set of open sets. Then the infinite intersection  
 			\(\displaystyle\
 				\bigcap G := \bigcap_{n \in \mathbb{N}} G_n
 			\) may not be open.
+		</div>
+		<small><i><a href="#solution#-4" class="text" onclick="toggleSolution('#-4')">Toggle proof</a></i></small>
+		<div id="solution#-4" class="proof" style="display: none;">
+			\(\displaystyle\
+				G_n := (-1/n,\ 1/n)
+			\) is clearly open \(\forall n \in \mathbb{N}\). Also, it is obvious that
+			\[\displaystyle\
+				\{0\} \subset \bigcap_{n \in \mathbb{N}} (-1/n,\ 1/n) = \bigcap G.
+			\]
+			Now suppose 
+			\[
+				\exists \varepsilon > 0 : \{\varepsilon\} \subset \bigcap_{n \in \mathbb{N}} (-1/n,\ 1/n) \iff \varepsilon \in \bigcap_{n \in \mathbb{N}} (-1/n,\ 1/n)\ \dots (1)\\
+				\implies \exists n_0 \in \mathbb{N} : n_0 \varepsilon > 1\ \text{(Archimedean property)}\\
+				\implies \varepsilon > 1/n_0\\ \implies \varepsilon \notin (-1/n_0,\ 1/n_0)
+
+			\]
+			which contradicts \(\text{(1)}\). Thus 
+			\(\displaystyle\
+				\bigcap G = \{0\}
+			\) which is clearly not open.
 		</div>
 
 		<h3 id="R#ineq">Inequalities</h3>
