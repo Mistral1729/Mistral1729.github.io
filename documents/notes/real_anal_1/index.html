@@ -264,24 +264,56 @@
 			Then \((1 + x)^{n+1} = (1 + x)^n\ (1 + x) \geq (1 + nx) (1 + x) = 1 + (n+1)x + nx^2 \geq 1 + (n+1)x.\)
 		</div>
 
+		<div class="definition">
+			Consider a point \(a \in \mathbb{R}.\) Then a <b>neighbourhood</b> of \(a\) is defined as, 
+			\[\displaystyle
+				N(a; \delta) := \{x \in \mathbb{R} : \lvert x - a \rvert < \delta\}
+				= \{x : a - \delta < x < a + \delta\}
+				= (a-\delta,\ a+\delta).
+			\]
+			Further, a <b>deleted neighbourhood</b> of \(a\) is defined as, 
+			\[\displaystyle
+				N'(a; \delta) := N(a; \delta) - \{a\}.
+			\]
+		</div>
+
 
 		<h2 id="seq">Sequences</h2>
 		<p>
+			Informally a sequence can be thought of as an unending list of elements \(a_1\), \(a_2\), \(a_3\), ... not necessarily distinct, indexed by some index set. The elements that make up a sequence can be drawn from any nonempty set.
 			<div class="definition">
-				Consider a point \(a \in \mathbb{R}.\) Then a <b>neighbourhood</b> of \(a\) is defined as, 
-				\[\displaystyle
-					N(a; \delta) := \{x \in \mathbb{R} : \lvert x - a \rvert < \delta\}
-					= \{x : a - \delta < x < a + \delta\}
-					= (a-\delta,\ a+\delta).
+				If \(X\) is a set and if for each \(n \in \mathbb{N}\) an element \(x_n\) of \(X\) is given, we say that 
+				we have a <b>sequence</b> of elements of \(X\) or a sequence in \(X\) whose \(n^{\text{th}}\) term is \(x_n\).
+				<br>
+				More formally, a sequence is a mapping \(f : J \to X\), where \(J\) is some index set and we use \(x_n := f(n)\) to denote the 
+				\(n^{\text{th}}\) term of the sequence. We denote the sequence itself by \(\{x_n\}\). 
+				<br>
+				Unless otherwise stated, we consider the index set \(J\) to be the set of natural numbers \(\mathbb{N}\) 
+				and we consider sequences in \(X = \mathbb{R} \).
+			</div>
+			<div class="remark">
+				Various notations are used to indicate sequences, such as
+				\[
+					\{x_n\},\ \{x_n\}_{n \in J},\ \{x_n\}_{n \in \mathbb{N}},\ \{x_n\}_{n \geq 1},\ \{x_n\}_{n = 1}^{\infty},\ \{x_n\}_{n=1,\ 2,\ 3,\ ...}
 				\]
-				Further, a <b>deleted neighbourhood</b> of \(a\) is defined as, 
-				\[\displaystyle
-					N'(a; \delta) := N(a; \delta) - \{a\}.
-				\]
+				Although we use curly braces here, many (such as <a href="https://math.berkeley.edu/~gbergman/ug.hndts/m104_Rudin_notes.pdf">George Bergman</a>)  
+				consider \(\{x_n\}\) to be bad notation for a sequence and prefer to use 
+				\((x_n)\) instead to emphasise that order matters in a sequence. Some also use angle brackets: 
+				\(
+					\langle x_n : n \in \mathbb{N} \rangle
+				\).
 			</div>
 
 			<div class="definition">
-				A <b>sequence</b> is a mapping \(f : \mathbb{N} \to \mathbb{R}\), denoted by \(\{f(n)\}\) or \(\{x_n\}\). 
+				A sequence \(\{x_n\}\) is said to be <b>increasing</b> iff \(x_{n+1} \geq x_n\) for all \(n \in \mathbb{N}\); 
+				<b>strictly increasing</b> iff \(x_{n+1} > x_n\) for all \(n \in \mathbb{N}\); 
+				<b>decreasing</b> iff \(x_{n+1} \leq x_n\) for all \(n \in \mathbb{N}\); 
+				<b>strictly decreasing</b> iff \(x_{n+1} < x_n\) for all \(n \in \mathbb{N}\). <br>
+				A sequence that is either increasing or decreasing is said to be <b>monotone</b>. More precisely, 
+				we speak of sequences that are monotone increasing or monotone decreasing. 
+			</div>
+
+			<div class="definition">
 				A <b>bounded sequence</b> is a sequence \(\{x_n\}\) such that \(\{x_n\}\) is bounded above or bounded below. <br>
 				A sequence \(\{x_n\}\) is <b>bounded above</b> iff, 
 				\[

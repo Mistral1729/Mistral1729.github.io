@@ -41,7 +41,7 @@
 
 body {
     background-color: black;
-    color: lightgoldenrodyellow;
+    color: white;
     font-size: 13pt;
   }
   
@@ -120,7 +120,7 @@ body {
       font-style: italic;
       display: block;
       border: 2px solid goldenrod;
-      background-color: darkslateblue;
+      background-color: rgb(6, 1, 32);
       padding: 10px;
   }
   .theorem:before {
@@ -134,7 +134,7 @@ body {
       font-style: italic;
       display: block;
       border: 2px solid goldenrod;
-      background-color: dimgray;
+      background-color: rgb(44, 2, 2);
       padding: 10px;
   }
   .proposition:before {
@@ -147,7 +147,7 @@ body {
       display: block;
       margin: 12px 0;
       font-style: italic;
-      background-color: dimgray;
+      background-color: rgb(44, 2, 2);
   }
   .lemma:before {
       content: "Lemma.";
@@ -160,7 +160,7 @@ body {
       display: block;
       margin: 12px 0;
       font-style: italic;
-      background-color: slateblue;
+      background-color: rgb(21, 21, 24);
   }
   .corollary:before {
       content: "Corollary.";
@@ -173,7 +173,7 @@ body {
       display: block;
       margin: 12px 0;
       font-style: italic;
-      background-color: steelblue;
+      background-color: rgb(29, 31, 34);
   }
   .remark:before {
       content: "Nota bene.";
@@ -186,7 +186,7 @@ body {
       display: block;
       margin: 12px 0;
       font-style: italic;
-      background-color: darkblue;
+      background-color: rgb(29, 31, 34);
   }
   .example:before {
       content: "Exempli gratia.";
@@ -201,7 +201,7 @@ body {
       display: block;
       border: 1px solid goldenrod;
       padding: 10px;
-      background-color: darkslategrey;
+      background-color: rgb(42, 46, 46);
   }
   .question:before {
       content: "Question ";
@@ -214,12 +214,12 @@ body {
       display: block;
       margin: 12px 0;
       font-style: normal;
-      background-color: slategrey;
+      background-color: rgb(29, 31, 34);
   }
   .proof:before {
       content: "Proof.";
       font-style: italic;
-      background-color: slateblue;
+      background-color: rgb(13, 3, 73);
       color: goldenrod;
   }
   
@@ -233,7 +233,7 @@ body {
       font-style: italic;
       display: block;
       border: 1px solid goldenrod;
-      background-color: steelblue;
+      background-color: rgb(7, 37, 61);
       padding: 10px;
   }
   
@@ -276,7 +276,7 @@ body {
   #TOC {
       display: inline-block;
       border: 1px solid goldenrod;
-      background-color: darkblue;
+      background-color: rgb(1, 1, 22);
       padding: 10px;
   }
   
