@@ -205,7 +205,125 @@
 		</p>
 
 		<h3 id="R#Q">The rational numbers</h3>
+
+		<h3 id="R#top">\(\mathbb{R}\) and its topology</h3>
 		
+		<div class="definition">
+			A set \(I \subset \mathbb{R}\) is said to be an interval if 
+			\[
+				a, b \in I\ \text{ and }\ a < c < b\\
+				\implies c \in I.
+			\]
+		</div>
+
+		<div class="definition">
+			A <b>metric space</b> is a pair \((X,\ d)\) where \(X\) is a nonempty set of points 
+			and \(d : X \times X \to [0,\ \infty)\) (called the <b>distance function</b> or <b>metric</b>) 
+			such that, 
+			<ol>
+				<li>\(d(x,y) = 0 \iff x = y\),</li>
+				<li>\(d(x,y) = d(y,x)\),</li>
+				<li>\(d(x,y) \leq d(x,z) + d(z,y)\).</li>
+			</ol>
+		</div>
+		<div class="example">
+			The most natural example of a metric space is \(R^n\), the Euclidean \(n\)-space. 
+			Here we consider the metric to be induced from the Euclidean norm 
+			\(\displaystyle \| x \| := \sqrt{\sum_{j=1}^n x_j^2}\). However, other norms also 
+			exist.
+		</div>
+
+		<div class="definition">
+			Let \({\delta} > 0\) be a real and consider a point \(x \in X.\) Then, 
+			\[\displaystyle
+				\begin{align}
+					& (1)\ \text{the open ball centered at } x\ \text{with radius } {\delta}\ \text{is defined as }  B_{\delta}(x) := \{y \in X : d(y,x) < {\delta}\}, \\
+					& (2)\ \text{the closed ball centered at } x\ \text{with radius } {\delta}\ \text{is defined as }  \overline{B}_{\delta}(x) := \{y \in X : d(y,x) \leq {\delta}\}.
+				\end{align}
+			\]
+			An open ball of \(x\) is also known as a <b>neighbourhood</b> of \(x\). 
+			<br> Further, a <b>deleted neighbourhood</b> of \(x\) is defined as, 
+			\[\displaystyle
+				B'_{\delta}(x) := B_{\delta}(x) - \{x\}.
+			\]
+		</div>
+		<div class="example">
+			The easiest example of an open ball or neighbourhood is 
+			probably the open interval in \(\mathbb{R}\), 
+			\[
+				(a,\ b) = \{x \in \mathbb{R} : a < x < b\}.
+			\]
+			Similarly, a closed ball in \(\mathbb{R}\) is the closed interval 
+			\[
+				[a,\ b] = \{x \in \mathbb{R} : a \leq x \leq b\}.
+			\]
+		</div>
+
+		<div class="definition">
+			Let \(A \subset X\). Then a point \(a \in A\) is said to be 
+			an <b>interior point</b> of \(A\) iff 
+			\[
+				\exists \delta > 0 : B_{\delta}(x) \subset A.
+			\]
+			The set of all interior points of \(A\) is called the <b>interior</b> 
+			of \(A\), denoted as \(\text{Int}A\) or \(\text{int}A\) or \(A^{\circ}\).
+		</div>
+		<div class="example">
+			Assume here that \(X = \mathbb{R}\), then  
+			\[
+				\text{int}[a,\ b] = \text{int}(a,\ b] = \text{int}[a,\ b) = \text{int}(a,\ b) = (a,\ b).
+			\]
+			Countable and discrete subsets of \(\mathbb{R}\) have no interior,  
+			\[
+				\text{Let } S \subset \mathbb{Z}, \text{ then}\\
+				\text{int}S = \text{int}\mathbb{Z} = \text{int}\mathbb{N} = \text{int}\mathbb{Q} = \varnothing.
+			\]
+			However, 
+			\[
+				\text{int}((a,\ b)\ \cup\ S) = (a,\ b).
+			\]
+			The irrationals are uncountable but any open ball (i.e. interval) in \(\mathbb{R}\)
+			contains both rationals and irrationals. Thus, 
+			\[
+				\text{int}\mathbb{Q}^{\complement} = \varnothing.
+			\]
+		</div>
+
+		<div class="definition">
+			Let \(G \subset X\). Then \(G\) is said to be <b>open</b> iff 
+			\[
+				\forall x \in G\ \exists \delta_x > 0 : B_{\delta_x}(x) \subset G.
+			\]
+		</div>
+
+		<div class="corollary">
+			\(\text{int}G = G\), i.e. \(\forall x \in G\ x \) is an interior point of \(G\). (\(G\) being open)
+		</div>
+		<div class="example">
+			\(\ (a,\ b)\) is open.
+		</div>
+		<div class="corollary">
+			Every open interval \((a,\ b)\) is an open set.
+		</div>
+		<div class="remark">
+			Negating definition 11., for a set \(G\) to be <b>not open </b> 
+			there must be some \(x \in G\) such that for all 
+			\(\delta_x > 0 : B_{\delta_x}(x) \not\subset G\).
+			<br> Thus \(\varnothing\) is open (vacuously true), and \(\mathbb{R} = (-\infty,\ \infty)\) is open (corollary 13.).
+		</div>
+
+		<div class="theorem">
+			Let \(G_1, \dots, G_n\) be open sets. Then 
+			\(\displaystyle\
+				\bigcap_{i=1}^n G_i
+			\) is also open.
+		</div>
+		<div class="theorem">
+			Let \(G = \{ G_n : n \in \mathbb{N}\}\) be an (infinite) set of open sets. Then 
+			\(\displaystyle\
+				\bigcap G := \bigcap_{n \in \mathbb{N}} G_n
+			\) may not be open.
+		</div>
 
 		<h3 id="R#ineq">Inequalities</h3>
 
@@ -264,23 +382,10 @@
 			Then \((1 + x)^{n+1} = (1 + x)^n\ (1 + x) \geq (1 + nx) (1 + x) = 1 + (n+1)x + nx^2 \geq 1 + (n+1)x.\)
 		</div>
 
-		<div class="definition">
-			Consider a point \(a \in \mathbb{R}.\) Then a <b>neighbourhood</b> of \(a\) is defined as, 
-			\[\displaystyle
-				N(a; \delta) := \{x \in \mathbb{R} : \lvert x - a \rvert < \delta\}
-				= \{x : a - \delta < x < a + \delta\}
-				= (a-\delta,\ a+\delta).
-			\]
-			Further, a <b>deleted neighbourhood</b> of \(a\) is defined as, 
-			\[\displaystyle
-				N'(a; \delta) := N(a; \delta) - \{a\}.
-			\]
-		</div>
-
-
 		<h2 id="seq">Sequences</h2>
 		<p>
 			Informally a sequence can be thought of as an unending list of elements \(a_1\), \(a_2\), \(a_3\), ... not necessarily distinct, indexed by some index set. The elements that make up a sequence can be drawn from any nonempty set.
+			We will 
 			<div class="definition">
 				If \(X\) is a set and if for each \(n \in \mathbb{N}\) an element \(x_n\) of \(X\) is given, we say that 
 				we have a <b>sequence</b> of elements of \(X\) or a sequence in \(X\) whose \(n^{\text{th}}\) term is \(x_n\).

@@ -68,6 +68,8 @@ body {
   body {
       max-width: 720px;
       margin: 2em auto;
+      list-style-type: none;
+      counter-reset: css-counter 0;
   }
   
   h1:first-of-type  {
@@ -122,9 +124,10 @@ body {
       border: 2px solid goldenrod;
       background-color: rgb(6, 1, 32);
       padding: 10px;
+      counter-increment: css-counter 1;
   }
   .theorem:before {
-      content: "Theorem.";
+      content: "Theorem " counter(css-counter) ". ";
       font-weight: bold;
       font-style: normal;
       color: goldenrod;
@@ -136,9 +139,10 @@ body {
       border: 2px solid goldenrod;
       background-color: rgb(44, 2, 2);
       padding: 10px;
+      counter-increment: css-counter 1;
   }
   .proposition:before {
-      content: "Proposition.";
+      content: "Proposition " counter(css-counter) ". ";
       font-weight: bold;
       font-style: normal;
       color: goldenrod;
@@ -148,9 +152,10 @@ body {
       margin: 12px 0;
       font-style: italic;
       background-color: rgb(44, 2, 2);
+      counter-increment: css-counter 1;
   }
   .lemma:before {
-      content: "Lemma.";
+      content: "Lemma " counter(css-counter) ". ";
       font-weight: bold;
       font-style: normal;
       color: goldenrod;
@@ -161,9 +166,10 @@ body {
       margin: 12px 0;
       font-style: italic;
       background-color: rgb(21, 21, 24);
+      counter-increment: css-counter 1;
   }
   .corollary:before {
-      content: "Corollary.";
+      content: "Corollary " counter(css-counter) ". ";
       font-weight: bold;
       font-style: normal;
       color: goldenrod;
@@ -202,9 +208,10 @@ body {
       border: 1px solid goldenrod;
       padding: 10px;
       background-color: rgb(42, 46, 46);
+      counter-increment: css-counter 1;
   }
   .question:before {
-      content: "Question ";
+      content: "Question " counter(css-counter) ". ";
       font-weight: bold;
       font-style: normal;
       color: goldenrod;
@@ -233,12 +240,13 @@ body {
       font-style: italic;
       display: block;
       border: 1px solid goldenrod;
-      background-color: rgb(7, 37, 61);
+      background-color: rgb(1, 24, 43);
       padding: 10px;
+      counter-increment: css-counter 1;
   }
   
   .definition:before {
-      content: "Definition.";
+      content: "Definition " counter(css-counter) ". ";
       font-weight: bold;
       font-style: normal;
       color: goldenrod;
