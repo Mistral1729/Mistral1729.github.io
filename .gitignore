@@ -1,5 +1,6 @@
 ignoramus/
 documents/military/
+documents/notes/texfiles
 _site
 *.gem
 .bundle
@@ -7,4 +8,4 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
-donut.exe
+code/

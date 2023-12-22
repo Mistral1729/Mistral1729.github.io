@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.1 Transitional//EN">
+<html>
+	<head>	
+		<meta charset="utf-8" />
+  		<meta name="generator" content="pandoc" />
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  		<meta name="dcterms.date" content="2023-09-13" />
+  		<title>Geometry and Linear Algebra</title>
+		<link rel="icon" type="image/png" href="/pictures/mpg.png">
+		<style>
+			code{white-space: pre-wrap;}
+				span.smallcaps{font-variant: small-caps;}
+				span.underline{text-decoration: underline;}
+				div.column{display: inline-block; vertical-align: top; width: 50%;}
+				div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+				ul.task-list{list-style: none;}
+				div.csl-bib-body { }
+				div.csl-entry {
+				  clear: both;
+				}
+				.hanging div.csl-entry {
+				  margin-left:2em;
+				  text-indent:-2em;
+				}
+				div.csl-left-margin {
+				  min-width:2em;
+				  float:left;
+				}
+				div.csl-right-inline {
+				  margin-left:2em;
+				  padding-left:1em;
+				}
+				div.csl-indent {
+				  margin-left: 2em;
+				}  
+		</style>
+		<link rel="stylesheet" href="/note_style.css">
+
+		<script type="text/javascript" async src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+		<script src="http://tikzjax.com/v1/tikzjax.js"></script>
+
+		<script type="text/javascript">
+			function toggleSolution(tag) {
+				var x = document.getElementById("solution"+tag);
+				if (x.style.display === "none") {
+					x.style.display = "block";
+				} else {
+					x.style.display = "none";
+				}
+			}
+		</script>
+	</head>
+
+	<!--
+		<small><i><a href="#solution#1" class="text" onclick="toggleSolution('#1')">Solution</a></i></small>
+	-->
+
+	<body>
+		<header id="title-block-header">
+			<h1 class="title">Geometry and Linear Algebra</h1>
+		</header>
+		
+		<nav id="TOC" role="doc-toc">
+			<h3 id="toc-title">Contents</h3>
+			<ol>
+				<li>
+					<a href="#geom">Geometry</a>
+					<ol>
+						<li><a href="#geom#basics">Euclidean space</a></li>
+						<li><a href="#geom#pole">Pole and polars</a></li>
+						<li><a href="#geom#polareqn">Polar equations</a></li>
+						<li><a href="#geom#sphere">Sphere</a></li>
+					</ol>
+				</li>
+				<li>
+					<a href="#la">Linear Algebra</a>
+					<ol>
+						<li><a href="#la#vecspaces">Vector spaces</a></li>
+					</ol>
+				</li>
+				<li><a href="#bibliography">References</a></li>
+			</ol>
+		</nav>
+
+		<h2 id="course-content">Course Content</h2>
+		<p>
+			<b>Geometry</b> <br>
+			Poles and polars. Diameters and conjugate diameters. Systems of conics. Polar equation of a conic referred to a focus as pole. Equations of tangent, normal, chord of contact. Sphere: General Equation. Great circle, Sphere through the intersection of two spheres. Radical Plane, Tangent, Normal. Cone: Right circular cone. General homogeneous second degree equation. Section of cone by a plane as a conic and as a pair of lines. Condition for three perpendicular generators. Reciprocal cone. Cylinder: Generators parallel to either of the axes, general form of equation. Right-circular cylinder. Ellipsoid, Hyperboloid, Paraboloid: Canonical equations only. Tangent planes, Normal, Enveloping cone. Generating lines of hyperboloid of one sheet and hyperbolic paraboloid. <br>
+			<b>Spaces</b> <br>
+			Vectors in \(\mathbb{R}^n\), notions of linear independence and dependence, linear span of a set of vectors, vector subspaces of \(\mathbb{R}^n\), basis of a vector subspace. Systems of linear equations, matrices and Gauss elimination, row space, null space, column space, rank of a matrix. Vector spaces (over \(\mathbb{R}\) or \(\mathbb{C}\)), subspaces, algebra of subspaces, quotient spaces, linear combination of vectors, linear span, linear independence, basis and dimension. <br>
+			<b>Transformations</b> <br>
+			Linear transformations, null space, range, rank and nullity of a linear transformation, matrix representation of a linear transformation, Different notion of matrices, Eigen values, Eigen vectors and characteristic equation of a matrix. Cayley-Hamilton theorem. Algebra of linear transformations. Isomorphisms. Isomorphism theorems, invertibility and isomorphisms, change of coordinate matrix.
+		</p>
+
+		<h2 id="geom">Geometry</h2>
+		<h3 id="geom#basics">Euclidean space</h3>
+		<p>
+			Euclidean space, the basis of Euclidean geometry, represents physical space. It is an example of a vector space.
+			<div class="definition">
+				A <b>vector space</b> over \(\mathbb{R}\) or \(\mathbb{C}\) (also called a real or complex vector space) is a set of vectors \(\vec{v}\in V\), together with
+				two operations: addition of two vectors and multiplication of a vector with a scalar (i.e. a number from \(\mathbb{R}\) or \(\mathbb{C}\),
+				respectively).
+				
+				<b>Vector addition</b> has to satisfy the following axioms:
+				<ol>
+					<li> \(\vec{a} + \vec{b} = \vec{b} + \vec{a}\) (commutativity) </li>
+					<li> \((\vec{a} + \vec{b}) + \vec{c} = \vec{a} + (\vec{b} + \vec{c})\) (associativity) </li>
+					<li> There is a vector \(\vec{0}\) such that \(\vec{a} + \vec{0} = \vec{a}\). (identity) </li>
+					<li> For all vectors \(\vec{a}\), there is a vector \((-\vec{a})\) such that \(\vec{a} + (-\vec{a}) =
+						\vec{0}\) (inverse) </li>
+				</ol>
+				<b>Scalar multiplication</b> has to satisfy the following axioms:
+				<ol>
+					<li> \(\lambda(\vec{a} + \vec{b}) = \lambda\vec{a} + \lambda\vec{b}\). </li>
+					<li> \((\lambda + \mu)\vec{a} = \lambda\vec{a} + \mu\vec{a}\). </li>
+					<li> \(\lambda(\mu\vec{a}) = (\lambda\mu)\vec{a}\). </li>
+					<li> \(1\vec{a} = \vec{a}\). </li>
+				</ol>
+			</div>
+			<div class="example">
+				The Euclidean \(n\)-space (or simply \(n\)-space) \(\mathbb{R}^n\) is a vector space. 
+				Although the \(1\)-space \(\mathbb{R}\) is a line, not all lines are vector spaces. 
+				For instance, the line \(L \equiv x + y = 1\) is not a vector space as \(vec{0} \notin L\).
+			</div>
+			A vector \(\vec{a}\) is geometrically represented by an arrow whose
+			length represents the magnitude of the vector \(|\vec{a}| = a\) and
+			whose direction represents the direction of the vector.
+			<div class="definition">
+				A <b>unit vector</b> is a vector (denoted \(\hat{u}\)) of unit length (i.e. \(|\hat{u}| = 1\)).
+			</div>
+			A scalar, geometrically speaking, serves to <i>scale</i> the vector. 
+			<div class="remark">
+				For, 
+				<br> if \(\lambda > 1\) then \(\lambda \vec{a}\) scales up the vector, 
+				<br> if \(\lambda = 1\) then \(\lambda \vec{a}\) retains the original scale of the vector,
+				<br> if \(0 < \lambda < 1\) then \(\lambda \vec{a}\) scales down the vector,
+				<br> if \(\lambda = 0\) then \(\lambda \vec{a}\) reduces the vector to the origin,
+				and <br> if \(\lambda < 0\) then \(\lambda \vec{a}\) inverts the vector whilst doing one 
+				of the first three preceding scaling operations.
+			</div>
+			<div class="remark">
+				For any \(\lambda\), \(\lambda \vec{a}\) represents either
+				a vector parallel to \(\vec{a}\) (for \(\lambda \geq 0\)) or 
+				anti-parallel (i.e. parallel but inverted) to 
+				\(\vec{a}\) (for \(\lambda \leq 0\)).
+			</div>
+			<div class="definition">
+				In a real vector space \(V\), an <b>inner product</b> or 
+				<b>scalar product</b> is a map 
+				\(\langle \cdot, \cdot \rangle : V \times V \to \mathbb{R}\) 
+				satisfying the following axioms, 
+				<ol>
+					<li>\(\langle \vec{x},\ \vec{y} \rangle = \overline{\langle \vec{y},\ \vec{x} \rangle}.\) (conjugate symmetry)</li>
+					<li>\(\langle \lambda\vec{x}+\mu\vec{y},\ \vec{z} \rangle = \lambda\langle \vec{x},\ \vec{z} \rangle + \mu\langle \vec{y},\ \vec{z} \rangle.\) (linearity in first argument)</li>
+					<li>\(\langle \vec{x},\ \vec{x} \rangle \geq 0\) with equality iff \(\vec{x} = \vec{0}.\) (positive definite)</li>
+				</ol>
+			</div>
+
+			<div class="theorem">
+				Any line through \(\vec{a}\) and parallel to \(\vec{t}\) can
+				be expressed as \[\boxed{\vec{x} = \vec{a} + \lambda\vec{t}}.\]
+			</div>
+			<small><i><a href="#solution#-1" class="text" onclick="toggleSolution('#-1')">Toggle proof</a></i></small>
+			<div id="solution#-1" class="proof" style="display:none;">
+				Let \(A\) and \(B\) be any two points on the given line. 
+				Set \(\overrightarrow{OA} = \vec{a}\) and \(\overrightarrow{OB} = \vec{b}\), 
+				then we have \(\overrightarrow{AB} = \vec{b} - \vec{a} = \vec{t}\).
+				<br> We want the line passing through \(\vec{a}\) and 
+				parallel to \(\vec{t}\), i.e. we want the line passing 
+				through \(\vec{a}\) and \(\lambda \vec{t}\) for any 
+				scalar \(\lambda\), the equation of which follows from 
+				vector addition 
+				\[
+					\boxed{\vec{x} = \vec{a} + \lambda\vec{t}}.
+				\]
+				<img src="diagrams/geogebra-export.png"> <br>
+				The above diagram illustrates the proof in \(2\)-space. 
+				The corresponding diagram in \(3\)-space is similar.
+			</div>
+			<div class="corollary">
+				The equation of a straight line through \(\vec{a}\) and parallel 
+				to \(\vec{t}\) is 
+				\[\boxed{(\vec{x} - \vec{a}) \times \vec{t} = 0}.\]
+			</div>
+		</p>
+
+		<h3 id="geom#pole">Poles and polars</h3>
+		<p>
+			<div class="definition">
+				The <b>polar</b> of a point w.r.t. a conic is the locus of the point of intersection of the tangents to the conic 
+				at the extremities of the chords drawn through that point. More precisely, if the chords of a conic be drawn through 
+				a fixed point and tangents be drawn at the extremities of all such chords, then the locus of the point of intersection 
+				of these tangents to the conic is called the <b>polar</b> of the fixed point which itself is called the <b>pole</b>. <br>
+				The terms pole and polar are thus correlative. 
+			</div>
+
+			<h4>Equation of the polar w.r.t. a conic</h4>
+
+			<p>
+				Let the equation of the conic be
+				\[\displaystyle
+					ax^2 + 2hxy + by^2 + 2gx + 2fy + c = 0\ ... (1) 
+				\]
+				Let \(AB\) be a chord passing through the point \(P(x_1,\ y_1)\) and
+				let the tangets at \(A\) and \(B\) meet at the point \(T(x_2,\ y_2)\).
+				The locus of the point \(T\) is the polar, \(P\) being the pole.
+				Now \(AB\) is the <b>chord of contact</b> of the tangents drawn from \(T(x_2,\ y_2)\) to the conic. So its equation 
+				\[\displaystyle
+					axx_2 + h(xy_2 + yx_2) + byy_2 + g(x+x_2) + f(y+y_2) + c = 0
+				\]
+				passes through the point \(P(x_1,\ y_1)\). Thus 
+				\[\displaystyle
+					ax_1x_2 + h(x_1y_2 + y_1x_2) + by_1y_2 + g(x_1+x_2) + f(y_1+y_2) + c = 0.
+				\]
+				It shows that the locus of \((x_2,\ y_2)\) is the line 
+				\[\displaystyle
+					\boxed{axx_1 + h(xy_1 + yx_1) + byy_1 + g(x+x_1) + f(y+y_1) + c = 0\ ... (2)}
+				\]
+				Thus, \((2)\) is the polar of \((x_1,\ y_1)\) w.r.t. the conic \((1)\).
+			</p>
+
+			<div class="question">
+				<tr> Find the equation of the polar of a point \((x_1,\ y_1)\) w.r.t. the circle \(x^2 + y^2 = a^2\).
+			</div>
+			<small><i><a href="#solution#1" class="text" onclick="toggleSolution('#1')">Toggle solution</a></i></small>
+			<div id="solution#1" class="proof" style="display: none;"><br>
+				The equation of the circle is 
+				\[\displaystyle
+					x^2 + y^2 = a^2 \ ... (1)
+				\]
+				Let \(AB\) be a chord passing through the point \(P(x_1,\ y_1)\) and
+				let the tangets at \(A\) and \(B\) meet at the point \(T(x_2,\ y_2)\).
+				The locus of \(T\) will be the polar of our pole \(P\) w.r.t. \((1)\).
+				<br>
+				Now \(AB\) is the <b>chord of contact</b> of the tangents drawn from
+				\(T\) to the \((1)\). So its equation is \(xx_2 + yy_2 = a^2\). <br>
+				This passes through the pole \(P\).
+				\[
+					\therefore\ x_1x_2 + y_1y_2 = a^2
+				\]
+				and hence the locus of \(T\) is \(\boxed{xx_1 + yy_1 = a^2}\), which is the 
+				required equation of the polar of \(P\) w.r.t. \((1)\).
+			</div>
+		</p>
+
+		<h3 id="geom#polareqn">Polar equations</h3>
+
+			<h4>Relationship between cartesian and polar coordinates</h4>
+		<p>
+			<div>
+				For converting a point \((x,\ y)\) in cartesian coordinates to polar coordinates \((r,\ \theta)\) we use,
+				\[
+					r = \sqrt{x^2 + y^2},\ \theta = tan^{-1}(\frac{y}{x}).
+				\]
+				For converting a point \((r,\ \theta)\) in cartesian coordinates to polar coordinates \((x,\ y)\) we use, 
+				\[
+					x = r \text{ cos}(\theta),\ y = r \text{ sin}(\theta).
+				\]
+			</div>
+		</p>
+
+		<h3 id="geom#sphere">Sphere</h3>
+		<p>
+			<div class="definition">
+				The <b>sphere</b> is a surface traced out by a moving point
+				which is always at a constant distance from a fixed point. 
+				The fixed point is the <b>center</b> of the sphere and the 
+				constant distance is its <b>radius</b>.
+				Let \(P(x,\ y,\ z)\) be a point on the sphere with the center 
+				at \(C(x_1,\ y_1,\ z_1)\). If the radius of the sphere be \(r\), then 
+				\[
+					CP^2 = r^2 \iff (x-x_1)^2 + (y-y_1)^2 + (z-z_1)^2 = r^2 \ ...(1)
+				\]
+				which is the equation of the sphere. If \(C\) is the origin, then
+				\[
+					x^2 + y^2 + z^2 = r^2 \ ... (2)
+				\]
+				is the equation of the sphere.
+			</div>
+
+			<div class="remark"><br>
+				Equation \((1)\) is a second degree equation in \(x,\ y,\ z\) where 
+				<ol style="list-style: lower-roman;">
+					<li>the coefficients of \(x^2,\ y^2,\ z^2\) are all equal,</li>
+					<li>the coefficients of \(xy,\ yz,\ zx\) are all zero.</li>
+				</ol>
+				The general second degree equation satisfying the above is 
+				\[
+					ax^2 + ay^2 + az^2 + 2lx + 2my + 2nz + d = 0\\
+					\overbrace{\implies}^{a \neq 0} x^2 + y^2 + z^2 + 2\underbrace{(\frac{l}{a})}_{ =:\ f}x + 2\underbrace{(\frac{m}{a})}_{ =:\ g}y + 2\underbrace{(\frac{n}{a})}_{ =:\ h}z + \underbrace{(\frac{d}{a})}_{ =:\ c} = 0\\
+					\implies \boxed{x^2 + y^2 + z^2 + 2fx + 2gy + 2hz + c = 0 \ ...(3)}
+				\]
+				which contains four independent constants \(f,\ g,\ h,\ c\), so a sphere 
+				can be made to satisfy four independent conditions. <br>
+				In particular, a sphere may be made to pass through four non-coplanar points. <br>
+				Putting \((3)\) in the same form as \((1)\),
+				\[
+					(x+f)^2 + (y+g)^2 + (z+h)^2 = f^2 + g^2 + h^2 - c
+				\]
+				implies that the center of the sphere is \((-f,\ -g,\ -h)\) and the radius is 
+				\(\sqrt{f^2 + g^2 + h^2 - c}\). <br>
+				For a real sphere, \(f^2 + g^2 + h^2 - c \geq 0\).
+			</div>
+		</p>
+
+		<h2 id="la">Linear Algebra</h2>
+		<h3 id="la#vecspaces">Vector Spaces</h3>
+		<p>
+			<div class="definition">
+
+			</div>
+		</p>
+
+		<h1 class="unnumbered" id="bibliography">References</h1>
+		
+			<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+				<div id="fenn" class="csl-entry" role="doc-biblioentry">
+				<div class="csl-left-margin">1. </div><div class="csl-right-inline">Harold S. M. Coxeter, <em>Introduction to Geometry</em> (John Wiley and Sons Inc., 1969).</div>
+                <div id="halmos" class="csl-entry" role="doc-biblioentry">
+				<div class="csl-left-margin">2. </div><div class="csl-right-inline">Paul R. Halmos, <em>Finite-Dimensional Vector Spaces</em> (Benediction Classics, Oxford, 2015).</div>	
+                <div id="vinberg" class="csl-entry" role="doc-biblioentry">
+                <div class="csl-left-margin">3. </div><div class="csl-right-inline">Stephen H. Friedberg, Arnold J. Insel, Lawrence E. Spence, <em>Linear Algebra</em> (Pearson Education Inc., 2019).</div>
+            </div>
+		<hr />
+		
+			<small>	
+				<p class="date">
+					Last updated on 8.11.2023.<br>
+					<a href="/#wiki">Notes</a>
+				</p>
+			</small>
+	</body>
+</html>

@@ -54,6 +54,10 @@ body {
       font-weight: bold;
       color: darkgoldenrod;
   }
+
+  h2 {
+    counter-reset: css-counter 0;
+  }
   
   a, a:visited {
       color: wheat;

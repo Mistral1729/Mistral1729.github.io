@@ -5,7 +5,7 @@
   		<meta name="generator" content="pandoc" />
   		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   		<meta name="dcterms.date" content="2023-07-13" />
-  		<title>Big List of Problems</title>
+  		<title>Blog</title>
 		<link rel="icon" type="image/png" href="/pictures/mpg.png">
 		<style>
 			code{white-space: pre-wrap;}
@@ -39,6 +39,9 @@
 		<script type="text/javascript" async src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 		</script>
 
+		<link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
+		<script src="http://tikzjax.com/v1/tikzjax.js"></script>
+
 		<script type="text/javascript">
 			function toggleSolution(tag) {
 				var x = document.getElementById("solution"+tag);
@@ -53,59 +56,23 @@
 
 	<body>
 		<header id="title-block-header">
-			<h1 class="title">Big List of Problems</h1>
+			<h1 class="title">Blog</h1>
 		</header>
 		
 		<nav id="TOC" role="doc-toc">
-			<h3 id="toc-title">Contents</h3>
+			<h3 id="toc-title">Entries</h3>
 			<ol>
-				<li><a href="#intro">Introduction</a></li>
-				<li>
-					<a href="#spaces">Spaces</a>
-					<ol>
-						<li><a href="#spaces#fields">Fields</a></li>
-						<li><a href="#spaces#vectorspaces">Vector Spaces</a></li>
-						<li><a href="#spaces#examples">Examples</a></li>
-						<li><a href="#spaces#comments">Comments</a></li>
-						<li><a href="#spaces#lineardependence">Linear dependence</a></li>
-						<li><a href="#spaces#linearcombinations">Linear combinations</a></li>
-						<li><a href="#spaces#bases">Bases</a></li>
-						<li><a href="#spaces#dimension">Dimension</a></li>
-						<li><a href="#spaces#isomorphism">Isomorphism</a></li>
-						<li><a href="#spaces#subspaces">Subspaces</a></li>
-						<li><a href="#spaces#calculusofsubspaces">Calculus of subspaces</a></li>
-						<li><a href="#spaces#dimensionofasubspace">Dimension of a subspace</a></li>
-						<li><a href="#spaces#dualspaces">Dual spaces</a></li>
-						<li><a href="#spaces#brackets">Brackets</a></li>
-						<li><a href="#spaces#dualbases">Dual bases</a></li>
-						<li><a href="#spaces#reflexivity">Reflexivity</a></li>
-						<li><a href="#spaces#annihilators">Annihilators</a></li>
-						<li><a href="#spaces#directsums">Direct sums</a></li>
-						<li><a href="#spaces#dimensionofadirectsum">Dimension of a direct sum</a></li>
-						<li><a href="#spaces#dualofadirectsum">Dual of a direct sum</a></li>
-						<li><a href="#spaces#quotientpaces">Quotient spaces</a></li>
-						<li><a href="#spaces#dimensionofaquotientspace">Dimension of a quotient space</a></li>
-						<li><a href="#spaces#bilinearforms">Bilinear forms</a></li>
-						<li><a href="#spaces#tensorproducts">Tensor products</a></li>
-						<li><a href="#spaces#productbases">Product bases</a></li>
-						<li><a href="#spaces#permutations">Permutations</a></li>
-						<li><a href="#spaces#cycles">Cycles</a></li>
-						<li><a href="#spaces#parity">Parity</a></li>
-						<li><a href="#spaces#multilinearforms">Multilinear forms</a></li>
-						<li><a href="#spaces#alternatingforms">Alternating forms</a></li>
-						<li><a href="#spaces#alternatingformsofmaximaldegree">Alternating forms of maximal degree</a></li>
-					</ol>
-				</li>
+				<li><a href="#e1">&laquo; The Hardest Problem on the Hardest Test &raquo;</a></li>
+				<li><a href="#e2">Introduction</a></li>
 				<li><a href="#bibliography">References</a></li>
 			</ol>
 		</nav>
 
-		<h2 id="intro">Introduction</h2>
+		<h2 id="e1">&laquo; The Hardest Problem on the Hardest Test &raquo;</h2>
 		<p>
-			From the 1992 Putnam (
-			<span class="citation" data-cites="klosinski">[<a href="#klosinski" role="doc-biblioref">Klosinski</a>]</span>) 
-            we have the following problem, 
-			<div class="question"> <b>A6.</b> <br>
+			From the 1992 Putnam (<span class="citation" data-cites="klosinski">[<a href="#klosinski" role="doc-biblioref">Klosinski</a>]</span>)  
+            we have the following problem (numbered A6. in the question paper), 
+			<div class="question"> <br>
 				Four points are chosen at random on the surface of a sphere. What is the 
 				probability that the center of the sphere lies inside the tetrahedron whose 
 				vertices are at the four points ? (It is understood that each point is 
@@ -114,6 +81,8 @@
 		
 			<small><i><a href="#solution#1" class="text" onclick="toggleSolution('#1')">Solution</a></i></small>
 			<div id="solution#1" class="proof" style="display: none;">
+				We take the proof almost verbatim from 
+				(<span class="citation" data-cites="klosinski">[<a href="#klosinski" role="doc-biblioref">Klosinski</a>]</span>).
 				Recall that if four points are in general position in 3-space, then a point 
 				\(P\) lies in the tetrahedron formed by said four points iff the barycentric
 				coordinates of \(P\) with respect to the tetrahedron's vertices are positive.
@@ -169,13 +138,13 @@
 				center (call it \(\mathbf{O}\)). Thus \(\mathbb{P}(P_{0}P_{1}P_{2}P_{3} \ni \mathbf{O} \mid \mathbf{E}) = \frac{1}{8}.\)
 			</div>
         </p>
-		<p>
-			In chapters 1, 2, 3, and 4 the exercises are from <span class="citation" data-cites="halmos1">[<a href="#halmos1" role="doc-biblioref">Halmos1</a>]</span>
-		</p>
 
 		<h2 id="spaces">Spaces</h2>
 		<h3 id="spaces#fields">Fields</h3>
 		<p>
+			<p>
+				In chapters 1, 2, 3, and 4 the exercises are from <span class="citation" data-cites="halmos1">[<a href="#halmos1" role="doc-biblioref">Halmos1</a>]</span>
+			</p>
 			<div class="question"> <b>1.</b> <br>
 				Almost all the laws of elementary arithmetic are consequences of the axioms defining
 				a field. Prove, in particular, that if \(\mathfrak{F}\) is a field, and if \(\alpha, \beta,\) and \(\gamma\) 
@@ -308,7 +277,14 @@
 		
 			<small>	
 				<p class="date">
-					Last updated on 09.09.2023.<br>
+					<p id="date"></p>
+					<script>
+						n =  new Date();
+						y = n.getFullYear();
+						m = n.getMonth() + 1;
+						d = n.getDate();
+						document.getElementById("date").innerHTML = "Last updated on " + d + "/" + m + "/" + y + ".";
+					</script>
 					<a href="/#wiki">Notes</a>
 				</p>
 			</small>
