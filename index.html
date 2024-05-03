@@ -1,1128 +1,371 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.1 Transitional//EN">
 <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Mistral1729</title>
+        <meta name="description" content="Homepage of Mistral1729">
+        <meta name="author" content="Mistral1729">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="pictures/mpg.png">
+        <link rel="stylesheet" href="style.css">
 
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Mistral</title>
-    <meta name="description" content="Homepage of Mistral">
-    <meta name="author" content="Mistral">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="icon" type="image/png" href="pictures/mpg.png">
-      <link rel="stylesheet" href="style.css">
+        <script> MathJax = { loader: { load: ["[tex]/ams"] }, tex: { inlineMath: [["$", "$"]], displayMath: [["$$", "$$"]], packages: { "[+]": ["ams"] }, }, svg: { fontCache: "global", }, }; 
+        </script> 
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" ></script>
 
-    <script type="text/javascript" async src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
+        <script type="text/javascript">
+            function init()
+            {
+                var details = window.location.hash;
+                var subtabs = document.getElementsByClassName("details");
+                var contains = false;
+                for (itD = 0; itD < subtabs.length; itD++) {
+                        if (subtabs[itD].id==details){
+                    contains = true;
+                };
+                };
+                if (contains ){
+                toggleDisplay(details);
+                } else {
+                toggleDisplay("#home");
+                };	
+            }
+        </script>
 
-    <script type="text/javascript">
-      var subtabs = document.getElementsByClassName("details");
-      function toggleDisplay(details) {
-        for (itD = 0; itD < subtabs.length; itD++) {
-          subtabs[itD].style.display="none";
-            document.getElementById("en-header"+subtabs[itD].id).style.textDecoration = "none";
-            document.getElementById("de-header"+subtabs[itD].id).style.textDecoration = "none";
-            document.getElementById("fr-header"+subtabs[itD].id).style.textDecoration = "none";
-            document.getElementById("jp-header"+subtabs[itD].id).style.textDecoration = "none";
-        }
-        document.getElementById(details).style.display = "";
-        document.getElementById("en-header"+details).style.textDecoration = "underline";
-        document.getElementById("de-header"+details).style.textDecoration = "underline";
-        document.getElementById("fr-header"+details).style.textDecoration = "underline";
-        document.getElementById("jp-header"+details).style.textDecoration = "underline";
-        window.location.hash = details.substr(1);
-      }
-    </script>
-
-    <script type="text/javascript">
-      var currentlanguage="en";
-      var i = 1;
-      var timer;
-      var path = new Array();
-      var pathtitle = new Array();
-      var pathtitleen = new Array();
-      var pathtitlefr = new Array();
-      var pathtitlede = new Array();
-      var pathtitlejp = new Array();
-      var click = 0;
-      var noim = 0;
-
-      /* LIST OF SLIDES */
-      path[0] = "pictures/cherry.jpeg";
-      pathtitleen[0] = "Japanese cherry blossom";
-      pathtitlefr[0] = "Fleur de cerisier japonais";
-      pathtitlede[0] = "Japanische Kirschblüte";
-      pathtitlejp[0] = "日本の桜";
-      path[1] = "pictures/ipmu-sakura13.jpg";
-      pathtitleen[1] = "Kavli Institute for the Physics and Mathematics of the Universe, The University of Tokyo";
-      pathtitlefr[1] = "Institut Kavli pour la physique et les mathématiques de l'univers, Université de Tokyo";
-      pathtitlede[1] = "Kavli-Institut für Physik und Mathematik des Universums, Universität Tokio";
-      pathtitlejp[1] = "カブリ数物連携宇宙研究機構、東京大学";
-      path[2] = "pictures/komaba.jpg";
-      pathtitleen[2] = "Building 1 of Komaba Campus, University of Tokyo";
-      pathtitlefr[2] = "Bâtiment 1 du campus de Komaba, Université de Tokyo";
-      pathtitlede[2] = "Gebäude 1 des Komaba Campus, Universität Tokio";
-      pathtitlejp[2] = "東大駒場Iキャンパス1号館";
-
-      /*Language switch*/
-      var text = document.getElementsByClassName("text");
-      function toggleLang(lang){
-        currentlanguage=lang;
-        if(0<i) i--; else i = path.length-1;
-        swapImage();
-        for (itD = 0; itD < text.length; itD++) {
-          text[itD].style.display="none";
-        }
-        var currtext = document.getElementsByName(lang);
-        for (itD = 0; itD < currtext.length; itD++) {
-          currtext[itD].style.display="";
-        }
-      }
-
-      /* slideshow */
-      function swapImage()
-      {
-        clearTimeout(timer);
-        pathtitle=eval("pathtitle"+currentlanguage);
-        document.getElementById("slide").src=path[i];
-        document.getElementById("slide").title=pathtitle[i];
-        document.getElementById("slide").alt=pathtitle[i];
-        document.getElementById("slide").background=pathtitle[1];
-        document.getElementById("slide").opacity=0.5;
-        for (cou = 0; cou<path.length;cou++){
-          document.getElementById(String("button"+cou)).src="pictures/framework/bulletoff.png";
-        }
-        document.getElementById(String("button"+i)).src="pictures/framework/bulleton.png";
-        if(i < path.length - 1) i++; else i = 0;
-        timer = setTimeout("swapImage()",12000);
-      }
-
-      function bset(noim)
-      {
-        clearTimeout(timer);
-        pathtitle=eval("pathtitle"+currentlanguage);
-        for (cou = 0; cou<path.length;cou++){
-          document.getElementById(String("button"+cou)).src="pictures/framework/bulletoff.png";
-        }
-        document.getElementById(String("button"+noim)).src="pictures/framework/bulleton.png";
-        document.getElementById("slide").src=path[noim];
-        document.getElementById("slide").title=pathtitle[noim];
-        document.getElementById("slide").alt=pathtitle[noim];
-        i = noim;
-        if(i < path.length - 1) i++; else i = 0;
-      }
-
-      function swap(){
-        clearTimeout(timer);
-        pathtitle=eval("pathtitle"+currentlanguage);
-        document.getElementById("slide").src=path[i];
-        document.getElementById("slide").title=pathtitle[i];
-        document.getElementById("slide").alt=pathtitle[i];
-        for (cou = 0; cou<path.length;cou++){
-          document.getElementById(String("button"+cou)).src="pictures/framework/bulletoff.png";
-        }
-        document.getElementById(String("button"+i)).src="pictures/framework/bulleton.png";
-        if(i < path.length - 1) i++; else i = 0;
-      }
-
-      function stopShow(){
-        clearTimeout(timer);
-      }
-
-      function runShow(){
-        clearTimeout(timer);
-        timer = setTimeout("swapImage()",12000);
-      }
-    </script>
-
-    <script type="text/javascript">
-      function init(){
-        var details = window.location.hash;
+        <script type="text/javascript">
             var subtabs = document.getElementsByClassName("details");
-        var contains = false;
-        for (itD = 0; itD < subtabs.length; itD++) {
-                if (subtabs[itD].id==details){
-            contains = true;
-          };
-        };
-        if (contains ){
-          toggleDisplay(details);
-        } else {
-          toggleDisplay("#home");
-        };	
-      }
-    </script>
+            function toggleDisplay(details) 
+            {
+                for (itD = 0; itD < subtabs.length; itD++) 
+                {
+                    subtabs[itD].style.display="none";
+                    document.getElementById("en-header"+subtabs[itD].id).style.textDecoration = "none";
+                }
+                document.getElementById(details).style.display = "";
+                document.getElementById("en-header"+details).style.textDecoration = "underline";
+                window.location.hash = details.substr(1);
+            }
+        </script>
+    </head>
     
-    <script type="text/javascript">
-      function beflexible(){
-        if (window.innerWidth<900){
-          document.getElementById('firstcol').style.display="none";
-          document.getElementById('firstcolumn').style.display="none";
-          document.getElementById('secondcol').width="100%";
-          document.getElementById('slide').style.display="none"
-        }
-        else{
-          document.getElementById('firstcol').style.display="";
-          document.getElementById('firstcolumn').style.display="";
-          document.getElementById('secondcol').width="70%";
-          document.getElementById('slide').style.display=""
-        }
-      }
-      setInterval("beflexible()",100)
-    </script>
-    
-  </head>
+    <body onload="init();">
 
-  <body onLoad="runShow();init();">
-    <table id="maintable">
-      <col id="firstcol" width="30%"/><col id="secondcol" width="70%"/>
-        <tbody>
-          <tr>
+      <article>
+        <div>
+          <a class="link-wrapper" id="en-header#home" onclick="toggleDisplay('#home');">
+            <span class="fallback">Mistral1729</span>
+            <div class="img-wrapper">
+                <img class="normal" src="pictures/framework/title0.png">
+                <img class="active" src="pictures/framework/title1.png">
+            </div>
+            <div class="shape-wrapper">
+            <div class="shape red-fill jelly"><svg x="0px" y="0px"
+                viewBox="0 0 108.1 47" enable-background="new 0 0 108.1 47">
+            <polygon fill="#FF0000" points="0,7.1 127.3,0 32.3,64 4.8,58.2">
+            </svg></div>
+                <div class="shape cyan-fill jelly"><svg x="0px" y="0px"
+                viewBox="0 0 108.1 47" enable-background="new 0 0 108.1 47">
+            <polygon fill="#00FFFF" points="14,0.5 127.4,0 77.4,164 2.3,61.1 "/>
+            </svg></div>
+                </div>
+            </a>
+        </div>
 
-            <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-            <!--  	   	  slideshow          -->
-            <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-
-            <td id="firstcolumn">
-
-              <img
-              class="slideshow"
-              id="slide"
-              onclick="swap()"
-              onMouseover="stopShow()"
-              onMouseout="runShow()"
-              src="pictures/cherry.jpeg"
-              title="Japanese cherry blossom"
-              border="0"
-              width="100%"
-              />
-
-              <div align="center" class="buttons">
-                <img
-                id="button0"
-                onMouseover="stopShow()"
-                onMouseout="runShow()"
-                onclick="bset(0)"
-                src="pictures/framework/bulleton.png"
-                border="0"
-                />
-
-                <img
-                id="button1"
-                onMouseover="stopShow()"
-                onMouseout="runShow()"
-                onclick="bset(1)"
-                src="pictures/framework/bulletoff.png"
-                border="0"
-                />
-
-                <img
-                id="button2"
-                onMouseover="stopShow()"
-                onMouseout="runShow()"
-                onclick="bset(2)"
-                src="pictures/framework/bulletoff.png"
-                border="0"
-                />
+        <div class="navbar">
+            
+            <!--<a class="link-wrapper" id="en-header#publications" onclick="toggleDisplay('#publications');">
+                <span class="fallback">Publications</span>
+                <div class="img-wrapper">
+                    <img class="normal" src="pictures/framework/pubs0.png">
+                    <img class="active" src="pictures/framework/pubs1.png">
+                </div>
+                <div class="shape-wrapper">
+                    <div class="shape red-fill jelly"><svg x="0px" y="0px"
+                        viewBox="0 0 108.1 47" enable-background="new 0 0 108.1 47">
+                    <polygon fill="#FF0000" points="0,7.1 127.3,0 32.3,64 4.8,58.2">
+                    </svg></div>
+                        <div class="shape cyan-fill jelly"><svg x="0px" y="0px"
+                        viewBox="0 0 108.1 47" enable-background="new 0 0 108.1 47">
+                    <polygon fill="#00FFFF" points="14,0.5 127.4,0 77.4,164 2.3,61.1 "/>
+                    </svg></div>
+                </div>
+            </a>
+            <a class="link-wrapper" id="en-header#books" onclick="toggleDisplay('#books');">
+                <span class="fallback">Blog</span>
+                <div class="img-wrapper">
+                    <img class="normal" src="pictures/framework/books0.png">
+                    <img class="active" src="pictures/framework/books1.png">
+                </div>
+                <div class="shape-wrapper">
+                    <div class="shape red-fill jelly"><svg x="0px" y="0px"
+                        viewBox="0 0 108.1 47" enable-background="new 0 0 108.1 47">
+                    <polygon fill="#FF0000" points="0,7.1 127.3,0 32.3,64 4.8,58.2">
+                    </svg></div>
+                        <div class="shape cyan-fill jelly"><svg x="0px" y="0px"
+                        viewBox="0 0 108.1 47" enable-background="new 0 0 108.1 47">
+                    <polygon fill="#00FFFF" points="14,0.5 127.4,0 77.4,164 2.3,61.1 "/>
+                    </svg></div>
+                </div>
+            </a>-->
+            <a class="link-wrapper" id="en-header#code" onclick="toggleDisplay('#code');">
+                <span class="fallback">Code</span>
+                <div class="img-wrapper">
+                    <img class="normal" src="pictures/framework/code0.png">
+                    <img class="active" src="pictures/framework/code1.png">
+                </div>
+                <div class="shape-wrapper">
+                <div class="shape red-fill jelly"><svg x="0px" y="0px"
+                    viewBox="0 0 108.1 47" enable-background="new 0 0 108.1 47">
+                <polygon fill="#FF0000" points="0,7.1 127.3,0 32.3,64 4.8,58.2">
+                </svg></div>
+                    <div class="shape cyan-fill jelly"><svg x="0px" y="0px"
+                    viewBox="0 0 108.1 47" enable-background="new 0 0 108.1 47">
+                <polygon fill="#00FFFF" points="14,0.5 127.4,0 77.4,164 2.3,61.1 "/>
+                </svg></div>
+                </div>
+            </a>
+            <a class="link-wrapper" id="en-header#notes" onclick="toggleDisplay('#notes');">
+                <span class="fallback">Notes</span>
+                <div class="img-wrapper">
+                    <img class="normal" src="pictures/framework/notes0.png">
+                    <img class="active" src="pictures/framework/notes1.png">
+                </div>
+                <div class="shape-wrapper">
+                    <div class="shape red-fill jelly"><svg x="0px" y="0px"
+                        viewBox="0 0 108.1 47" enable-background="new 0 0 108.1 47">
+                    <polygon fill="#FF0000" points="0,7.1 127.3,0 32.3,64 4.8,58.2">
+                    </svg></div>
+                        <div class="shape cyan-fill jelly"><svg x="0px" y="0px"
+                        viewBox="0 0 108.1 47" enable-background="new 0 0 108.1 47">
+                    <polygon fill="#00FFFF" points="14,0.5 127.4,0 77.4,164 2.3,61.1 "/>
+                    </svg></div>
+                        </div>
+            </a>
+            <a class="link-wrapper" href="blog/">
+              <span class="fallback">Blog</span>
+              <div class="img-wrapper">
+                  <img class="normal" src="pictures/framework/blog0.png">
+                  <img class="active" src="pictures/framework/blog1.png">
               </div>
-            </td>
+              <div class="shape-wrapper">
+              <div class="shape red-fill jelly"><svg x="0px" y="0px"
+                  viewBox="0 0 108.1 47" enable-background="new 0 0 108.1 47">
+              <polygon fill="#FF0000" points="0,7.1 127.3,0 32.3,64 4.8,58.2">
+              </svg></div>
+                  <div class="shape cyan-fill jelly"><svg x="0px" y="0px"
+                  viewBox="0 0 108.1 47" enable-background="new 0 0 108.1 47">
+              <polygon fill="#00FFFF" points="14,0.5 127.4,0 77.4,164 2.3,61.1 "/>
+              </svg></div>
+                  </div>
+            </a>
+        </div>
+      </article>
 
-            <td id="secondcolumn" >
-
-              <h3 id="LanguageToggle" style="margin-top:5pt">
-                <div class="text" name="en" >
-                  <a style="color:lightgoldenrodyellow" onclick="toggleLang('en');">⟩EN </a>
-                  <a style="color:gold" onclick="toggleLang('de');">⟩DE </a>
-                  <a style="color:gold" onclick="toggleLang('fr');">⟩FR </a>
-                  <a style="color:gold" onclick="toggleLang('jp');">⟩日本 </a>
-                </div>
-                <div class="text" name="de" style="display:none">
-                  <a style="color:gold" onclick="toggleLang('en');">⟩EN </a>
-                  <a style="color:lightgoldenrodyellow" onclick="toggleLang('de');">⟩DE </a>
-                  <a style="color:gold" onclick="toggleLang('fr');">⟩FR </a>
-                  <a style="color:gold" onclick="toggleLang('jp');">⟩日本 </a>
-                </div>
-                <div class="text" name="fr" style="display:none">
-                  <a style="color:gold" onclick="toggleLang('en');">⟩EN </a>
-                  <a style="color:gold" onclick="toggleLang('de');">⟩DE </a>
-                  <a style="color:lightgoldenrodyellow" onclick="toggleLang('fr');">⟩FR </a>
-                  <a style="color:gold" onclick="toggleLang('jp');">⟩日本 </a>
-                </div>
-                <div class="text" name="jp" style="display:none">
-                  <a style="color:gold" onclick="toggleLang('en');">⟩EN </a>
-                  <a style="color:gold" onclick="toggleLang('de');">⟩DE </a>
-                  <a style="color:gold" onclick="toggleLang('fr');">⟩FR </a>
-                  <a style="color:lightgoldenrodyellow" onclick="toggleLang('jp');">⟩日本 </a>
-                </div>
-              </h3>
-
-              <h2>Mistral</h2>
-              <h5><i>Self-adjusting search tree searching for 58 74 68 6D 6E</i></h5>
-
-              <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-              <!--      	 header	 	    -->
-              <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-
-              <h3 class="text" name="en">
-                <a id="en-header#home" onclick="toggleDisplay('#home');">Home</a> |
-                <a id="en-header#publications" onclick="toggleDisplay('#publications');">Publications</a> |
-                <a id="en-header#books" onclick="toggleDisplay('#books');">Books I Like</a> |
-                <a id="en-header#code" onclick="toggleDisplay('#code');">Code</a> |
-                <a id="en-header#wiki" onclick="toggleDisplay('#wiki');">Notes</a>
-              </h3>
-
-              <h3 class="text" name="de" style="display:none">
-                <a id="de-header#home" onclick="toggleDisplay('#home');">Willkommen</a> |
-                <a id="de-header#publications" onclick="toggleDisplay('#publications');">Veröffentlichungen</a> |
-                <a id="de-header#books" onclick="toggleDisplay('#books');">Bücher, die ich mag</a> |
-                <a id="de-header#code" onclick="toggleDisplay('#code');">Code</a> |
-                <a id="de-header#wiki" onclick="toggleDisplay('#wiki');">Notizen</a>
-              </h3>
-
-              <h3 class="text" name="fr" style="display:none">
-                <a id="fr-header#home" onclick="toggleDisplay('#home');">Accueil</a> |
-                <a id="fr-header#publications" onclick="toggleDisplay('#publications');">Publications</a> |
-                <a id="fr-header#books" onclick="toggleDisplay('#books');">Livres que j'aime</a> |
-                <a id="fr-header#code" onclick="toggleDisplay('#code');">Code</a> |
-                <a id="fr-header#wiki" onclick="toggleDisplay('#wiki');">Notes</a>
-              </h3>
-
-              <h3 class="text" name="jp" style="display:none">
-                <a id="jp-header#home" onclick="toggleDisplay('#home');">ホーム</a> |
-                <a id="jp-header#publications" onclick="toggleDisplay('#publications');">出版物</a> |
-                <a id="jp-header#books" onclick="toggleDisplay('#books');">好きな本</a> |
-                <a id="jp-header#code" onclick="toggleDisplay('#code');">コード</a> |
-                <a id="jp-header#wiki" onclick="toggleDisplay('#wiki');">ノート</a>
-              </h3>
-
-              <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-              <!--     	  sections	    -->
-              <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-
-              <div class="details" id="#home">
-                
-                <!--E8 group-->
-                <figure>
+        <div class="details" id="#home">
+          <article class="page">
+              <!--E8 group-->
+              <figure>
                   <a class="text" href="https://commons.wikimedia.org/wiki/File:E8Petrie.svg" target="_blank" name="en">
                     <img
-                      class="rightimage"
+                      class="rightimageX"
                       src="pictures/E8Petrie.png"
                       width="30%"
                       title="Visual representation of the E8 group. Credits: Jgmoxness, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons." />
                   </a>
-                  <a class="text" href="https://commons.wikimedia.org/wiki/File:E8Petrie.svg" target="_blank" name="de" style="display:none" >
-                    <img
-                      class="rightimage"
-                      src="pictures/E8Petrie.png"
-                      width="30%"
-                      title="Visuelle Darstellung der E8-Gruppe. Credits: Jgmoxness, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, über Wikimedia Commons." />
-                  </a>
-                  <a class="text" href="https://commons.wikimedia.org/wiki/File:E8Petrie.svg" target="_blank" name="fr" style="display:none" >
-                    <img
-                      class="rightimage"
-                      src="pictures/E8Petrie.png"
-                      width="30%"
-                      title="Représentation visuelle du groupe E8. Crédits : Jgmoxness, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons." />
-                  </a>
-                  <a class="text" href="https://commons.wikimedia.org/wiki/File:E8Petrie.svg" target="_blank" name="jp" style="display:none" >
-                    <img
-                      class="rightimage"
-                      src="pictures/E8Petrie.png"
-                      width="30%"
-                      title="E8グループの視覚的表現。クレジット:Jgmoxness, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons." />
-                  </a>
-                </figure>
-                
-                <p class="text" name="en">
-                  I am currently an undergraduate student of mathematics, with minors in physics and statistics.
-                </p>
+              </figure>
 
-                <p class="text" name="de" style="display:none">
-                  Ich studiere derzeit Mathematik im Bachelor, mit Nebenfächern in Physik und Statistik.
-                </p>
+              <p>
+              I'm an undergraduate mathematics major at <a href="https://jadavpuruniversity.in/">Jadavpur University</a>. I'm also minoring in computer science and statistics. 
+              </p>
+              <p>
+              Currently interested in combinatorics, representation theory, algebraic geometry, mathematical physics and computer graphics.
+              </p>
+          </article>
+        </div>
 
-                <p class="text" name="fr" style="display:none">
-                  J'étudie actuellement les mathématiques en licence, avec des matières secondaires en physique et en statistiques.
-                </p>
-
-                <p class="text" name="jp" style="display:none">
-                  現在私は数学の学位を取得中で、副専攻は物理学と統計学です。
-                </p>
-
-
-                <p class="text" name="en">
-                  Keeping an open mind and exploring various fields. Primarily interested in functional analysis, representation theory, differential geometry and mathematical and theoretical physics right now. <br>
-                  I also like electronic, rock and metal music, Existentialist and Spinozist philosophies, and just good art regardless of medium. And mountains, cricket and swimming. I also do some writing and programming (mostly related to video games) as hobbies in my spare time.
-                </p>
-                <p class="text" name="de" style="display:none">
-                  Ich bin für alles offen und erforsche verschiedene Bereiche. Im Moment interessiere ich mich vor allem für Funktionalanalysis, Darstellungstheorie, Differentialgeometrie sowie Mathematische und Theoretische Physik. <br>
-                  Außerdem mag ich elektronische, Rock- und Metal-Musik, existenzialistische und spinozistische Philosophien und einfach gute Kunst, egal in welchem Medium. Und Berge, Kricket und Schwimmen. In meiner Freizeit schreibe und programmiere ich auch ein wenig (meistens im Zusammenhang mit Videospielen).
-                </p>
-                <p class="text" name="fr" style="display:none">
-                  Je suis ouvert à tout et j'explore différents domaines. En ce moment, je m'intéresse surtout à l'analyse fonctionnelle, à la théorie de la représentation, à la géométrie différentielle et à la physique mathématique et théorique. <br>
-                  J'aime aussi la musique électronique, le rock et le métal, les philosophies existentialistes et spinozistes et tout simplement le bon art, quel que soit le support. Et aussi la montagne, le cricket et la natation. Pendant mon temps libre, j'écris et je programme aussi un peu (généralement en rapport avec les jeux vidéo).
-                </p>
-                <p class="text" name="jp" style="display:none">
-                  私は何にでもオープンで、さまざまな分野を探求しています。今のところ、主に関数解析学、表現論、微分幾何、学数理・理論物理学に興味があります。<br>
-                  また、電子音楽、ロック、メタル、実存主義哲学、スピノザ主義哲学、そしてどんな媒体であれ単に優れた芸術も好きだ。山、クリケット、水泳も。余暇には、文章を書いたり、少しプログラミングをしたりもする（たいていはビデオゲーム関連）。
-                </p>
-
-                <table>
-                  <tr>
-                    <td>
-                      <img src="svgs/graduate-hat.svg" width="20" style="user-select:none;vertical-align:middle;"/>
-                    </td>
-                    <td>
-                      <a href="documents/CVpublic.pdf" target="_blank">Curriculum Vit&aelig;</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="svgs/inbox.svg" width="20" style="user-select:none;vertical-align:middle;"/>
-                    </td>
-                    <td>
-                      dassayan0013<a style="opacity:0;letter-spacing:-9.9px;">@DELETEME</a>@gmail.com
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="svgs/telephone.svg" width="20" style="user-select:none;vertical-align:middle;"/>
-                    </td>
-                    <td>
-                      +XX XXXXX XXXXX
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="svgs/home.svg" width="20" style="user-select:none;vertical-align:middle;"/>
-                    </td>
-                    <td>
-                      Γαία <br>
-                      Ηλιακό σύστημα <br>
-                      Γαλακτική Οδός
-                    </td>
-                  </tr>
-                </table> 
-                
-                <!--Conway's Game of Life-->
-                <figure style="text-align: center;">
-                  <figcaption class="text" name="en">
-                    <a href="https://glitch.com/edit/#!/your-first-webgpu-app">Conway's Game of Life (using WebGPU)</a>
-                  </figcaption>
-                  <figcaption class="text" name="de" style="display:none">
-                    <a href="https://glitch.com/edit/#!/your-first-webgpu-app">Conways Game of Life (mit WebGPU)</a>
-                  </figcaption>
-                  <figcaption class="text" name="fr" style="display:none">
-                    <a href="https://glitch.com/edit/#!/your-first-webgpu-app">Game of Life de Conway (à l'aide de WebGPU)</a>
-                  </figcaption>
-                  <figcaption class="text" name="jp" style="display:none">
-                    <a href="https://glitch.com/edit/#!/your-first-webgpu-app">コンウェイの人生ゲーム(WebGPU使用)</a>
-                  </figcaption>
-                  <canvas id="conway" width="400" height="400"></canvas>
-                  <script type="module" src="conway.js">             
-                  </script>
-                </figure>
-
-              </div>
-
-              <div class="details" id="#publications" style="display: none">
-
-                <p style="text-align:center;padding-top:20pt;padding-bottom:10pt">
-                  <i>&laquo; We have a habit in writing articles published in scientific journals to make the work as finished as possible, to cover up all the tracks, 
-                    to not worry about the blind alleys or describe how you had the wrong idea first, and so on. So there isn't any place to publish, in a dignified 
-                    manner, what you actually did in order to get to do the work. &raquo;</i>
-                  <br>
-                  <span style="font-size:small">
-                    Richard Phillips Feynman.
-                  </span>
-                </p>
-
-                <a class="text" name="en" href="https://johncarlosbaez.wordpress.com/2017/12/07/wigner-crystals/">
-                  <img
-                    class="rightimage"
-                    src="pictures/wigner_-cluster.png"
-                    title="Wigner crystal"
-                    />
-                </a>
-                <a class="text" name="de" style="display:none" href="https://johncarlosbaez.wordpress.com/2017/12/07/wigner-crystals/">
-                  <img
-                    class="rightimage"
-                    src="pictures/wigner_-cluster.png"
-                    title="Wignerkristall"
-                    />
-                </a>
-                <a class="text" name="fr" style="display:none" href="https://johncarlosbaez.wordpress.com/2017/12/07/wigner-crystals/">
-                  <img
-                    class="rightimage"
-                    src="pictures/wigner_-cluster.png"
-                    title="Cristal de Wigner"
-                    />
-                </a>
-                <a class="text" name="jp" style="display:none" href="https://johncarlosbaez.wordpress.com/2017/12/07/wigner-crystals/">
-                  <img
-                    class="rightimage"
-                    src="pictures/wigner_-cluster.png"
-                    title="ウィグナー結晶"
-                    />
-                </a>
-
-                <h4 class="text" name="en">Creative Writing</h4>
-                <h4 class="text" name="de" style="display:none">Kreatives Schreiben</h4>
-                <h4 class="text" name="fr" style="display:none">Écriture créative</h4>
-                <h4 class="text" name="jp" style="display:none">創作</h4>
-
-                <ul>
-                  <li>
-                    <a href="https://www.fanfiction.net/s/13800260/0"
+        <!--<div class="details" id="#publications" style="display: none;">
+            <a href="https://www.fanfiction.net/s/13800260/0"
                       target="_blank">
                       <u><i>Bona Fide</i></u>
-                    </a>
-                    <br>
-                    <p class="text" name="en" style="font-size:small">
-                      Oregairu fanfic that I'm working on.
-                    </p>  
-                    <p class="text" name="de" style="display: none;font-size:small">
-                      Oregairu fanfic, an der ich arbeite.
-                    </p>
-                    <p class="text" name="fr" style="display: none;font-size:small">
-                      Oregairu fanfic sur lequel je travaille.
-                    </p>
-                    <p class="text" name="jp" style="display: none;font-size:small">
-                      俺ガイルのファンフィクに取り組んでいる。
-                    </p>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="details" id="#books" style="display: none">
-                <!--FluidSim-->
-                <figure style="text-align: center;">
-                  <figcaption class="text" name="en">
-                    <a href="https://jamie-wong.com/2016/08/05/webgl-fluid-simulation/">Jamie Wong's FluidSim (using WebGL)</a>
-                  </figcaption>
-                  <figcaption class="text" name="de" style="display:none">
-                    <a href="https://jamie-wong.com/2016/08/05/webgl-fluid-simulation/">Jamie Wongs FluidSim (mit WebGL)</a>
-                  </figcaption>
-                  <figcaption class="text" name="fr" style="display:none">
-                    <a href="https://jamie-wong.com/2016/08/05/webgl-fluid-simulation/">FluidSim de Jamie Wong (à l'aide de WebGL)</a>
-                  </figcaption>
-                  <figcaption class="text" name="jp" style="display:none">
-                    <a href="https://jamie-wong.com/2016/08/05/webgl-fluid-simulation/">ジェイミー・ウォンのFluidSim(WebGL使用)</a>
-                  </figcaption>
-                  <canvas id="fluid" width="600" height="600"></canvas>
-                </figure>
-
-                <script src="lightgl.js"></script>
-                <script src="fluid.js"></script>
-                <script>
-                  new FluidSim("fluid", {
-                      threshold: false,
-                      advectV: true,
-                      applyPressure: true,
-                      showArrows: false,
-                      initCFn: [
-                          'step(1.0, mod(floor((x + 1.0) / 0.2) + floor((y + 1.0) / 0.2), 2.0))',
-                          'step(1.0, mod(floor((x + 1.0) / 0.3) + floor((y + 1.0) / 0.3), 2.0))',
-                          'step(1.0, mod(floor((x + 1.0) / 0.4) + floor((y + 1.0) / 0.4), 2.0))'
-                      ],
-                      dyeSpots: true,
-                      size: 600,
-                  });
-                </script>
-
-                <a class="text" name="en"><h4>Analysis</h4></a>
-                <a class="text" name="de" style="display:none"><h4>Analysis</h4></a>
-                <a class="text" name="fr" style="display:none"><h4>Analyse</h4></a>
-                <a class="text" name="jp" style="display:none"><h4>解&#x3000;析</h4></a>
-                  <ul>
-                    <li>Walter Rudin - <i>Principles of Mathematical Analysis</i></li>
-                    <li>Manfred Leopold Einsiedler, Thomas Ward - <i>Functional Analysis, Spectral Theory, and Applications</i></li>
-                    <li>Raghavan Narasimhan - <i>Complex Analysis</i></li>
-                    <li>Manfred Leopold Einsiedler, Thomas Ward - <i>Ergodic Theory: with a view towards Number Theory</i></li>
-                    <li>Anton Deitmar, Siegfried Echterhoff - <i>Principles of Harmonic Analysis</i></li>
-                  </ul>
-                <a class="text" name="en"><h4>Algebra</h4></a>
-                <a class="text" name="de" style="display:none"><h4>Algebra</h4></a>
-                <a class="text" name="fr" style="display:none"><h4>Algèbre</h4></a>
-                <a class="text" name="jp" style="display:none"><h4>代&#x3000;数</h4></a>
-                  <ul>
-                    <li>Paul Richard Halmos - <i>Finite Dimensional Vector Spaces</i></li>
-                    <li>Ernest Borissowitsch Winberg - <i>A Course in Algebra</i></li>
-                    <li>Anthony William Knapp - <i>Basic Algebra</i></li>
-                    <li>Anthony William Knapp - <i>Advanced Algebra</i></li>
-                    <li>Nathan Jacobson - <i>Basic Algebra I, II</i></li>
-                    <li>Michael Francis Atiyah, Ian Grant Macdonald - <i>Commutative Algebra</i></li>
-                    <li>Joseph Daniel Harris, William Edgar Fulton - <i>Representation theory: A first course</i></li>
-                  </ul>
-                <a class="text" name="en"><h4>Geometry and Topology</h4></a>
-                <a class="text" name="de" style="display:none"><h4>Geometrie und Topologie</h4></a>
-                <a class="text" name="fr" style="display:none"><h4>Géométrie et topologie</h4></a>
-                <a class="text" name="jp" style="display:none"><h4>幾&#x3000;何</h4></a>
-                  <ul>
-                    <li>Klaus Jänich - <i>Topologie</i></li>
-                    <li>John Willard Milnor - <i>Topology from the Differentiable Viewpoint</i></li>
-                    <li>Loring Tu - <i>An Introduction to Manifolds</i></li>
-                    <li>Loring Tu - <i>Differential Geometry: Connections, Curvature, and Characteristic Classes</i></li>
-                    <li>Shoshichi Kobayashi, Katsumi Nomizu - <i>Foundations of Differential Geometry I, II</i></li>
-                    <li>Igor Rostislawowitsch Schafarewitsch - <i>Basic Algebraic Geometry 1, 2</i></li>
-                    <li>Daniel Huybrechts - <i>Complex Geometry: An Introduction</i></li>
-                    <li>Qing Liu - <i>Algebraic Geometry and Arithmetic Curves</i></li>
-                    <li>Gary Cornell, Joseph Hillel Silverman - <i>Arithmetic Geometry</i></li>
-                  </ul>
-                <a class="text" name="en"><h4>Mathematical Physics</h4></a>
-                <a class="text" name="de" style="display:none"><h4>Mathematische Physik</h4></a>
-                <a class="text" name="fr" style="display:none"><h4>Physique mathématique</h4></a>
-                <a class="text" name="jp" style="display:none"><h4>数&#x3000;理&#x3000;物&#x3000;理&#x3000;学</h4></a>
-                  <ul>
-                    <li>Peter Szekeres - <i>A Course in Modern Mathematical Physics: Groups, Hilbert Space and Differential Geometry</i></li>
-                    <li>Wladimir Igorewitsch Arnol'd - <i>Mathematical Methods of Classical Mechanics</i></li>
-                    <li>Stephen Hawking, George Francis Rayner Ellis - <i>The Large Scale Structure of Space-time</i></li>
-                    <li>Robert M. Wald - <i>General Relativity</i></li>
-                    <li>Brian C. Hall - <i>Quantum Theory for Mathematicians</i></li>
-                  </ul>
-
-                  
-                <p style="text-align:center;padding-top:20pt;padding-bottom:10pt">
-                  <i>&laquo; Archimedes will be remembered when Aeschylus is forgotten, because languages die and 
-                    mathematical ideas do not. &lsaquo; Immortality &rsaquo; may be a silly word, but probably a mathematician has 
-                    the best chance of whatever it may mean. &raquo;</i>
-                  <br>
-                  <span style="font-size:small">
-                    Godfrey Harold Hardy.
-                  </span>
-                </p>
-
-                  <canvas width="400" height="400"></canvas>
-
-              </div>
-
-              <div class="details" id="#code" style="display: none">
-                
-                <h4 class="text" name="en">Computer programs</h4>
-                <h4 class="text" name="de" style="display:none">Computerprogramme</h4>
-                <h4 class="text" name="fr" style="display:none">Programmes informatiques</h4>
-                <h4 class="text" name="jp" style="display:none">コンピュータ・プログラム</h4>
-
-                <iframe 
-                  frameborder="0" 
-                  src="https://itch.io/embed/2154313?linkback=true&amp;bg_color=e0ffff&amp;fg_color=7e1aa5&amp;link_color=16398b&amp;border_color=a03cd9"
-                  width="552" 
-                  height="167">
-                    <a href="https://carlmariamikage.itch.io/gestalt">Gestalt by CarlMariaMikage (me), kumroDev (an irl friend)</a>
-                </iframe>
-
-                <ul>
-                  <li>
-                    <i>Leviathan</i> (<a href="https://github.com/Mistral1729/Leviathan" 
-                    target="_blank">program website</a>|<a href="https://github.com/Mistral1729/Leviathan" target="_blank">github</a>), a 3D game engine written in C++ utilising DirectX 11.
-                    <a class="text" href="https://github.com/Mistral1729/Leviathan" target="_blank" name="en">
-                      <img class="rightimageX" src="pictures/TAPI_example.png"
-                        title="Examples session in Leviathan" />
-                    </a>
-                    <a class="text" href="https://github.com/Mistral1729/Leviathan" target="_blank" name="de" style="display:none">
-                        <img class="rightimageX" src="pictures/TAPI_example.png"
-                          title="Beispiel-Session in Leviathan" />
-                    </a>
-                    <a class="text" href="https://github.com/Mistral1729/Leviathan" target="_blank" name="fr" style="display:none">
-                        <img class="rightimageX" src="pictures/TAPI_example.png"
-                          title="Session d'exemples dans Leviathan" />
-                    </a>
-                    <a class="text" href="https://github.com/Mistral1729/Leviathan" target="_blank" name="jp" style="display:none">
-                        <img class="rightimageX" src="pictures/TAPI_example.png"
-                          title="Leviathanでのセッション例" />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="details" id="#wiki" style="display: none">
-                <ul>
-                  <li>
-                    Blog : <br>
-                    <a href="documents/notes/big_list/">HTML</a>
-                  </li>
-                </ul>
-				
-                <p class="text" name="en">
-                  Undergraduate notes taken by me; the beautiful \(\LaTeX\) template used is entirely based on <a href="https://github.com/ak2316-cam/latex-templates">Adam Kelly's style file</a>. 
-                </p>
-
-                <p class="text" name="de" style="display:none;">
-                  Im Folgenden finden Sie einige Notizen, die ich während meines Bachelor-Studiums gemacht habe. Oben ist eine große Liste 
-                  von Problemen, die ich im Laufe der Jahre gesammelt habe.
-                </p>
-
-                <p class="text" name="fr" style="display:none;">
-                  Vous trouverez ci-dessous quelques notes que j'ai prises pendant mes études de premier cycle. Ci-dessus, une grande liste 
-                  de problèmes que j'ai rassemblés au fil des ans.
-                </p>
-
-                <p class="text" name="jp" style="display:none;">
-                  以下は私が学部在学中に取ったメモの一部である。上にあるのは、私が長年にわたって集めてきた問題の大きなリストだ。
-                </p>
-
-                <!--Cancellation Lemma-->
-                <div align="right">
-                  <a class="text" name="en">
-                      <img
-                      class="rightimageX"
-                      src="pictures/cancellationwebsimplified.png"
-                      title="A concise proof of the cancellation lemma"
-                      />
-                  </a>
-                  <a class="text" name="de" style="display:none">
-                      <img
-                      class="rightimageX"
-                      src="pictures/cancellationwebsimplified.png"
-                      title="Ein kurzer Beweis für das Cancellation-Lemma"
-                      />
-                  </a>
-                  <a class="text" name="fr" style="display:none">
-                    <img
-                    class="rightimageX"
-                    src="pictures/cancellationwebsimplified.png"
-                    title="Une preuve concise du lemme d'annulation"
-                    />
-                  <a class="text" name="jp" style="display:none">
-                    <img
-                    class="rightimageX"
-                    src="pictures/cancellationwebsimplified.png"
-                    title="キャンセル・レンマの簡潔な証明"
-                    />  
-                </a>
-                </div>
-                
-                <h2 class="text" name="en">Year 1</h2>
-                <h2 class="text" name="de" style="display:none">1. Jahr</h2>
-                <h2 class="text" name="fr" style="display:none">1ère année</h2>
-                <h2 class="text" name="jp" style="display:none">1年目</h2>
-
-                <h3 class="text" name="en">Semester 1</h3>
-                <h3 class="text" name="de" style="display:none">1. Semester</h3>
-                <h3 class="text" name="fr" style="display:none">Semestre 1</h3>
-                <h3 class="text" name="jp" style="display:none">1学期</h3>
-
-                <ul>
-                  <li>
-                    Discrete Mathematics <br>
-                    <a href="documents/notes/discrete_maths/">
-                      HTML
-                    </a> | 
-                    <a href="documents/notes/discrete_maths/discrete_maths.pdf">
-                      PDF
-                    </a>
-                  </li>
-                  <li>
-                    Real Analysis 1 <br>
-                    <a href="documents/notes/real_anal_1/">
-                      HTML
-                    </a> | 
-                    <a href="documents/notes/real_anal_1/real_anal_1.pdf">
-                      PDF
-                    </a>
-                  </li>
-                  <li>
-                    Geometry and Linear Algebra <br>
-                    <a href="documents/notes/geometry_la/">
-                      HTML
-                    </a> | 
-                    <a href="documents/notes/geometry_la/geometry_la.pdf">
-                      PDF
-                    </a>
-                  </li>
-                  <li>
-                    Statistics 1 <br>
-                    <a href="documents/notes/stats_1/">
-                      HTML
-                    </a> | 
-                    <a href="documents/notes/stats_1/stats_1.pdf">
-                      PDF
-                    </a>
-                  </li>
-                  <li>
-                    MATLAB Programming
-                  </li>
-                </ul>
-
-                <h3 class="text" name="en">Semester 2</h3>
-                <h3 class="text" name="de" style="display:none">2. Semester</h3>
-                <h3 class="text" name="fr" style="display:none">Semestre 2</h3>
-                <h3 class="text" name="jp" style="display:none">2学期</h3>
-
-                <ul>
-                  <li>
-                    Algebra
-                  </li>
-                  <li>
-                    Theory of Real Functions
-                  </li>
-                  <li>
-                    Physics 1
-                  </li>
-                  <li>
-                    Mechanics 1
-                  </li>
-                  <li>
-                    Numerical Methods
-                  </li>
-                </ul>
-
-                <h2 class="text" name="en">Year 2</h2>
-                <h2 class="text" name="de" style="display:none">2. Jahr</h2>
-                <h2 class="text" name="fr" style="display:none">2ème année</h2>
-                <h2 class="text" name="jp" style="display:none">2年目</h2>
-
-                <h3 class="text" name="en">Semester 3</h3>
-                <h3 class="text" name="de" style="display:none">3. Semester</h3>
-                <h3 class="text" name="fr" style="display:none">Semestre 3</h3>
-                <h3 class="text" name="jp" style="display:none">3学期</h3>
-
-                <ul>
-                  <li> 
-                    Ordinary Differential Equations
-                  </li>
-                  <li> 
-                    Riemann Integration and Series of Functions
-                  </li>
-                  <li> 
-                    Ring Theory
-                  </li>
-                  <li> 
-                    Statistics 2
-                  </li>
-                  <li> 
-                    Mathematical Modelling
-                  </li>
-                </ul>
-
-                <h3 class="text" name="en">Semester 4</h3>
-                <h3 class="text" name="de" style="display:none">4. Semester</h3>
-                <h3 class="text" name="fr" style="display:none">Semestre 4</h3>
-                <h3 class="text" name="jp" style="display:none">4学期</h3>
-
-                <ul>
-                  <li>
-                    Numerical Analysis
-                  </li>
-                  <li>
-                    Linear Algebra
-                  </li>
-                  <li>
-                    Metric Space and Differential Geometry
-                  </li>
-                  <li>
-                    Physics 2
-                  </li>
-                  <li>
-                    Data Structure & Algorithms in Python
-                  </li>
-                </ul>
-
-                <h2 class="text" name="en">Year 3</h2>
-                <h2 class="text" name="de" style="display:none">3. Jahr</h2>
-                <h2 class="text" name="fr" style="display:none">3ème année</h2>
-                <h2 class="text" name="jp" style="display:none">3年目</h2>
-
-                <h3 class="text" name="en">Semester 5</h3>
-                <h3 class="text" name="de" style="display:none">5. Semester</h3>
-                <h3 class="text" name="fr" style="display:none">Semestre 5</h3>
-                <h3 class="text" name="jp" style="display:none">5学期</h3>
-
-                <ul>
-                  <li>
-                    Partial Differential Equations
-                  </li>
-                  <li>
-                    Multivariate Calculus
-                  </li>
-                  <li>
-                    Topology
-                  </li>
-                  <li>
-                    Group Theory
-                  </li>
-                  <li>
-                    Statistics 3
-                  </li>
-                  <li>
-                    Statistics 4
-                  </li>
-                </ul>
-
-                <h3 class="text" name="en">Semester 6</h3>
-                <h3 class="text" name="de" style="display:none">6. Semester</h3>
-                <h3 class="text" name="fr" style="display:none">Semestre 6</h3>
-                <h3 class="text" name="jp" style="display:none">6学期</h3>
-
-                <ul>
-                  <li>
-                    Linear Optimisation and Game Theory
-                  </li>
-                  <li>
-                    Probability and Markov Chain
-                  </li>
-                  <li>
-                    Complex Analysis
-                  </li>
-                  <li>
-                    Physics 3
-                  </li>
-                  <li>
-                    Physics 4
-                  </li>
-                </ul>
-
-                <h2 class="text" name="en">Year 4</h2>
-                <h2 class="text" name="de" style="display:none">4. Jahr</h2>
-                <h2 class="text" name="fr" style="display:none">4ème année</h2>
-                <h2 class="text" name="jp" style="display:none">4年目</h2>
-
-                <h3 class="text" name="en">Semester 7</h3>
-                <h3 class="text" name="de" style="display:none">7. Semester</h3>
-                <h3 class="text" name="fr" style="display:none">Semestre 7</h3>
-                <h3 class="text" name="jp" style="display:none">7学期</h3>
-
-                <ul>
-                  <li>
-                    Measure Theory
-                  </li>
-                  <li>
-                    General Mechanics
-                  </li>
-                  <li>
-                    Functional Analysis
-                  </li>
-                  <!--<li>
-                    Mathematical Physics & Relativity
-                  </li>-->
-                  <!--<li>
-                    Advanced Topology
-                  </li>-->
-                  <li>
-                    Quantum Mechanics
-                  </li>
-                </ul>
-
-                <h3 class="text" name="en">Semester 8</h3>
-                <h3 class="text" name="de" style="display:none">8. Semester</h3>
-                <h3 class="text" name="fr" style="display:none">Semestre 8</h3>
-                <h3 class="text" name="jp" style="display:none">8学期</h3>
-
-                <ul>
-                  <li>
-                    Field Theory and Canonical Forms of Matrices
-                  </li>
-                  <li>
-                    Integral Equations, Integral Transforms and Calculus of Variations
-                  </li>
-                  <li>
-                    Graph Theory
-                  </li>
-                  <!--<li>
-                    Advanced Functional Analysis
-                  </li>
-                  <li>
-                    Introduction to Smooth Manifolds
-                  </li>-->
-                </ul>
-                <!--
-
-                <h2 class="text" name="en">Year 5</h2>
-                <h2 class="text" name="de" style="display:none">5. Jahr</h2>
-                <h2 class="text" name="fr" style="display:none">5ème année</h2>
-                <h2 class="text" name="jp" style="display:none">4年目</h2>
-
-                <h3 class="text" name="en">Semester 9</h3>
-                <h3 class="text" name="de" style="display:none">9. Semester</h3>
-                <h3 class="text" name="fr" style="display:none">Semestre 9</h3>
-                <h3 class="text" name="jp" style="display:none">9学期</h3>
-
-                <ul>
-                  <li>
-                    Algebraic Topology
-                  </li>
-                  <li>
-                    Non-Relativistic Quantum Mechanics
-                  </li>
-                  <li>
-                    Einstein's General Theory of Relativity
-                  </li>
-                  <li>
-                    Quantum Field Theory and Statistical Mechanics I
-                  </li>
-                </ul>
-
-                <h3 class="text" name="en">Semester 10</h3>
-                <h3 class="text" name="de" style="display:none">10. Semester</h3>
-                <h3 class="text" name="fr" style="display:none">Semestre 10</h3>
-                <h3 class="text" name="jp" style="display:none">10学期</h3>
-
-                <ul>
-                  <li>
-                    Differential Topology
-                  </li>
-                  <li>
-                    Relativistic Quantum Mechanics and Scattering Theory
-                  </li>
-                  <li>
-                    Relativistic Cosmology
-                  </li>
-                  <li>
-                    Quantum Field Theory and Statistical Mechanics II
-                  </li>
-                </ul>
-              -->
-                <!--<p class="text" name="en">
-                  Some notes that resulted from me trying to teach myself some physics...
-                </p>
-                <p class="text" name="de" style="display: none;">
-                  Some notes that resulted from me trying to teach myself some physics...
-                </p>
-                <p class="text" name="fr" style="display: none;">
-                  Some notes that resulted from me trying to teach myself some physics...
-                </p>
-                <p class="text" name="jp" style="display: none;">
-                  Some notes that resulted from me trying to teach myself some physics...
-                </p>
-                
-                <ul>
-				          <li>
-                    <i>Mechanics 1</i>
-                  </li>
-				          <li>
-                    <i>Theormodynamics and Statistical Mechanics</i>
-                  </li>
-				          <li>
-                    <i>Mechanics 2</i>
-                  </li>
-				          <li>
-                    <i>Classical Electrodynamics</i>
-                  </li>
-                  <li>
-                    <i>General Relativity</i>
-                  </li>
-				          <li>
-                    <i>Quantum Mechanics 1</i>
-                  </li>
-				          <li>
-                    <i>Quantum Mechanics 2</i>
-                  </li>
-                  <li>
-                    <i>Quantum Mechanics 3</i>
-                  </li>
-				          <li>
-                    <i>Relativistic Quantum Mechanics</i>
-                  </li>
-				          <li>
-                    <i>Field Quantisation</i>
-                  </li>
-                  <li>
-                    <i>Quantum Electrodynamics</i>
-                  </li>
-				          <li>
-                    <i>Quantum Chromodynamics</i>
-                  </li>
-				          <li>
-                    <i>Nuclear Models</i>
-                  </li>
-                  <li>
-                    <i>Gauge Theory of Weak Interactions</i>
-                  </li>
-				          <li>
-                    <i>Superstring Perturbation Theory</i>
-                  </li>
-				          <li>
-                    <i>Quantum Fields and Strings</i>
-                  </li>
-                </ul>-->
-
-                <div align="right">
-                  <a class="text" name="en">
-                      <img
-                      class="rightimageX"
-                      src="pictures/groupaxiom.png"
-                      title="Combined commutative diagram of group axioms"
-                      />
-                  </a>
-                  <a class="text" name="de" style="display:none">
-                      <img
-                      class="rightimageX"
-                      src="pictures/groupaxiom.png"
-                      title="Kombiniertes kommutatives Diagramm der Gruppenaxiome"
-                      />
-                  </a>
-                  <a class="text" name="fr" style="display:none">
-                    <img
-                    class="rightimageX"
-                    src="pictures/groupaxiom.png"
-                    title="Diagramme commutatif combiné des axiomes de groupe"
-                    />
-                  <a class="text" name="jp" style="display:none">
-                    <img
-                    class="rightimageX"
-                    src="pictures/groupaxiom.png"
-                    title="群公理の可換図"
-                    />
-                </a>
-                </div>
-              </div>
-
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-      <!--               footer           -->
-      <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-
-      <table id="footer">
-        <tr>
-          <td id="leftfooter">
-            <a href="https://cbz20.raspberryip.com/impressum/">
-              <div class="text" name="en">Impressum (German Legal Notices)</div>
-              <div class="text" name="de" style="display:none">Impressum (Deutsche Rechtshinweise)</div>
-              <div class="text" name="fr" style="display:none">Impressum (Mentions légales allemandes)</div>
-              <div class="text" name="jp" style="display:none">Impressum (ドイツの法的通知)</div>
             </a>
-          </td>
+            <br>
+            <p class="text" name="en" style="font-size:small">
+              Oregairu fanfic that I'm working on.
+            </p>            
+        </div>
 
-          <td id="centerfooter">
-            <div class="text" name="en">
-              Based on a design by <a href="https://cbz20.raspberryip.com/">Claudius Zibrowius</a>. 
-              Public domain icons from <a href="https://www.svgrepo.com">SVGRepo</a>.
-            </div>
-            <div class="text" name="de" style="display:none">
-              Nach einem Entwurf von <a href="https://cbz20.raspberryip.com/">Claudius Zibrowius</a>. 
-              Gemeinfreie Icons von <a href="https://www.svgrepo.com">SVGRepo</a>.
-            </div>
-            <div class="text" name="fr" style="display:none">
-              D'après un dessin de <a href="https://cbz20.raspberryip.com/">Claudius Zibrowius</a>. 
-              Icônes du domaine public de <a href="https://www.svgrepo.com">SVGRepo</a>.
-            </div>
-            <div class="text" name="jp" style="display:none">
-              <a href="https://cbz20.raspberryip.com/">Claudius Zibrowius</a> のデザインに基づく。 
-              パブリックドメインアイコン提供： <a href="https://www.svgrepo.com">SVGRepo</a>.
-            </div>
-          </td>
+        <div class="details" id="#books" style="display: none;">
+            <h2>
+                Books I Like
+            </h2>
+            <h4>Analysis</h4>
+            <ul>
+              <li>Walter Rudin - <i>Principles of Mathematical Analysis</i></li>
+              <li>Manfred Leopold Einsiedler, Thomas Ward - <i>Functional Analysis, Spectral Theory, and Applications</i></li>
+              <li>Raghavan Narasimhan - <i>Complex Analysis</i></li>
+              <li>Manfred Leopold Einsiedler, Thomas Ward - <i>Ergodic Theory: with a view towards Number Theory</i></li>
+              <li>Anton Deitmar, Siegfried Echterhoff - <i>Principles of Harmonic Analysis</i></li>
+            </ul>
+            <h4>Algebra</h4>
+            <ul>
+              <li>Paul Richard Halmos - <i>Finite Dimensional Vector Spaces</i></li>
+              <li>Ernest Borissowitsch Winberg - <i>A Course in Algebra</i></li>
+              <li>Anthony William Knapp - <i>Basic Algebra</i></li>
+              <li>Anthony William Knapp - <i>Advanced Algebra</i></li>
+              <li>Nathan Jacobson - <i>Basic Algebra I, II</i></li>
+              <li>Michael Francis Atiyah, Ian Grant Macdonald - <i>Commutative Algebra</i></li>
+              <li>Joseph Daniel Harris, William Edgar Fulton - <i>Representation theory: A first course</i></li>
+            </ul>
+            <h4>Geometry and Topology</h4>
+            <ul>
+              <li>Klaus Jänich - <i>Topologie</i></li>
+              <li>John Willard Milnor - <i>Topology from the Differentiable Viewpoint</i></li>
+              <li>Loring Tu - <i>An Introduction to Manifolds</i></li>
+              <li>Loring Tu - <i>Differential Geometry: Connections, Curvature, and Characteristic Classes</i></li>
+              <li>Shoshichi Kobayashi, Katsumi Nomizu - <i>Foundations of Differential Geometry I, II</i></li>
+              <li>Igor Rostislawowitsch Schafarewitsch - <i>Basic Algebraic Geometry 1, 2</i></li>
+              <li>Daniel Huybrechts - <i>Complex Geometry: An Introduction</i></li>
+              <li>Qing Liu - <i>Algebraic Geometry and Arithmetic Curves</i></li>
+              <li>Gary Cornell, Joseph Hillel Silverman - <i>Arithmetic Geometry</i></li>
+            </ul>
+            <h4>Mathematical Physics</h4>
+            <ul>
+              <li>Peter Szekeres - <i>A Course in Modern Mathematical Physics: Groups, Hilbert Space and Differential Geometry</i></li>
+              <li>Wladimir Igorewitsch Arnol'd - <i>Mathematical Methods of Classical Mechanics</i></li>
+              <li>Stephen Hawking, George Francis Rayner Ellis - <i>The Large Scale Structure of Space-time</i></li>
+              <li>Robert M. Wald - <i>General Relativity</i></li>
+              <li>Brian C. Hall - <i>Quantum Theory for Mathematicians</i></li>
+            </ul>
+        </div>-->
+        
+        <div class="details" id="#code" style="display: none;">
+          <article class="page">  
+            <h2>Code</h2>
+              
+              <iframe 
+                    frameborder="0" 
+                    src="https://itch.io/embed/2154313?linkback=true&amp;bg_color=e0ffff&amp;fg_color=7e1aa5&amp;link_color=16398b&amp;border_color=a03cd9"
+                    width="552" 
+                    height="167">
+                      <a href="https://carlmariamikage.itch.io/gestalt">Gestalt by CarlMariaMikage (me), kumroDev (an irl friend)</a>
+              </iframe>
+              
+              <ul>
+                  <li>
+                      <i>Leviathan</i> (<a href="https://github.com/Mistral1729/Leviathan" 
+                      target="_blank">program website</a>|<a href="https://github.com/Mistral1729/Leviathan" target="_blank">github</a>), a 3D game engine written in C++ utilising DirectX 11.
+                  </li>
+              </ul>
+              <br clear="all">
+          </article>
+        </div>
 
-          <td id="rightfooter">
-            <div class="text" name="en">
-            last updated on 22.12.23
-            </div>
+        <div class="details" id="#notes" style="display: none;">
+            <article class="page">
+              <h2>Notes</h2>
+              
+              <img class="centerimageX" src="pictures/Grothendieck-Riemann-Roch.png">
 
-            <div class="text" name="de" style="display:none">
-            zuletzt aktualisiert am 22.12.23
-            </div>
+              <p>
+                This is my collection of <em>work in progress</em> lecture notes, which are <em>not</em> direct transcriptions of the lectures but rather modified to aid my own understanding of the material.
+              </p>  
 
-            <div class="text" name="fr" style="display:none">
-            dernière mise à jour le 22.12.23
-            </div>
+              <p>
+                  The beautiful $\LaTeX$ template used is entirely based on <a href="https://github.com/ak2316-cam/latex-templates">Adam Kelly's style file</a>.
+              </p>
+  
+              <p>If you find any errors please contact me at <a href="mailto:dassayan0013@gmail.com">dassayan0013@gmail.com</a>.
+              </p>
+              
+                  <h3 class="text" name="en">Semester 1</h3>
+                  <ul>
+                    <li>
+                      Discrete Mathematics <br>
+                      <a href="documents/notes/discrete_maths/">
+                        HTML
+                      </a> | 
+                      <a href="documents/notes/discrete_maths/discrete_maths.pdf">
+                        PDF
+                      </a>
+                    </li>
+                    <li>
+                      Real Analysis 1 <br>
+                      <a href="documents/notes/real_anal_1/">
+                        HTML
+                      </a> | 
+                      <a href="documents/notes/real_anal_1/real_anal_1.pdf">
+                        PDF
+                      </a>
+                    </li>
+                    <li>
+                      Geometry and Linear Algebra <br>
+                      <a href="documents/notes/geometry_la/">
+                        HTML
+                      </a> | 
+                      <a href="documents/notes/geometry_la/geometry_la.pdf">
+                        PDF
+                      </a>
+                    </li>
+                    <li>
+                      Statistics 1 <br>
+                      <a href="documents/notes/stats_1/">
+                        HTML
+                      </a> | 
+                      <a href="documents/notes/stats_1/stats_1.pdf">
+                        PDF
+                      </a>
+                    </li>
+                    <li>
+                      MATLAB Programming
+                    </li>
+                  </ul>
 
-            <div class="text" name="jp" style="display:none">
-              最終更新日:2023年12月22日
-            </div>
-          </td>
-        </tr>
-      </table>
+                  <h3 class="text" name="en">Semester 2</h3>
+                  <ul>
+                    <li>
+                      Algebra <br>
+                      <a href="documents/notes/algebra/">
+                        HTML
+                      </a> | 
+                      <a href="documents/notes/algebra/algebra.pdf">
+                        PDF
+                      </a>
+                    </li>
+                    <li>
+                      Theory of Real Functions <br>
+                      <a href="documents/notes/real_anal_2/">
+                        HTML
+                      </a> | 
+                      <a href="documents/notes/real_anal_2/real_anal_2.pdf">
+                        PDF
+                      </a>
+                    </li>
+                    <li>
+                      Computer Science 1
+                    </li>
+                    <li>
+                      Mechanics 1
+                    </li>
+                    <li>
+                      Numerical Methods <br>
+                      <a href="documents/notes/numerical_methods/">
+                        HTML
+                      </a> | 
+                      <a href="documents/notes/numerical_methods/numerical_methods.pdf">
+                        PDF
+                      </a>
+                    </li>
+                  </ul>
 
-  </body>
+                  <br clear="all">
+            </article>
+        </div>
+
+        <footer>
+            <div class="container">
+                &copy; 2024 - Sayan Das - <a href="https://codepen.io/kevinquach/pen/JNGmKG">Persona 5 Navbar source.</a>
+            </div>
+        </footer>
+    </body>
 </html>

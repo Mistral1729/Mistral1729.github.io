@@ -62,13 +62,14 @@
 		<nav id="TOC" role="doc-toc">
 			<h3 id="toc-title">Entries</h3>
 			<ol>
-				<li><a href="#e1">&laquo; The Hardest Problem on the Hardest Test &raquo;</a></li>
-				<li><a href="#e2">Introduction</a></li>
+				<li><a href="#e2">Three Interesting Problems To Begin The Year With</a> [01/01/2024]</li>
+				<li><a href="#e1">Spaces</a> [22/12/2023]</li>
 				<li><a href="#bibliography">References</a></li>
 			</ol>
 		</nav>
 
-		<h2 id="e1">&laquo; The Hardest Problem on the Hardest Test &raquo;</h2>
+		<h2 id="e2">Three Interesting Problems To Begin The Year With [01/01/2024]</h2>
+		<h3>&laquo; The Hardest Problem on the Hardest Test &raquo;</h2>
 		<p>
 			From the 1992 Putnam (<span class="citation" data-cites="klosinski">[<a href="#klosinski" role="doc-biblioref">Klosinski</a>]</span>)  
             we have the following problem (numbered A6. in the question paper), 
@@ -139,13 +140,90 @@
 			</div>
         </p>
 
-		<h2 id="spaces">Spaces</h2>
+		<h3>A Nice Application of the Stolz-Cesàro Theorem</h2>
+		<p>
+			<div class="question"> <br>
+				Find the following limit: 
+				\[
+					\lim_{n \to \infty}	\frac{n}{2^n}\sum_{i = 1}^{\infty}\frac{2^i}{i}.
+				\]
+			</div>
+			<small><i><a href="#solution#2" class="text" onclick="toggleSolution('#2')">Solution</a></i></small>
+			<div id="solution#2" class="proof" style="display: none;">
+				Rewrite the limit as 
+				\[
+					\lim_{n \to \infty}	\frac{\sum_{i = 1}^{\infty}\frac{2^i}{i}}{\frac{2^n}{n}}
+					= \lim_{n \to \infty} \frac{\color{violet}{\sum_{i = 1}^{n}\frac{2^i}{i}}}{\color{skyblue}{\frac{2^n}{n}}}
+					= \lim_{n \to \infty} \frac{\color{violet}{a_n}}{\color{skyblue}{b_n}}.
+				\]
+				Observe that \((b_n) \to \infty\) and is monotone increasing (as \(2^n > n\ \forall n\in\mathbb{N}\)), 
+				so we can apply Stolz-Cesàro theorem here if  
+				\[
+					\lim_{n \to \infty} \frac{a_{n+1} - a_n}{b_{n+1} - b_n} = L
+				\]
+				for some \(L\in\mathbb{R}\). <br>
+				Observe that 
+				\[
+					a_{n+1} - a_n = \frac{2^{n+1}}{n+1}
+				\]
+				 and
+				\[
+					b_{n+1} - b_n = \frac{2^{n+1}}{n+1} - \frac{2^n}{n}
+					= \frac{2^n (n-1)}{n(n+1)}.
+				\]
+				Thus, 
+				\[
+					\lim_{n \to \infty} \frac{a_{n+1} - a_n}{b_{n+1} - b_n}
+					\\= \lim_{n \to \infty} \frac{\frac{2^{n+1}}{n+1}}{\frac{2^n (n-1)}{n(n+1)}}
+					= \lim_{n \to \infty} \frac{2}{1 - \frac{1}{n}}
+					= \frac{2}{1 - \lim_{n \to \infty} \frac{1}{n}}
+					= \frac{2}{1 - 0} = 2.
+				\]
+				Then finally applying Stolz-Cesàro theorem we get: 
+				\[
+					\lim_{n \to \infty} \frac{a_n}{b_n} = 2
+				\]
+				so the required limit is 2.
+			</div>
+		</p>
+
+		<h3>A Powerful Elementary Integral</h2>
+		<p>
+			<div class="question"> <br>
+				Prove: 
+				\[
+					\int_0^1 \frac{\mathrm{d}x}{(1+yx)\sqrt{1-x^2}} = \frac{\arccos{y}}{\sqrt{1-y^2}},\ y\in (-1,1).
+				\]
+			</div>
+			<small><i><a href="#solution#3" class="text" onclick="toggleSolution('#3')">Solution</a></i></small>
+			<div id="solution#3" class="proof" style="display: none;">
+				We first make the substitution \(\displaystyle x = \sin{t} \implies \frac{\mathrm{d}x}{\sqrt{1-x^2}} = \frac{\cos{t}\mathrm{d}t}{\cos{t}} = \mathrm{d}t.\)
+				Also, \(t(x) = arcsin(x) \implies \begin{cases} t(0) = 0\\ t(1) = \frac{\pi}{2} \end{cases}\), so we have: 
+				\[
+					\int_0^1 \frac{\mathrm{d}x}{(1+yx)\sqrt{1-x^2}} = 
+					\int_0^{\frac{\pi}{2}} \frac{\mathrm{d}t}{1+y\sin{t}} =
+					\int_0^{\frac{\pi}{2}} \frac{\mathrm{d}t}{\sin^2{\frac{t}{2}}+\cos^2{\frac{t}{2}}+2y\sin{\frac{t}{2}}\cos{\frac{t}{2}}} =\\
+					\int_0^{\frac{\pi}{2}} \frac{\sec^2{\frac{t}{2}}\mathrm{d}t}{\tan^2{\frac{t}{2}}+1+2y\tan{\frac{t}{2}}} =
+					2\int_0^{\frac{\pi}{2}} \frac{\left(\tan{\frac{t}{2}}\right)'\mathrm{d}t}{1+\tan^2{\frac{t}{2}}+2y\tan{\frac{t}{2}}} \overbrace{=}^{u = \tan{\frac{t}{2}}}
+					2\int_0^1 \frac{\mathrm{d}u}{1+2yu+u^2} = \\
+					2{\Huge\int_0^1} \frac{\mathrm{d}u}{(u+y)^2 + \left(\sqrt{1-y^2}\right)^2} \overbrace{=}^{t=u+y} 
+					2{\Huge\int_y^{y+1}} \frac{\mathrm{d}t}{t^2 + \left(\sqrt{1-y^2}\right)^2} =\\
+					\frac{2}{\sqrt{1-y^2}}{\Huge\int_y^{y+1}} \frac{\frac{1}{\sqrt{1-y^2}}\mathrm{d}t}{\left(\frac{t}{\sqrt{1-y^2}}\right)^2} = 
+					\frac{2}{\sqrt{1-y^2}}\left(\arctan{\left(\frac{y+1}{\sqrt{1-y^2}}\right)} - \arctan{\left(\frac{y}{\sqrt{1-y^2}}\right)}\right) = \\
+					\frac{2}{\sqrt{1-y^2}}\arctan{\left(\frac{\sqrt{1-y}}{\sqrt{1+y}}\right)} = 
+					\frac{\arccos{y}}{\sqrt{1-y^2}}
+				\]
+				which concludes the proof.
+			</div>
+		</p>
+
+		<h2 id="e1">Spaces [22/12/2023]</h2>
 		<h3 id="spaces#fields">Fields</h3>
 		<p>
 			<p>
-				In chapters 1, 2, 3, and 4 the exercises are from <span class="citation" data-cites="halmos1">[<a href="#halmos1" role="doc-biblioref">Halmos1</a>]</span>
+				The following problems are taken from exercises in chapter 1 of <span class="citation" data-cites="halmos1">[<a href="#halmos1" role="doc-biblioref">Halmos1</a>]</span>.
 			</p>
-			<div class="question"> <b>1.</b> <br>
+			<div class="question"> <br>
 				Almost all the laws of elementary arithmetic are consequences of the axioms defining
 				a field. Prove, in particular, that if \(\mathfrak{F}\) is a field, and if \(\alpha, \beta,\) and \(\gamma\) 
 				belong to \(\mathfrak{F}\), then the following relations hold.
@@ -159,14 +237,14 @@
 					<li>If \(\alpha \beta = 0\), then either \(\alpha = 0\) or \(\beta = 0\) \((\)or both\()\).</li>
 				</ol>
 			</div>
-			<div class="question"> <b>2.</b>
+			<div class="question"> 
 				<ol style="list-style:lower-latin;">
 					<li>Is the set of all positive integers a field ? (In familiar systems, such as the integers, we shall almost always use the ordinary operations of addition and multiplication. On the rare occasions when we depart from this convention, we shall give ample warning. As for &laquo; positive, &raquo; by that word we mean, here and elsewhere in this book, &laquo; greater than or equal to zero. &raquo; If 0 is to be excluded, we shall say &laquo; strictly positive. &raquo;)</li>
 					<li>What about the set of all integers ?</li>
 					<li>Can the answers to these questions be changed by re-defining addition or multiplication (or both) ?</li>
 				</ol>
 			</div>
-			<div class="question"> <b>3.</b> <br>
+			<div class="question"> <br>
 				Let \(m\) be an integer, \(m \geq 2\), and let \(\mathbb{Z}_m\) be the set of all positive integers less than \(m\),
 				\(\mathbb{Z}_m = \{0,\ 1,\ ...,\ m-1\}\). If \(\alpha\) and \(\beta\) are in \(\mathbb{Z}_m\), let \(\alpha + \beta\) 
 				be the least positive remainder obtained by dividing the (ordinary) sum of \(\alpha\) and \(\beta\) by \(m\), and, 
@@ -178,14 +256,14 @@
 					<li>What is \(\frac{1}{3}\) in \(\mathbb{Z}_7\) ?</li>
 				</ol>
 			</div>
-			<div class="question"> <b>4.</b> <br>
+			<div class="question"> <br>
 				The example of \(\mathbb{Z}_p\) (where \(p\) is prime) shows that not quite all the laws of elementary arithmetic hold 
 				in fields; in \(\mathbb{Z}_2\), for instance, \(1 + 1 = 0\). Prove that if \(\mathfrak{F}\) is a field, them either the 
 				result of repeatedly adding 1 to itself is always different from 0, or else the first time that it is equal to 0 occurs 
 				when the number of summands is a prime. (The <b>characteristic</b> of the field \(\mathfrak{F}\) is defined to 0 in the 
 				first case and the crucial prime in the second.)
 			</div>
-			<div class="question"> <b>5.</b> <br>
+			<div class="question"> <br>
 				Let \(\mathbb{Q}(\sqrt{2})\) be the set of all real numbers of the form \(\alpha + \beta \sqrt{2}\), where \(\alpha\) and 
 				\(\beta\) are rational.
 				<ol style="list-style:lower-latin;">
@@ -193,13 +271,13 @@
 					<li>What if \(\alpha\) and \(\beta\) are required to be integers ?</li>
 				</ol>
 			</div>
-			<div class="question"> <b>6.</b> <br>
+			<div class="question"> <br>
 				<ol style="list-style:lower-latin;">
 					<li>Does the set of all polynomials with integer coefficients form a field ?</li>
 					<li>What if the coefficients are allowed to be real numbers ?</li>
 				</ol>
 			</div>
-			<div class="question"> <b>7.</b> <br>
+			<div class="question"> <br>
 				Let \(\mathfrak{F}\) be the set of all (ordered) pairs \((\alpha,\ \beta)\) of real numbers.
 				<ol style="list-style:lower-latin;">
 					<li>
@@ -228,7 +306,7 @@
 				</ol>
 			</div>
 		</p>
-		<h3 id="spaces#vectorspaces">Vector Spaces</h3>
+		<!--<h3 id="spaces#vectorspaces">Vector Spaces</h3>
 		<h3 id="spaces#examples">Examples</h3>
 		<h3 id="spaces#comments">Comments</h3>
 		<h3 id="spaces#lineardependence">Linear dependence</h3>
@@ -257,7 +335,7 @@
 		<h3 id="spaces#parity">Parity</h3>
 		<h3 id="spaces#multilinearforms">Multilinear forms</h3>
 		<h3 id="spaces#alternatingforms">Alternating forms</h3>
-		<h3 id="spaces#alternatingformsofmaximaldegree">Alternating forms of maximal degree</h3>
+		<h3 id="spaces#alternatingformsofmaximaldegree">Alternating forms of maximal degree</h3>-->
 
 		<h1 class="unnumbered" id="bibliography">References</h1>
 		
