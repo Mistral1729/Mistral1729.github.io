@@ -17,6 +17,9 @@
         <script type="text/javascript">
             function init()
             {
+                if (screen.width <= 699) {
+                    document.getElementById("mobile-notice").style.display = "";
+                }
                 var details = window.location.hash;
                 var subtabs = document.getElementsByClassName("details");
                 var contains = false;
@@ -47,13 +50,28 @@
                 window.location.hash = details.substr(1);
             }
         </script>
+
+        <script type="text/javascript">
+          function removeNotice()
+          {
+            document.getElementById("mobile-notice").style.display = "none";
+          }
+        </script>
+
+        <script type="text/javascript">
+          function playAudio(url) {
+            var audio = new Audio(url);
+            audio.currentTime = 0;
+            audio.play();
+          }
+        </script>
     </head>
     
     <body onload="init();">
 
       <article>
         <div>
-          <a class="link-wrapper" id="en-header#home" onclick="toggleDisplay('#home');">
+          <a class="link-wrapper" id="en-header#home" onclick="toggleDisplay('#home');playAudio('sounds/click.mp3');">
             <span class="fallback">Mistral1729</span>
             <div class="img-wrapper">
                 <img class="normal" src="pictures/framework/title0.png">
@@ -74,7 +92,7 @@
 
         <div class="navbar">
             
-            <!--<a class="link-wrapper" id="en-header#publications" onclick="toggleDisplay('#publications');">
+            <!--<a class="link-wrapper" id="en-header#publications" onclick="toggleDisplay('#publications');playAudio('sounds/click.mp3');">
                 <span class="fallback">Publications</span>
                 <div class="img-wrapper">
                     <img class="normal" src="pictures/framework/pubs0.png">
@@ -91,7 +109,7 @@
                     </svg></div>
                 </div>
             </a>
-            <a class="link-wrapper" id="en-header#books" onclick="toggleDisplay('#books');">
+            <a class="link-wrapper" id="en-header#books" onclick="toggleDisplay('#books');playAudio('sounds/click.mp3');">
                 <span class="fallback">Blog</span>
                 <div class="img-wrapper">
                     <img class="normal" src="pictures/framework/books0.png">
@@ -108,7 +126,7 @@
                     </svg></div>
                 </div>
             </a>-->
-            <a class="link-wrapper" id="en-header#code" onclick="toggleDisplay('#code');">
+            <a class="link-wrapper" id="en-header#code" onclick="toggleDisplay('#code');playAudio('sounds/click.mp3');">
                 <span class="fallback">Code</span>
                 <div class="img-wrapper">
                     <img class="normal" src="pictures/framework/code0.png">
@@ -125,7 +143,7 @@
                 </svg></div>
                 </div>
             </a>
-            <a class="link-wrapper" id="en-header#notes" onclick="toggleDisplay('#notes');">
+            <a class="link-wrapper" id="en-header#notes" onclick="toggleDisplay('#notes');playAudio('sounds/click.mp3');">
                 <span class="fallback">Notes</span>
                 <div class="img-wrapper">
                     <img class="normal" src="pictures/framework/notes0.png">
@@ -159,6 +177,12 @@
               </svg></div>
                   </div>
             </a>
+        </div>
+
+        <div id="mobile-notice" style="display:none;">
+          <h2>Mobile Notice | <a onclick="removeNotice();playAudio('sounds/click.mp3');">Close</a> </h2>
+
+          <p>You appear to be on a device with a "narrow" screen width (<em>i.e.</em> you are probably on a mobile phone).  Due to the nature of the mathematics on this site it is best views in landscape mode.  If your device is not in landscape mode many of the equations will run off the side of your device (should be able to scroll to see them) and some of the menu items will be cut off due to the narrow screen width.</p>
         </div>
       </article>
 

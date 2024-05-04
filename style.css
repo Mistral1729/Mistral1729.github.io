@@ -54,7 +54,7 @@ body {
   width: 100%;
   color: aliceblue; 
   font-family: 'Times New Roman', Times, serif;
-  background: red;
+  background-color: rgb(201, 22, 29);
   padding-top: 50px;
   margin: 0;
 }
@@ -267,7 +267,8 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: red;
+  background-image: url("pictures/background.png");
+  background-size: contain;
   color: white;
   text-align: center;
 }
