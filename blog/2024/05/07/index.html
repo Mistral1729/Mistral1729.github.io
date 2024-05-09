@@ -2,12 +2,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>All blog posts.</title>
-        <meta name="description" content="All blog posts.">
+        <title>Continuous involutions over $\R$</title>
+        <meta name="description" content="The 5/8 Theorem">
         <meta name="author" content="Mistral1729">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/png" href="../pictures/mpg.png">
-        <link rel="stylesheet" href="../style.css">
+        <link rel="icon" type="image/png" href="../../../../pictures/mpg.png">
+        <link rel="stylesheet" href="../../../../style.css">
 
         <script> MathJax = { loader: { load: ["[tex]/ams"] }, tex: { inlineMath: [["$", "$"]], displayMath: [["$$", "$$"]], packages: { "[+]": ["ams"] }, }, svg: { fontCache: "global", }, }; 
         </script> 
@@ -20,17 +20,17 @@
               audio.currentTime = 0;
               audio.play();
             }
-        </script>
+          </script>
     </head>
 
     <body>
         <article>
             <div>
-              <a class="link-wrapper" href="../">
+              <a class="link-wrapper" href="../../../../">
                 <span class="fallback">Mistral1729</span>
                 <div class="img-wrapper">
-                    <img class="normal" src="../pictures/framework/title0.png">
-                    <img class="active" src="../pictures/framework/title1.png">
+                    <img class="normal" src="../../../../pictures/framework/title0.png">
+                    <img class="active" src="../../../../pictures/framework/title1.png">
                 </div>
                 <div class="shape-wrapper">
                 <div class="shape red-fill jelly"><svg x="0px" y="0px"
@@ -81,11 +81,11 @@
                         </svg></div>
                     </div>
                 </a>-->
-                <a class="link-wrapper" href="../#code">
+                <a class="link-wrapper" href="../../../../#code">
                     <span class="fallback">Code</span>
                     <div class="img-wrapper">
-                        <img class="normal" src="../pictures/framework/code0.png">
-                        <img class="active" src="../pictures/framework/code1.png">
+                        <img class="normal" src="../../../../pictures/framework/code0.png">
+                        <img class="active" src="../../../../pictures/framework/code1.png">
                     </div>
                     <div class="shape-wrapper">
                     <div class="shape red-fill jelly"><svg x="0px" y="0px"
@@ -98,11 +98,11 @@
                     </svg></div>
                     </div>
                 </a>
-                <a class="link-wrapper" href="../#notes">
+                <a class="link-wrapper" href="../../../../#notes">
                     <span class="fallback">Notes</span>
                     <div class="img-wrapper">
-                        <img class="normal" src="../pictures/framework/notes0.png">
-                        <img class="active" src="../pictures/framework/notes1.png">
+                        <img class="normal" src="../../../../pictures/framework/notes0.png">
+                        <img class="active" src="../../../../pictures/framework/notes1.png">
                     </div>
                     <div class="shape-wrapper">
                         <div class="shape red-fill jelly"><svg x="0px" y="0px"
@@ -115,11 +115,11 @@
                         </svg></div>
                             </div>
                 </a>
-                <a class="link-wrapper" href="#">
+                <a class="link-wrapper" href="../../../#">
                   <span class="fallback">Blog</span>
                   <div class="img-wrapper">
-                      <img class="normal" src="../pictures/framework/blog0.png">
-                      <img class="active" src="../pictures/framework/blog1.png">
+                      <img class="normal" src="../../../../pictures/framework/blog0.png">
+                      <img class="active" src="../../../../pictures/framework/blog1.png">
                   </div>
                   <div class="shape-wrapper">
                   <div class="shape red-fill jelly"><svg x="0px" y="0px"
@@ -133,35 +133,71 @@
                       </div>
                 </a>
             </div>
-          </article>
+        </article>
 
           <article class="page">
-            <p>All my blog posts.</p>
 
-            <h1 class="center">Posts</h1>
+            <h1 class="center">Continuous involutions over $\mathbb{R}$</h1>
             
-            <table class="archive">
-                <tbody>
-                    <tr class="archive__entry">
-                        <td class="archive__date">2024/05/02</td>
-                        <td class="archive__bestof"></td>
-                        <td class="archive__url"><a href="/blog/2024/05/02/">The 5/8 Theorem.</a></td>
-                    </tr>
-                    <tr class="archive__entry">
-                        <td class="archive__date">2024/05/07</td>
-                        <td class="archive__bestof"></td>
-                        <td class="archive__url"><a href="/blog/2024/05/07/">Continuous involutions over $\mathbb{R}$.</a></td>
-                    </tr>
-                </tbody>
-            </table>
+            <p>
+                Today I attended a seminar about classifying every real-valued continuous function on $\mathbb{R}$ such that $f \circ f = id$ (involutions).
+            </p>
 
-            <img class="rightimageX" src="../pictures/groupaxiom.png">
-          </article>
+            <blockquote> 
+                <p><strong>Motivation</strong>. To classify all continuous involutions over $\mathbb{R}$.</p> 
+            </blockquote> 
+            
+            <h2 id="discussion">Discussion</h2> 
+            
+            <p>
+                We begin by considering the set of all involutions over some set $X$, 
+                $$\mathfrak{F}_X = \{f:X\to X\ |\ f\circ f = id_X\}.$$
+            </p>
+            
+            <blockquote>
+                <p><strong>Claim</strong>: For every $f \in \mathfrak{F}_X$ we can say that $f$ is bijective.</p>
+                <p><strong>Proof</strong>. First, assume towards a contradiction that $f$ isn't injective. Thus, let $x, y \in X$ such that $x \neq y$ and $f(x) = f(y)$. However, this implies $$f(f(x)) = f(f(y)) \implies x = y$$ 
+                by definition of involution. Absurdity. Therefore, $f$ is injective.</p>
+                <p>Now, observe that there is an $f(x)$ for every $x\in X$ by definition, and again $f$ maps $f(x)$ to $x$. So $f$ maps $f(x)$ to $x$ for every $x\in X$. Therefore, $f$ is surjective as well as injective i.e. bijective. $\blacksquare$</p>
+            </blockquote>
+            
+            <p>
+                First let us consider the case when it is increasing. Suppose $f$ is strictly increasing, and suppose $f(x) \neq x$ ($x\in \mathbb{R}$). Then we see that, 
+            </p> 
 
-          <footer>
-            <div class="container">
-                &copy; 2024 - Sayan Das - <a href="https://codepen.io/kevinquach/pen/JNGmKG">Persona 5 Navbar source.</a>
-            </div>
-        </footer>
+            <div class="kdmath">$$ f(x) > x\implies f(f(x)) = x > f(x) > x\implies x > x.$$</div> 
+
+            <div class="kdmath">$$ f(x) < x\implies f(f(x)) = x < f(x) < x\implies x < x.$$</div> 
+
+            <p>
+                An absurdity. Thus, the identity map $f(x) = x \equiv id$ is the only strictly increasing continuous involution over the real line.
+            </p>
+            
+            <p>
+                Now let us consider the case when it is strictly decreasing. Then we have more examples, such as
+            </p> 
+            
+            <ol>
+                <li>The function <div class="kdmath">$$ f(x) = -x. $$</div> </li>
+                <li>The function <div class="kdmath">$$ f(x) = 1-x. $$</div></li>
+                <li>There's nothing special about either 0 or 1, so in general for $\lambda \in \mathbb{R}$ <div class="kdmath">$$ f(x) = \lambda-x $$</div> </li>
+                <li>For $c \in \mathbb{R}^-$ <div class="kdmath">$$ f(x) = \begin{cases} cx, x > 0\\ x/c, x \leq 0\end{cases} $$</div> </li>
+            </ol>
+            
+            <p>
+                In general if $f$ is a continuous involution over the real line which is strictly decreasing and $c\in \mathbb{R}$, then 
+            </p> 
+            
+            <div class="kdmath">
+                $$ f : [c,\infty) \mapsto (-\infty ,c]$$
+            </div> 
+            <div class="kdmath">
+                $$ f : (-\infty ,c] \mapsto [c,\infty)$$
+            </div> 
+
+            <p>so $\displaystyle f = \{\left( c, g : [c,\infty) \mapsto (-\infty,c]\right)\}$</p>
+            
+            <p>The cardinality of $\mathfrak{F}$ is $\aleph_0$.</p> 
+        </article>
     </body>
 </html>
