@@ -93,6 +93,14 @@ a {
   margin-left:10pt
 }
 
+.leftimageX{
+  border-radius: 10px;
+  width:50%;
+  height: 50%;
+  float:left;
+  margin-right:10pt
+}
+
 .centerimage{
   display: block;
   margin-left: auto;
@@ -110,6 +118,16 @@ a {
   max-width:350px;
   float:right;
   margin-left:10pt
+}
+
+
+.leftimage{
+  border-radius: 10px;
+  width:30%;
+  height: 30%;
+  max-width:350px;
+  float:left;
+  margin-right:10pt
 }
 
 hr {

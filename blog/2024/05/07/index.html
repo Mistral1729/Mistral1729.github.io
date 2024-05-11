@@ -179,26 +179,30 @@
             </p> 
             
             <ol>
-                <li>The function <div class="kdmath">$$ f(x) = -x. $$</div> </li>
-                <li>The function <div class="kdmath">$$ f(x) = 1-x. $$</div></li>
-                <li>There's nothing special about either 0 or 1, so in general for $\lambda \in \mathbb{R}$ <div class="kdmath">$$ f(x) = \lambda-x $$</div> </li>
-                <li>For $c \in \mathbb{R}^-$ <div class="kdmath">$$ f(x) = \begin{cases} cx, x > 0\\ x/c, x \leq 0\end{cases} $$</div> </li>
+                <li> $ f(x) = -x. $ </li>
+                <li> $ f(x) = 1-x. $ </li>
+                <li>there's nothing special about either 0 or 1, so in general for $\lambda \in \mathbb{R}$ <div class="kdmath">$$ f(x) = \lambda-x $$</div> </li>
+                <li>for $c \in (-\infty, 0)$ <div class="kdmath">$$ f(x) = \begin{cases} cx, x > 0\\ x/c, x \leq 0\end{cases} $$</div> </li>
             </ol>
             
             <p>
-                In general if $f$ is a continuous involution over the real line which is strictly decreasing and $c\in \mathbb{R}$, then 
+                In general if $f$ is a strictly decreasing continuous function from $[0,\infty)$ onto $(-\infty, 0]$,  
             </p> 
             
-            <div class="kdmath">
-                $$ f : [c,\infty) \mapsto (-\infty ,c]$$
-            </div> 
-            <div class="kdmath">
-                $$ f : (-\infty ,c] \mapsto [c,\infty)$$
-            </div> 
-
-            <p>so $\displaystyle f = \{\left( c, g : [c,\infty) \mapsto (-\infty,c]\right)\}$</p>
+            <img class="rightimage" src="graph-1.svg">
             
-            <p>The cardinality of $\mathfrak{F}$ is $\aleph_0$.</p> 
+            <img class="leftimage" src="graph-2.svg">
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+
+            <p>
+                then we can extend the domain of $f$ to $(-\infty, 0)$ by setting $f(x)=t$ where $x = f(t)$.
+            </p>
+
+            <img class="centerimageX" src="graph-3.svg">
+            
+            <p>
+                As there are uncountably many continuous functions over the real line, the cardinality of $\mathfrak{F}$ is $\aleph_0$.
+            </p> 
         </article>
     </body>
 </html>
