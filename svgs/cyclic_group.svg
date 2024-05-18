@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="443" height="431">
+	<path fill="none" stroke="#0081cd" stroke-width="5" d="M56.6 214.6l92.6-160.4h185.3L427 214.6 334.6 375H149.2z"/>
+	<circle cx="241.8" cy="214.6" r="185.1" fill="none" stroke="#bb1d46" stroke-width="5"/>
+	<path stroke="#000" d="M241.8-3v469.5m-277-252H452"/>
+	<circle cx="427" cy="214.6" r="6"/>
+	<circle cx="334.4" cy="54.2" r="6"/>
+	<circle cx="149.2" cy="54.2" r="6"/>
+	<circle cx="56.6" cy="214.6" r="6"/>
+	<circle cx="149.2" cy="375" r="6"/>
+	<circle cx="334.4" cy="375" r="6"/>
+	<g font-family="Times, serif" font-size="40">
+		<text x="318.8" y="202.6" xml:space="preserve">z  =1</text>
+		<text x="339.8" y="42.5">z</text>
+		<text x="103.8" y="42.5">z</text>
+		<text x="16.6" y="221.8">z</text>
+		<text x="103.8" y="419">z</text>
+		<text x="339.8" y="419">z</text>
+		<g font-size="28">
+			<text x="339.8" y="181.7">0</text>
+			<text x="360.8" y="21.6">1</text>
+			<text x="124.8" y="21.6">2</text>
+			<text x="37.6" y="200.8">3</text>
+			<text x="124.7" y="398.1">4</text>
+			<text x="360.7" y="398.1">5</text>
+		</g>
+	</g>
+</svg>
