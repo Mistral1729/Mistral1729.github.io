@@ -53,7 +53,7 @@ body {
   height: 100%;
   width: 100%;
   color: aliceblue; 
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Latin Modern Roman';/*'Times New Roman', Times, serif*/
   background-color: #790e12;
   padding-top: 50px;
   margin: 0;
