@@ -140,53 +140,61 @@
             <h1 class="center">The 5/8 Theorem</h1>
             
             <p>
-                Today we are going to attack a group theory problem that has a little bit of a combinatorial flavour.
+                What is the probability that two group elements commute ? The $5/8$ Theorem gives us an upper bound, and seems to have first appeared in a paper by Erdös and Turán <a href="#1">[1]</a>. It can be stated as follows: 
             </p>
 
             <blockquote> 
-                <p><strong>Problem</strong>. Find an upper bound on the maximum probability that two randomly chosen elements of a finite non-abelian group commute, and show that it is attained.</p> 
+                <p><strong>Theorem</strong>. Let $G$ be a finite non-abelian group and $\mathbb{P}(G)$ denote the probability that two randomly selected (with replacement) elements in $G$ commute. Then $$\mathbb{P}(G)\leq \frac{5}{8}.$$</p>
             </blockquote> 
             
+            <p> Equivalently, the inner automorphism group of $G$ is $\mathrm{Inn}(G) = \mathbb{Z}_2\times\mathbb{Z}_2$, or $\left|\mathrm{Inn}(G)\right| = 4$. </p> 
+
             <h2 id="discussion">Discussion</h2> 
             
             <p>
-                Suppose that we have a group $G$, and a random element $g \in G$. We have then got two cases.
+                Suppose that we have a group $G$, and two randomly picked elements $g, h \in G$. There are two cases: 
             </p> 
             
             <ol> 
                 <li>
-                    If $g$ commutes with everything, then the probability that $g$ commutes with another element is obviously 1.
+                    If $g$ is in the center of $G$ it commutes with everything, so the probability that $g$ commutes with $h$ is obviously 1.
                 </li> 
                 <li>
-                    If $g$ does not commute with everything, we need to find the probability that it commutes with a random other element.
+                    If $g$ is not in the center of $G$, we must compute the maximum probability that it commutes with $h$.
                 </li> 
             </ol> 
-            
-            <p>
-                This gives us two things to compute (or more correctly, to bound): the probability that a random element commutes with everything, and the probability that if it does not commute with everything, then it commutes with a random element. The natural approach is then clearly thinking about centers and centralisers.
-            </p> 
             
             <h2 id="solution">Solution</h2> 
             
             <p>
-                Let $G$ be a finite group. If it is non-abelian, then its center $Z(G)$ is not the entire group, that is, $G$ has some element $g \not \in Z(G)$. Then $C_G(g)$, centraliser of $g$, also cannot be the entire group, as that would contradict $z \not \in Z(G)$.
+                Let $G$ be a finite group. If $G$ is non-abelian, its center $Z(G)$ is not the entire group, that is, $G$ has some element $g \not \in Z(G)$. Then $C_G(g)$, centraliser of $g$, also cannot be the entire group, as that would contradict $g \not \in Z(G)$.
             </p> 
             
             <p>
-                Noting that $C_G(g) \leq G$, and $Z(G) \leq C_G(g)$, we can then apply Lagrange’s theorem twice to get
+                Noting that $C_G(g)$ is a subgroup of $G$, and $Z(G)$ a subgroup of $C_G(g)$, we can then apply Lagrange's theorem twice to get
             </p> 
             
-            <div class="kdmath">$$ |Z(G)| \leq \frac{1}{2} |C_G(g)| \leq \frac{1}{4}|G|. $$</div> 
+            <div class="kdmath">$$ |Z(G)| \leq \frac{1}{2} |C_G(g)| \leq \frac{1}{4}|G| $$</div> 
+
+            <div class="kdmath">$$\implies\mathbb{P}(g\in Z(G)) = \frac{|Z(G)|}{|G|} \leq \frac{1}{4}, $$</div>
+
+            <div class="kdmath">$$\mathbb{P}(h\in C_G(g)) = \frac{|C_G(g)|}{|G|} \leq \frac{1}{2}. $$</div>
             
             <p>
-                Now let $x$, $y$ be a random elements of $G$. We can bound the probability that they commute with
+                Now let $x$, $y$ be a random elements of $G$. We can bound the probability that they commute by
             </p> 
             
             <div class="kdmath">
-                $$ \mathbb{P}(x\in Z(G)) + \mathbb{P}(x \not \in Z(G)) \cdot \mathbb{P}(y \in C_G(x)) \leq \frac{1}{4} + \frac{3}{4} \cdot \frac{1}{2} = \frac{5}{8}. $$
+                $$ \mathbb{P}(G) = \mathbb{P}(x\in Z(G)) + \mathbb{P}(x \not \in Z(G)) \cdot \mathbb{P}(y \in C_G(x)) \leq \frac{1}{4} + \left(1-\frac{1}{4}\right) \cdot \frac{1}{2} = \frac{5}{8}. $$
             </div> 
+
+            <h2>Examples</h2>
             
-            <p>This bound is achieved by the Quaternion group $Q_8$.</p> 
+            <p>This bound is achieved by the quaternion group $\mathbf{Q}_8$, the dihedral group $\mathbf{D}_8$ as well as six groups of order $16$ called the groups of Hall-Senior class two. In fact, this bound is achieved by a group iff the group has center of index $4$.</p> 
+
+            <h2>References</h2>
+            <div id="1">
+                <small>[1] P. Erdös and P. Turán, <a href="https://users.renyi.hu/~p_erdos/1968-11.pdf">On some problems of a statistical group-theory</a>, IV, Acta Math. Acad. Sci. Hung., 19 (1968) 413-435.</small></div>
         </article>
     </body>
 </html>
