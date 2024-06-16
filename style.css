@@ -58,6 +58,12 @@ body {
   padding-top: 50px;
   margin: 0;
 }
+
+H1, H2, H3, H4, H5, H6 
+{
+  font-variant-caps: small-caps;
+}
+
 .latex-text {
   font-family: 'Latin Modern Roman';
 }
