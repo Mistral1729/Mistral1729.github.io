@@ -13,6 +13,13 @@
         </script> 
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" ></script>
+        <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+        <script>sagecell.makeSagecell({"inputLocation": ".sage"});</script>
+        <link rel="stylesheet" type="text/css" href="https://sagecell.sagemath.org/static/sagecell_embed.css">
+
+        <script>
+          sagecell.makeSagecell({inputLocation: 'div.compute',evalButtonText: 'Evaluate'});
+        </script>
 
         <script type="text/javascript">
             function init()
@@ -203,7 +210,9 @@
               <p>
                 I'm an undergraduate mathematics major at <a href="https://jadavpuruniversity.in/">Jadavpur University</a>. I'm also minoring in computer science and statistics. 
               </p>
+              <hr/>
               <h2 class="center">Research interests</h2>
+              <hr/>
 
               <ul>
                 <li>11G, 11M, 11R23, 11R32, 11R34, 11R37, 11R39, 11R42, 11S37</li>
@@ -223,9 +232,9 @@
               </p>
 
               <hr/>
-
               <hr/>
               <h2 class="center">Personal details</h2>
+              <hr/>
               <table>
                 <tr>
                   <td>
@@ -290,7 +299,9 @@
 
         <div class="details" id="#books" style="display: none;">
             <article class="page">
+              <hr/>
               <h2 class="center">Analysis</h2>
+              <hr/>
               <!--<ul>
                 <li>Walter Rudin - <i>Principles of Mathematical Analysis</i></li>
                 <li>Manfred Leopold Einsiedler, Thomas Ward - <i>Functional Analysis, Spectral Theory, and Applications</i></li>
@@ -336,6 +347,7 @@
               </div>
               <hr/>
               <h2 class="center">Algebra</h2>
+              <hr/>
               <!--<ul>
                 <li>Paul Richard Halmos - <i>Finite Dimensional Vector Spaces</i></li>
                 <li>Ernest Borissowitsch Winberg - <i>A Course in Algebra</i></li>
@@ -407,20 +419,32 @@
         
         <div class="details" id="#code" style="display: none;">
           <article class="page">  
-            <h2>Code</h2>
-              
-              <iframe 
-                    frameborder="0" 
-                    src="https://itch.io/embed/2154313?linkback=true&amp;bg_color=e0ffff&amp;fg_color=7e1aa5&amp;link_color=16398b&amp;border_color=a03cd9"
-                    width="552" 
-                    height="167">
-                      <a href="https://carlmariamikage.itch.io/gestalt">Gestalt by CarlMariaMikage (me), kumroDev (an irl friend)</a>
-              </iframe>
+            <hr/>
+            <h2 class="center">Code</h2>
+            <hr/>
+
+            <small>Type your own Sage computation below and click “Evaluate” :</small> <br><br>
+            <div class="compute">
+              <script type="text/x-sage">plot(sin(x), (x, 0, 2*pi))</script>
+            </div> <br>
+            <div class="compute">
+              <script type="text/x-sage">
+                @interact
+def f(n=(0,10)):
+  print(2^n)
+              </script>
+            </div>
+
+            <hr/><hr/>
               
               <ul>
                   <li>
+                    <i>Gestalt</i>, a 2D game made in just 48 hours for the GMTK 2023 game jam. <br> <br>
+                    <iframe frameborder="0" src="https://itch.io/embed/2154313?linkback=true&amp;bg_color=81060c&amp;fg_color=e7a593&amp;link_color=ffe762&amp;border_color=e28e6a" width="552" height="167"><a href="https://carlmariamikage.itch.io/gestalt">Gestalt by CarlMariaMikage, kumroDev</a></iframe>
+                  </li>
+                  <li>
                       <i>Leviathan</i> (<a href="https://github.com/Mistral1729/Leviathan" 
-                      target="_blank">program website</a>|<a href="https://github.com/Mistral1729/Leviathan" target="_blank">github</a>), a 3D game engine written in C++ utilising DirectX 11.
+                      target="_blank">program website</a>|<a href="https://github.com/Mistral1729/Leviathan" target="_blank">github</a>), a 3D game engine written in C++ utilising DirectX 12. <br> <br> <div class="leftimage"><img src="pictures/framework/leviathan.jpeg"></div>
                   </li>
               </ul>
               <br clear="all">
@@ -429,7 +453,9 @@
 
         <div class="details" id="#notes" style="display: none;">
             <article class="page">
-              <h2>Notes</h2>
+              <hr/>
+              <h2 class="center">Notes</h2>
+              <hr/>
               
               <img class="centerimageX" style="background-color: white" src="pictures/Grothendieck-Riemann-Roch.png">
 
