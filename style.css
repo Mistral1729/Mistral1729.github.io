@@ -55,6 +55,8 @@ body {
   color: aliceblue; 
   font-family: 'Latin Modern Roman';/*'Times New Roman', Times, serif*/
   background-color: #790e12;
+  background-image: url("pictures/bg.png");
+  background-size: contain;
   padding-top: 50px;
   margin: 0;
 }
@@ -62,6 +64,41 @@ body {
 H1, H2, H3, H4, H5, H6 
 {
   font-variant-caps: small-caps;
+}
+
+h4.course {
+  font-weight: normal;
+  margin-top: 0.3em;
+  margin-bottom: 0em;
+}
+
+.note-additional {
+  color: #bfbcbc;
+}
+
+.extras {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.unavailable, .extras a {
+  display: inline-block;
+
+  padding: 0.1em;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+
+  text-align: center;
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  flex-basis: 20%;
+  flex-grow: 0;
+}
+.unavailable {
+  color: #888;
 }
 
 .latex-text {

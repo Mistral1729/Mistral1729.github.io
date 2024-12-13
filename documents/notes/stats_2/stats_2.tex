@@ -1,0 +1,249 @@
+\documentclass[11pt]{scrreprt}
+%\usepackage[pdftex]{hyperref}
+%\usepackage[numbers]{natbib}
+\usepackage{graphicx}
+\usepackage[ngerman]{babel}
+%\usepackage[ansinew]{inputenc} %Umlaute
+\usepackage[utf8]{inputenc}     %Umlaute
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage{amsmath}
+\usepackage{amsthm}
+%\usepackage{cases}
+%\usepackage{booktabs}
+%\usepackage{eufrak}
+%\usepackage{fullpage}
+
+
+
+
+\renewcommand{\P}{\mathbb {P}} %Wahrscheinlichkeit
+\newcommand{\E}{\mathbb {E}}   %Erwartungswert
+\newcommand{\C}{\mathbb {C}}   %Komplexe Zahlen
+\newcommand{\R}{\mathbb {R}}   %Reelle Zahlen
+\newcommand{\Q}{\mathbb {Q}}   %Rationale Zahlen
+\newcommand{\Z}{\mathbb {Z}}   %Ganze Zahlen
+\newcommand{\N}{\mathbb {N}}   %Natuerliche Zahlen
+\newcommand{\ind}{\mathbbm{1}} %Indikatorfunktion
+\newcommand{\eps}{\varepsilon} %Für epsilon benutzen
+\newcommand{\bsl}{\backslash}  %Für backslash
+\newcommand{\dif}{d}
+\newcommand{\AAA}{\mathcal {A}}  %\sigma-Algebra
+\newcommand{\FFF}{\mathcal {F}} %Algebra
+\newcommand{\EEE}{\mathcal {E}}
+\newcommand{\GGG}{\mathcal {G}}
+\newcommand{\BBB}{\mathcal {B}} %Borel-\sigma-Algebra
+\newcommand{\notsim}{\nsim}
+
+
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Corr}{Corr}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\argmax}{argmax}
+\DeclareMathOperator{\sgn}{sgn}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             Konvergenzarten                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\eqdistr}{\stackrel{{d}}{=}}
+\newcommand{\eqdef}{\stackrel{{def}}{=}}
+\newcommand{\toweak}{\overset{{w}}{\underset{n\to\infty}\longrightarrow}}
+\newcommand{\todistr}{\overset{{d}}{\underset{n\to\infty}\longrightarrow}}
+\newcommand{\tod}{\overset{{d}}{\underset{n\to\infty}\longrightarrow}}
+\newcommand{\toprobab}{\overset{{P}}{\underset{n\to\infty}\longrightarrow}}
+\newcommand{\tofd}{\overset{{f.d.d.}}{\underset{n\to\infty}\longrightarrow}}
+\newcommand{\tofs}{\overset{{f.s.}}{\underset{n\to\infty}\longrightarrow}}
+\newcommand{\toas}{\overset{{a.s.}}{\underset{n\to\infty}\longrightarrow}}
+\newcommand{\tosquare}{\stackrel{L^2}{\to}}
+\newcommand{\ton}{\overset{}{\underset{n\to\infty}\longrightarrow}}
+\newcommand{\toLp}{\overset{{L^p}}{\underset{n\to\infty}\longrightarrow}}
+\newcommand{\toLs}{\overset{{L^s}}{\underset{n\to\infty}\longrightarrow}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             Verteilungen                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\Norm {{\mathrm{N}}}   %Normalveretreilung
+\def\Poi {{\mathrm{Poi}}}  %Poisson-Verteilung
+\def\Geo {{\mathrm{Geo}}}  %Geometrische Verteilung
+\def\Exp {{\mathrm{Exp}}}  %Exponentialverteilung
+\def\Bin {{\mathrm{Bin}}}  %Binomialverteilung
+\def\NBin {{\mathrm{NB}}}  %Negative Binomialverteilung
+\newcommand{\U}{\mathrm {U}}   %Gleichverteilung
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             Beweis                                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\bew}{\textsc{Beweis.} }            %Beweis
+\newcommand{\bewn}[1]{\textsc{#1.} }
+\newcommand{\ebew}{\hfill \qed \vspace*{5mm}}   %Ende des Beweises
+
+
+
+\setlength{\parindent}{0pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             Satz, Lemma, Definition, ...                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\newtheorem{satz}{Satz}[chapter]
+\newtheorem{beh}[satz]{Behauptung}
+\newtheorem{kor}[satz]{Korollar}
+\newtheorem{lem}[satz]{Lemma}
+\newtheorem{prop}[satz]{Proposition}
+
+\theoremstyle{remark}
+\newtheorem{bem}[satz]{Bemerkung}
+\newtheorem{bsp}[satz]{Beispiel}
+\newtheorem{ueb}[satz]{Übung}
+\newtheorem{dfn}[satz]{Definition}
+
+
+
+
+\numberwithin{equation}{chapter}
+\numberwithin{satz}{chapter}
+\numberwithin{section}{chapter}
+
+
+
+
+\begin{document}
+
+\begin{titlepage}
+
+\includegraphics[width=12cm]{WWU_Logo.jpg}
+
+\vspace{6cm}
+
+\begin{center}
+{\huge \scshape Der zentrale Grenzwertsatz}\\
+\vspace{7mm}
+{\Large \textsc{Bachelorarbeit}}\\
+\end{center}
+
+\vspace{7cm}
+
+\begin{tabular}{ll}
+Eingereicht von:  &Ihr Name\\
+Datum:            &\\
+Erstgutachter:    &Name\\
+Zweitgutachter:   &Name\\
+\end{tabular}
+
+\vspace{3cm}
+\end{titlepage}
+
+
+\tableofcontents
+
+
+
+\chapter{Der zentrale Grenzwertsatz}
+\section{Formulierung des zentralen Grenzwertsatzes}
+
+\begin{satz}[Der zentrale Grenzwertsatz]\label{satz:zgws}
+Seien $X_1, X_2, \ldots$ unabhängige, identisch verteilte, quadratisch integrierbare Zufallsvariablen mit $\E X_k = \mu$, $\Var X_k = \sigma^2\in (0,\infty)$. Sei $S_n = X_1 + \ldots + X_n$. Dann gilt
+$$
+\frac{S_n - n\mu}{\sigma \sqrt{n}} \tod N,
+$$
+wobei $N \sim N(0,1)$ eine standardnormalverteilte Zufallsvariable ist.
+\end{satz}
+\begin{bem}
+Mit anderen Worten:  Für alle $x \in \R$ gilt
+$$
+\lim_{n \to \infty} \P\left[\frac{S_n - n\mu}{\sigma \sqrt{n}} \leq x \right] = \Phi(x)
+\text{ mit }
+\Phi(x) = \frac{1}{\sqrt{2 \pi}} \int\limits_{-\infty}^x  e^{-\frac{t^2}{2}} \dif t.
+$$
+\end{bem}
+
+%\begin{bem}
+%Für großes $n$ gilt: $S_n \sim N(n\mu, \sigma^2 n)$.
+%\end{bem}
+
+Als Spezialfall von Satz~\ref{satz:zgws} erhalten wir den folgenden Satz von de Moivre--Laplace.
+
+\begin{kor}[de Moivre (1733), Laplace (1812)]\label{satz:de_Moivre}
+Sei $S_n \sim \Bin(n,p)$ binomialverteilt, wobei $p \in (0,1)$ konstant sei. Dann gilt für alle $x \in \R$, dass
+$$
+\lim_{n \to \infty} \P\left[ \frac{S_n - np}{\sqrt{np (1-p)}} \leq x \right] = \Phi(x).
+$$
+\end{kor}
+
+\bew
+Wir definieren unabhägige, identisch verteilte Zufallsvariablen $X_1, X_2, \ldots$ mit
+$$
+ \P[X_k = 1] = p \text{ und } \P[X_k = 0] = 1-p.
+$$
+Dann gilt für die Summe der Zufallsvariablen
+$$
+S_n = X_1 + \ldots + X_n \sim \Bin(n,p).
+$$
+Der Erwartungswert von $X_k$ ist $\mu = p$ und die Varianz ist $\sigma^2 = p \cdot (1-p)$. Mit dem zentralen Grenzwertsatz folgt die Behauptung.
+\ebew
+
+\section{Beweis des zentralen Grenzwertsatzes}
+\bewn{Beweis von Satz~\ref{satz:zgws}}
+Der nachfolgende Beweis ist an die Darslellung in den Büchern von Feller~\cite{Feller_buch} und Kallenberg~\cite{Kallenberg_buch} angelehnt.
+$$
+\ldots \ldots \ldots
+$$
+\ebew
+
+
+\chapter{Ein weiteres Kapitel}
+\section{Eine weitere Sektion}
+Eine Gleichung ohne Nummer:
+$$
+e^{\pi i} = -1.
+$$
+Eine nummerierte Gleichung
+\begin{equation}\label{eq:euler}
+e^{\pi i} = -1.
+\end{equation}
+Aus~\eqref{eq:euler} folgt durch Quadrieren, dass $e^{2\pi i} = 1$.
+
+\begin{satz}
+Text...
+\end{satz}
+
+\begin{lem}
+Text...
+\end{lem}
+
+\begin{bsp}
+Text...
+\end{bsp}
+
+\section{Noch eine Sektion}
+\begin{satz}
+Text...
+\end{satz}
+
+
+\begin{thebibliography}{100}
+
+\bibitem{Kallenberg_buch}
+Kallenberg, O.: {\em Foundations of Modern Probability}. Second Edition, Springer (2002).
+
+\bibitem{Feller_buch}
+Feller, W.:  {\em An Introduction to Probability Theory and Its Applications}. Third Edition, Wiley (1968).
+
+\end{thebibliography}
+
+\end{document}
