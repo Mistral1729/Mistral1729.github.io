@@ -51,9 +51,9 @@
                 {
                     subtabs[itD].style.display="none";
                     document.getElementById("en-header"+subtabs[itD].id).style.textDecoration = "none";
+                    // document.getElementById("jp-header"+subtabs[itD].id).style.textDecoration = "none";
                 }
                 document.getElementById(details).style.display = "";
-                document.getElementById("en-header"+details).style.textDecoration = "underline";
                 window.location.hash = details.substr(1);
             }
         </script>
@@ -78,7 +78,7 @@
 
       <article>
 
-        <div>
+        <div class="navbar">
           <a class="link-wrapper" id="en-header#home" onclick="toggleDisplay('#home');playAudio('sounds/click.mp3');">
             <span class="fallback">Mistral1729</span>
             <div class="img-wrapper">
@@ -232,7 +232,7 @@
                 </tr>
                 <figure>
                   <div>
-                    <img class="rightimage" src="pictures/framework/1711973046585.jpeg" onmouseover="this.src='pictures/framework/imageedit_2_2941864488.jpg'" onmouseout="this.src='pictures/framework/1711973046585.jpeg'">
+                    <img class="rightimage" src="pictures/framework/1711973046585.jpg" onmouseover="this.src='pictures/framework/imageedit_2_2941864488.jpg'" onmouseout="this.src='pictures/framework/1711973046585.jpg'">
                   </div>
                 </figure>
                 <tr>
@@ -411,13 +411,14 @@
 
             <small>Type your own Sage computation below and click “Evaluate” :</small> <br><br>
             <div class="compute">
-              <script type="text/x-sage">plot(sin(x), (x, 0, 2*pi))</script>
+              <script type="text/x-sage">plot(zeta(x), (x, -5, 5), ymin=-5, ymax=5, detect_poles=True)</script>
             </div> <br>
             <div class="compute">
               <script type="text/x-sage">
                 @interact
-def f(n=(0,10)):
-  print(2^n)
+def power_table_plot(p=(7,prime_range(50))):
+    P=matrix_plot(matrix(p-1,[mod(a,p)^b for a in range(1,p) for b in srange(p)]),cmap='jet')
+    show(P)
               </script>
             </div>
 
@@ -471,7 +472,7 @@ def f(n=(0,10)):
               </p>
               
               <hr/>
-                <h2 class="center">Undergraduate Notes</h2>
+                <h2 class="center">Undergraduate Coursework</h2>
               <hr/>
               
                   <hr/>
@@ -479,28 +480,36 @@ def f(n=(0,10)):
                   <hr/>
                   <section>
                     <section>
-                      <h4 class='course'>MATH 322, MATH 808 - Real Analysis & Theory of Real Functions <span class='note-additional'>(2023-24)</span></h4>
+                      <h4 class='course'>Real Analysis <span class='note-additional'>(Sem 1 -- 2023)</span></h4>
+                      <div class='extras'><a href='/documents/notes/1/analysis/syllabus.pdf'>Syllabus</a><span class="unavailable">Lecture notes</span><a href='/documents/notes/1/analysis/exam.pdf' title='Final exam'>Final exam</a></div>
+                    </section>
+                    <section>
+                      <h4 class='course'>Geometry & Linear Algebra <span class='note-additional'>(Sem 1 -- 2023)</span></h4>
+                      <div class='extras'><a href='/documents/notes/1/algebra/syllabus.pdf'>Syllabus</a><span class="unavailable">Lecture notes</span><a href='/documents/notes/1/algebra/exam.pdf' title='Final exam'>Final exam</a></div>
+                    </section>
+                    <section>
+                      <h4 class='course'>Theory of Real Functions <span class='note-additional'>(Sem 2 -- 2024)</span></h4>
                       <div class='extras'><a href='/documents/notes/1/analysis/syllabus.pdf'>Syllabus</a><a href='/documents/notes/1/analysis/notes.pdf' title='Lecture notes'>Lecture notes</a><a href='/documents/notes/1/analysis/exam.pdf' title='Final exam'>Final exam</a></div>
                     </section>
                     <section>
-                      <h4 class='course'>MATH 323, MATH 807 - Algebra & Geometry <span class='note-additional'>(2023-24)</span></h4>
+                      <h4 class='course'>Algebra <span class='note-additional'>(Sem 2 -- 2024)</span></h4>
                       <div class='extras'><a href='/documents/notes/1/algebra/syllabus.pdf'>Syllabus</a><a href='/documents/notes/1/algebra/notes.pdf' title='Lecture notes'>Lecture notes</a><a href='/documents/notes/1/algebra/exam.pdf' title='Final exam'>Final exam</a></div>
                     </section>
                     <section>
-                      <h4 class='course'>MATH 325 - Probability & Descriptive Statistics <span class='note-additional'>(2023)</span></h4>
-                      <div class='extras'><a href='/documents/notes/1/stats/syllabus.pdf'>Syllabus</a><span class="unavailable">Lecture notes</span><a href='/documents/notes/1/stats/exam.pdf' title='Final exam'>Final exam</a></div>
+                      <h4 class='course'>Statistics 1 : Probability & Descriptive Statistics <span class='note-additional'>(Sem 1 -- 2023)</span></h4>
+                      <!-- <div class='extras'><a href='/documents/notes/1/stats/syllabus.pdf'>Syllabus</a><span class="unavailable">Lecture notes</span><a href='/documents/notes/1/stats/exam.pdf' title='Final exam'>Final exam</a></div> -->
                     </section>
                     <section>
-                      <h4 class='course'>MATH 326 - Discrete Mathematics <span class='note-additional'>(2023)</span></h4>
-                      <div class='extras'><a href='/documents/notes/1/discrete/syllabus.pdf'>Syllabus</a><span class="unavailable">Lecture notes</span><a href='/documents/notes/1/discrete/exam.pdf' title='Final exam'>Final exam</a></div>
+                      <h4 class='course'>Discrete Mathematics <span class='note-additional'>(Sem 1 -- 2023)</span></h4>
+                      <!-- <div class='extras'><a href='/documents/notes/1/discrete/syllabus.pdf'>Syllabus</a><span class="unavailable">Lecture notes</span><a href='/documents/notes/1/discrete/exam.pdf' title='Final exam'>Final exam</a></div> -->
                     </section>
                     <section>
-                      <h4 class='course'>MATH 881 - Programming Languages <span class='note-additional'>(2024)</span></h4>
-                      <div class='extras'><a href='/documents/notes/1/cs/syllabus.pdf'>Syllabus</a><span class="unavailable">Lecture notes</span><a href='/documents/notes/1/cs/exam.pdf' title='Final exam'>Final exam</a></div>
+                      <h4 class='course'>Programming Languages <span class='note-additional'>(Sem 2 -- 2024)</span></h4>
+                      <!-- <div class='extras'><a href='/documents/notes/1/cs/syllabus.pdf'>Syllabus</a><span class="unavailable">Lecture notes</span><a href='/documents/notes/1/cs/exam.pdf' title='Final exam'>Final exam</a></div> -->
                     </section>
                     <section>
-                      <h4 class='course'>MATH 809 - Numerical Methods <span class='note-additional'>(2024)</span></h4>
-                      <div class='extras'><a href='/documents/notes/1/numerical/syllabus.pdf'>Syllabus</a><span class="unavailable">Lecture notes</span><a href='/documents/notes/1/numerical/exam.pdf' title='Final exam'>Final exam</a></div>
+                      <h4 class='course'>Numerical Methods <span class='note-additional'>(Sem 2 -- 2024)</span></h4>
+                      <!-- <div class='extras'><a href='/documents/notes/1/numerical/syllabus.pdf'>Syllabus</a><span class="unavailable">Lecture notes</span><a href='/documents/notes/1/numerical/exam.pdf' title='Final exam'>Final exam</a></div> -->
                     </section>
                   </section>
 
@@ -508,8 +517,13 @@ def f(n=(0,10)):
                     <h2>Sophomore Year</h2>
                   <hr/>
                   <section>
-                    <h4 class="course">MATH 1049 - Mathematical Modelling <span class='note-additional'>(2024)</span></h4>
-                    <div class='extras'><a href='/documents/notes/2/modelling/syllabus.pdf'>Syllabus</a><span class="unavailable">Lecture notes</span><a href='/documents/notes/2/modelling/exam.pdf' title='Final exam'>Final exam</a></div>
+                    <h4 class="course">Riemann Integration & Series of Functions <span class='note-additional'>(Sem 3 -- 2024)</span></h4>
+                    <div class="extras"><span class="unavailable">Lecture notes</span></div>
+                    <h4 class="course">Ring Theory <span class='note-additional'>(Sem 3 -- 2024)</span></h4>
+                    <div class="extras"><span class="unavailable">Lecture notes</span></div>
+                    <h4 class="course">Statistics 2 : Concepts of Probability <span class='note-additional'>(Sem 3 -- 2024)</span></h4>
+                    <h4 class="course">Mathematical Modelling <span class='note-additional'>(Sem 3 -- 2024)</span></h4>
+                    <!-- <div class='extras'><a href='/documents/notes/2/modelling/syllabus.pdf'>Syllabus</a><span class="unavailable">Lecture notes</span><a href='/documents/notes/2/modelling/exam.pdf' title='Final exam'>Final exam</a></div> -->
                   </section>
                   <br clear="all">
             </article>

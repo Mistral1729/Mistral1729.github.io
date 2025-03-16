@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>The 5/8 Theorem</title>
+        <title>Lie groups and representation theory</title>
         <meta name="description" content="The 5/8 Theorem">
         <meta name="author" content="Mistral1729">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -137,46 +137,72 @@
 
           <article class="page">
 
-            <h1 class="center">Classical Matching Theory</h1>
+            <h1 class="center">Lie groups and representation theory</h1>
+            
+            <h2>Structure of finite-dimensional semisimple Lie algebras</h2>
 
-            <h2>Basics of matchings</h2>
- 
-            <p><strong>Definition</strong>. A <font color="yellow">graph</font> is an ordered pair $G=(V,E)$ consisting of a set of <font color="yellow">vertices</font> $V=\{v_1,v_2,\dots,v_n\}$ and <font color="yellow">edges</font> $E\subseteq V\times V.$
+            <p>
+                Let $\mathbb{F}$ be a field. A vector space $\mathfrak{g}$ over $\mathbb{F}$ is called a <font color="yellow">Lie algebra</font> if there exists an $\mathbb{F}$-bilinear map $\mathfrak{g\times g\to g}$ $(x,y)\mapsto [x,y]$ (called the <font color="yellow">commutator/Lie bracket</font>) such that
             </p>
 
-            <blockquote>
-                <p><strong>Definition</strong>. A <font color="yellow">matching</font> is a subset $M\subseteq E$ such that no two edges in $M$ are adjacent, i.e., 
-                    $$
-                        \forall j \neq k\in V,\quad (i,j) \in M \implies (i,k) \notin M.
-                    $$
-                </p>
-            </blockquote>
+            <ul>
+                <li>
+                    <div class="kdmath">$[x,x]=0$</div>
+                </li>
+                <li>
+                    <div class="kdmath">$[x,[y,z]]+[y,[z,x]]+[z,[x,y]]=0$ (Jacobi identity)</div>
+                </li>
+            </ul>
 
-            <blockquote>
-                <p><strong>Definition</strong>. A matching $M$ is called <font color="yellow">maximal</font> if $M$ cannot be extended by adding any more edges, i.e., adding any extra edge will break the matching.
-                </p>
-            </blockquote>
-
-            <blockquote>
-                <p><strong>Definition</strong>. A matching $M$ is called <font color="yellow">maximum</font> if $M$ has the largest possible number of edges.
-                </p>
-            </blockquote>
-
-            <blockquote>
-                <p><strong>Definition</strong>. A matching $M$ is called <font color="yellow">perfect</font> if $M$ matches all the vertices.
-                </p>
-            </blockquote>
-
-            <blockquote>
-                <p><strong>Theorem</strong>. The symmetric difference of two matchings is a graph in which every component is either a <font color="yellow">path</font> or an <font color="yellow">even cycle</font>.
-                </p>
-            </blockquote>
-            <p><strong>Proof</strong>. Every vertex in $M_1\bigtriangleup M_2$ has degree at most $2.$ Therefore the components are either paths or cycles.<br>
-                In any cycle $C\in M_1\bigtriangleup M_2,$ every vertex has exactly one $M_1$ edge and one $M_2$ edge. <br>
-                In any cycle, number of $M_1$ edges is equal to number of $M_2$ edges. Hence even. $\blacksquare$
+            <p>
+                for all $x,y,z\in\mathfrak{g}.$
             </p>
 
-            <h2>Dulmage-Mendelsohn decomposition</h2>
+            Note: if $\text{char}(\mathbb F)\neq2$ then $[x,x]=0\;\forall x\in\mathfrak g$ is equivalent to $[x,y]=-[y,x]\;\forall x,y\in\mathfrak g.$
+
+            <blockquote> 
+                <p><strong>Definition</strong>. A vector subspace $s$ of $\mathfrak g$ is called a 
+                <ul>
+                    <li><font color="yellow">subalgebra</font> if $[x,y]\in s$ for all $x,y\in s,$ and</li>
+                    <li><font color="yellow">ideal</font> if $x\in\mathfrak g,\; y\in s\implies [x,y]\in s.$</li>
+                </ul>
+                A Lie algebra $\mathfrak g$ is called
+                <ul>
+                    <li><font color="yellow">abelian</font> if $[x,y]=0$ for all $x,y\in s,$</li>
+                    <li><font color="yellow">simple</font> if $\{0\}$ and $\mathfrak g$ are the only ideals of $\mathfrak g,$ and</li>
+                    <li><font color="yellow">semisimple</font> if $\mathfrak g$ is a direct sum of its simple ideals.</li>
+                </ul>
+                </p>
+            </blockquote>
+
+            <p>
+                <strong>Example</strong>.
+                <ol>
+                    <li>
+                        Any vector space $V$ is an abelian Lie algebra.
+                    </li>
+                    <li>
+                        $\mathbb R^3$ is a Lie algebra with $[x,y]=\vec{x}\times\vec{y}.$
+                    </li>
+                    <li>
+                        Any associative algebra $A$ can be made into a Lie algebra by defining $[a,b]:=ab-ba.$
+                    </li>
+                </ol>
+                In particular, $\text{M}_n(\mathbb C)$ is a Lie algebra, denoted by $\text{gl}_n(\mathbb C).$ 
+            </p>
+
+            <h2>The affine Lie algebras</h2>
+
+            <blockquote> 
+                <p><strong>Theorem</strong>. Root generated subalgebras are in bijective correspondence with closed subroot systems.</p>
+            </blockquote>
+
+            <strong>Proof</strong>. A proof of the above theorem appears in the paper <a href="#1">[1]</a>.
+
+            <h2>References</h2>
+            <div id="1">
+                <small>[1] D. Biswas, I. Habib, R. Venkatesh, <a href="https://www.sciencedirect.com/science/article/abs/pii/S0021869323001229">On symmetric closed subsets of real affine root systems</a>, Journal of Algebra, 628 (2023) 212-240.</small></div>
+
         </article>
     </body>
 </html>
