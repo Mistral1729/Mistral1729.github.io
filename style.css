@@ -54,9 +54,10 @@ body {
   width: 100%;
   color: aliceblue; 
   font-family: 'Latin Modern Roman';/*'Times New Roman', Times, serif*/
-  background-color: #790e12;
-  background-image: url("pictures/bg.png");
-  background-size: contain;
+  background-color: #0c0102;
+  /* background-color: #790e12; */
+  /* background-image: url("pictures/bg.jpg");
+  background-size: cover; */
   padding-top: 50px;
   margin: 0;
 }
