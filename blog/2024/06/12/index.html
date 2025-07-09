@@ -147,7 +147,7 @@
 
             <ul>
                 <li>
-                    <div class="kdmath">$[x,x]=0$</div>
+                    <div class="kdmath">$[x,x]=0$ (alternating)</div>
                 </li>
                 <li>
                     <div class="kdmath">$[x,[y,z]]+[y,[z,x]]+[z,[x,y]]=0$ (Jacobi identity)</div>
@@ -155,10 +155,11 @@
             </ul>
 
             <p>
-                for all $x,y,z\in\mathfrak{g}.$
+                for all $x,y,z\in\mathfrak{g}.$ Lie algebras are a class of non-associative algebras - the Jacobi identity controls how non-associative the bilinear map is.
             </p>
 
-            Note: if $\text{char}(\mathbb F)\neq2$ then $[x,x]=0\;\forall x\in\mathfrak g$ is equivalent to $[x,y]=-[y,x]\;\forall x,y\in\mathfrak g.$
+            Note: if $\text{char}(\mathbb F)\neq2$ then $[x,x]=0\;\forall x\in\mathfrak g$ is equivalent to $[x,y]=-[y,x]\;\forall x,y\in\mathfrak g.$ This is because 
+            $$[x,y]=[x,y]+0=[x,y]-[y+x,y+x]=[x,y]-[y,x]-[y,y]-[x,x]-[x,y]=-[y,x].$$ On the other hand, $[x,y]=-[y,x]\implies[x,x]=-[x,x]\implies 2[x,x]=0\implies\text{char}(\mathbb F)=2$ or $[x,x]=0.$
 
             <blockquote> 
                 <p><strong>Definition</strong>. A vector subspace $s$ of $\mathfrak g$ is called a 
@@ -188,8 +189,33 @@
                         Any associative algebra $A$ can be made into a Lie algebra by defining $[a,b]:=ab-ba.$
                     </li>
                 </ol>
-                In particular, $\text{M}_n(\mathbb C)$ is a Lie algebra, denoted by $\text{gl}_n(\mathbb C).$ 
+                In particular, $\text{M}_n(\mathbb C)$ is a Lie algebra, denoted by $\mathfrak{gl}_n(\mathbb C).$ (<font color="yellow">general linear algebra</font>)
+
+                <strong>More examples</strong>.
+                <ol>
+                    <li>
+                        $\mathfrak{sl}_n(\mathbb C)=\{A\in\mathfrak{gl}_n(\mathbb C):\mathrm{tr}(A)=0\}$ is an ideal of $\mathfrak{gl}_n(\mathbb C).$ (<font color="yellow">special linear algebra</font>)
+                    </li>
+                    <li>
+                        The space of all diagonal matrices $\delta_n(\mathbb C),$ upper triangular matrices $t_n(\mathbb C)$ and strictly upper triangular matrices $\Pi_n(\mathbb C)$ are all Lie subalgebras of $\mathfrak{gl}_n(\mathbb C).$ 
+                    </li>
+                    <li>
+                        $\Pi_n(\mathbb C)$ is an ideal in $t_n(\mathbb C).$
+                    </li>
+                    <li>
+                        $\mathfrak{sl}_n(\mathbb C)$ is a simple Lie algebra for all $n\in\mathbb N.$ 
+                    </li>
+                    <li>
+                        If $L_1,L_2$ are two ideals of $\mathfrak g$ then $L_1+L_2$ and $[L_1,L_2]$ are both ideals of $\mathfrak g.$
+                        $$L_1+L_2=\{x+y\mid x\in L_1, y\in L_2\},\quad[L_1,L_2]=\{[x,y]\mid x\in L_1, y\in L_2\}.$$
+                    </li>
+                </ol>
             </p>
+
+            <blockquote> 
+                <p><strong>Definition</strong>. Given two Lie algebras $\mathfrak g$ and $\mathfrak g',$ a linear map $f:\mathfrak{g}\to\mathfrak{g'}$ is called a <font color="yellow">Lie algebra homomorphism</font> if $$f\left([x,y]\right)=\left[f(x),f(y)\right].$$
+                </p>
+            </blockquote>
 
             <h2>The affine Lie algebras</h2>
 
