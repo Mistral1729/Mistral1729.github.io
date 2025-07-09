@@ -155,7 +155,7 @@
             </ul>
 
             <p>
-                for all $x,y,z\in\mathfrak{g}.$ Lie algebras are a class of non-associative algebras - the Jacobi identity controls how non-associative the bilinear map is.
+                for all $x,y,z\in\mathfrak{g}.$ Lie algebras are a class of non-associative algebras - the Jacobi identity controls how non-associative the Lie bracket is.
             </p>
 
             Note: if $\text{char}(\mathbb F)\neq2$ then $[x,x]=0\;\forall x\in\mathfrak g$ is equivalent to $[x,y]=-[y,x]\;\forall x,y\in\mathfrak g.$ This is because 
@@ -189,8 +189,12 @@
                         Any associative algebra $A$ can be made into a Lie algebra by defining $[a,b]:=ab-ba.$
                     </li>
                 </ol>
-                In particular, $\text{M}_n(\mathbb C)$ is a Lie algebra, denoted by $\mathfrak{gl}_n(\mathbb C).$ (<font color="yellow">general linear algebra</font>)
+                In particular, $\text{M}_n(\mathbb C)$ is a Lie algebra, denoted by $\mathfrak{gl}_n(\mathbb C).$ (<font color="yellow">general linear algebra</font>) 
+                <br>
+                Let $V$ be a finite dimensional vector space over a field $\mathbb F.$ Then the general linear algebra $\mathfrak{gl}(V)$ is $\mathcal{L}(V)$ (space of linear operators on $V$) endowed with the Lie bracket $$[\phi,\psi]=(\phi\circ\psi)-(\psi\circ\phi)$$ for all $\phi,\psi\in\mathcal{L}(V).$
+            </p>
 
+            <p>
                 <strong>More examples</strong>.
                 <ol>
                     <li>
@@ -214,6 +218,20 @@
 
             <blockquote> 
                 <p><strong>Definition</strong>. Given two Lie algebras $\mathfrak g$ and $\mathfrak g',$ a linear map $f:\mathfrak{g}\to\mathfrak{g'}$ is called a <font color="yellow">Lie algebra homomorphism</font> if $$f\left([x,y]\right)=\left[f(x),f(y)\right].$$
+                </p>
+            </blockquote>
+
+            <p>
+                <strong>Example</strong>.
+
+                <ul>
+                    <li>Given $x\in\mathfrak g,$ we can define the <font color="yellow">adjoint</font> Lie algebra homomorphism $\text{ad}_x:\mathfrak{g}\to\mathfrak{g}$ by $$\text{ad}_x(y)=[x,y]$$ for all $y\in\mathfrak g.$</li>
+                    <li>The <font color="yellow">Killing form</font> $\kappa$ is defined by $\kappa:\mathfrak{g\times g}\to\mathbb C$ such that $$\kappa(x,y)=\mathrm{tr}\left(\text{ad}_x\circ\text{ad}_y\right).$$</li>
+                </ul>
+            </p>
+
+            <blockquote> 
+                <p><strong>Definition</strong>. A <font color="yellow">representation</font> $\phi$ of a Lie algebra $\mathfrak g$ is a Lie algebra homomorphism $$\phi:\mathfrak{g}\to\mathfrak{gl}(V).$$
                 </p>
             </blockquote>
 
