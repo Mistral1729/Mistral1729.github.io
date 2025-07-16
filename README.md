@@ -1,6 +1,6 @@
 <!-- Logo (with link) -->
 <p align="center">
-  <a href="https://github.com/Mistral1729/Mistral1729.github.io">
+  <a href="https://github.com/sayan1729/sayan1729.github.io">
     <img src="./pictures/mpg.png" width="100" />
   </a>
 </p>
@@ -13,11 +13,11 @@
 <!-- Badges (with link) -->
 
 <p align="center">
-  <a href="https://github.com/Mistral1729/Mistral1729.github.io/commits/master">
-    <img alt="Last commit" src="https://img.shields.io/github/last-commit/Mistral1729/Mistral1729.github.io?logo=github" />
+  <a href="https://github.com/sayan1729/sayan1729.github.io/commits/master">
+    <img alt="Last commit" src="https://img.shields.io/github/last-commit/sayan1729/sayan1729.github.io?logo=github" />
   </a>
-  <a href="https://github.com/Mistral1729/Mistral1729.github.io/blob/master/LICENSE">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/Mistral1729/Mistral1729.github.io?color=blue&logo=github" />
+  <a href="https://github.com/sayan1729/sayan1729.github.io/blob/master/LICENSE">
+    <img alt="License: MIT" src="https://img.shields.io/github/license/sayan1729/sayan1729.github.io?color=blue&logo=github" />
   </a>
 </p>
 
@@ -29,7 +29,7 @@ A personal site.
 
 <!-- Screenshot or video (with link) -->
 <p align="center">
-  <a href="https://mistral1729.github.io">
+  <a href="https://sayan1729.github.io">
     <img alt="Joker" src="./pictures/Shine.png" />
   </a>
 </p>
